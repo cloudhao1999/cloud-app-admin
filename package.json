@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "prettier": "prettier --write .",
     "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "cz"
   },
   "dependencies": {
     "@types/js-cookie": "^3.0.2",
@@ -55,7 +56,6 @@
   },
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
-      "pnpm lint",
       "prettier --write",
       "git add"
     ]
