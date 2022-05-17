@@ -23,9 +23,6 @@ module.exports = {
   },
   // eslint-plugin-vue @typescript-eslint/eslint-plugin 的缩写
   plugins: ["vue", "@typescript-eslint"],
-  rules: {},
-  // 这里vue3的配置我们要特别说一下，因为vue3很多新的特性，例如defineProps会直接在eslint报错。所以，如果是使用vue3的小伙伴，就需要针对vue3进行一些配置。
-  // 首先，我们需要添加对defineProps、defineEmits、defineExpose、withDefaults的支持。
   globals: {
     // Ref sugar (take 2)
     $: "readonly",
