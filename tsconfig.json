@@ -5,7 +5,8 @@
     "module": "esnext",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "#/*": ["types/*"]
     },
     "moduleResolution": "node",
     "strict": true,
@@ -19,6 +20,15 @@
     "typeRoots": ["./node_modules/@types/", "./types"],
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "vite.config.ts",
+    "vite/**/*.ts",
+    "mock/**/*.ts",
+    "types/**/*.d.ts",
+    "types/**/*.ts"
+  ]
 }

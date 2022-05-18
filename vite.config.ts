@@ -1,34 +1,27 @@
-import { defineConfig } from "vite";
-import { resolve } from "path";
-import AutoImport from "unplugin-auto-import/vite";
-import Components from "unplugin-vue-components/vite";
-import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
-import vue from "@vitejs/plugin-vue";
+import { defineConfig, loadEnv } from "vite";
+import alias from "./vite/alias";
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [
-    vue(),
-    AutoImport({
-      resolvers: [ElementPlusResolver()]
-    }),
-    Components({
-      resolvers: [ElementPlusResolver()]
-    })
-  ],
-  resolve: {
-    alias: {
-      "@": resolve(__dirname, "src")
+import { parseEnv } from "./vite/util";
+import setupPlugins from "./vite/plugins";
+import { visualizer } from "rollup-plugin-visualizer";
+
+export default defineConfig(({ command, mode }) => {
+  const isBuild = command === "build";
+  const env = parseEnv(loadEnv(mode, process.cwd()));
+
+  return {
+    plugins: [...setupPlugins(isBuild, env), visualizer()],
+    resolve: {
+      alias,
+      extensions: [".ts", ".js", ".vue", ".json"]
     },
-    extensions: [".ts", ".js", ".vue", ".json"]
-  },
-  server: {
-    proxy: {
-      "/api": {
-        target: "http://localhost:3000",
-        rewrite: (path) => path.replace(/^\/api/, ""),
-        changeOrigin: true
+    server: {
+      proxy: {
+        "/api": {
+          target: env.VITE_MOCK_ENABLE ? "/" : env.VITE_API_URL,
+          changeOrigin: true
+        }
       }
     }
-  }
+  };
 });

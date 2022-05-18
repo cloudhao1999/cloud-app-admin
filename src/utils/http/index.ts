@@ -1,12 +1,10 @@
 import Axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-import { PureHttpError, RequestMethods, PureHttpResoponse, PureHttpRequestConfig } from "./types.d";
+import { PureHttpError, RequestMethods, PureHttpResoponse, PureHttpRequestConfig } from "#/http";
 import qs from "qs";
 import { getToken } from "@/utils/auth";
 
 const defaultConfig: AxiosRequestConfig = {
-  baseURL: process.env.NODE_ENV === "production" ? "/api" : "/",
-  // 当前使用mock模拟请求，将baseURL制空，如果你的环境用到了http请求，请删除下面的baseURL启用上面的baseURL，并将11行、16行代码注释取消
-  // baseURL: "",
+  baseURL: import.meta.env.VITE_API_URL,
   timeout: 10000,
   headers: {
     Accept: "application/json, text/plain, */*",
