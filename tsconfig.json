@@ -29,6 +29,8 @@
     "vite/**/*.ts",
     "mock/**/*.ts",
     "types/**/*.d.ts",
-    "types/**/*.ts"
+    "types/**/*.ts",
+    "components.d.ts",
+    "auto-imports.d.ts",
   ]
 }

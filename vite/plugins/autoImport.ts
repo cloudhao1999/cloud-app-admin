@@ -9,6 +9,7 @@ export default function autoImport(plugins: Plugin[]) {
       resolvers: [ElementPlusResolver()]
     }),
     Components({
+      dts: true,
       resolvers: [ElementPlusResolver()]
     })
   );

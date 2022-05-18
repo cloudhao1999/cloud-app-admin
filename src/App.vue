@@ -13,5 +13,6 @@ onMounted(async () => {
     <router-link to="/home">Home</router-link>
     <el-button>你好啊</el-button>
     <router-view></router-view>
+    <hello-world msg="你好" />
   </div>
 </template>
