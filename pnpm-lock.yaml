@@ -4,6 +4,7 @@ specifiers:
   '@types/js-cookie': ^3.0.2
   '@types/lodash': ^4.14.182
   '@types/mockjs': ^1.0.6
+  '@types/nprogress': ^0.2.0
   '@types/qs': ^6.9.7
   '@typescript-eslint/eslint-plugin': ^5.24.0
   '@typescript-eslint/parser': ^5.24.0
@@ -27,6 +28,7 @@ specifiers:
   lint-staged: ^12.4.1
   lodash: ^4.17.21
   mockjs: ^1.1.0
+  nprogress: ^0.2.0
   pinia: ^2.0.14
   postcss: ^8.4.13
   prettier: ^2.6.2
@@ -61,6 +63,7 @@ dependencies:
   js-cookie: 3.0.1
   lodash: 4.17.21
   mockjs: 1.1.0
+  nprogress: 0.2.0
   pinia: 2.0.14_ytvqwwdyss532bvoq2clv4ed5m
   qs: 6.10.3
   vue: 3.2.33
@@ -71,6 +74,7 @@ dependencies:
 devDependencies:
   '@types/lodash': 4.14.182
   '@types/mockjs': 1.0.6
+  '@types/nprogress': 0.2.0
   '@typescript-eslint/parser': 5.24.0_e4zyhrvfnqudwdx5bevnvkluy4
   '@vitejs/plugin-vue': 2.3.3_vite@2.9.9+vue@3.2.33
   autoprefixer: 10.4.7_postcss@8.4.13
@@ -673,6 +677,10 @@ packages:
 
   /@types/node/17.0.34:
     resolution: {integrity: sha512-XImEz7XwTvDBtzlTnm8YvMqGW/ErMWBsKZ+hMTvnDIjGCKxwK5Xpc+c/oQjOauwq8M4OS11hEkpjX8rrI/eEgA==}
+    dev: true
+
+  /@types/nprogress/0.2.0:
+    resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==}
     dev: true
 
   /@types/parse-json/4.0.0:
@@ -3341,6 +3349,10 @@ packages:
     dependencies:
       path-key: 3.1.1
     dev: true
+
+  /nprogress/0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+    dev: false
 
   /nth-check/2.0.1:
     resolution: {integrity: sha512-it1vE95zF6dTT9lBsYbxvqh0Soy4SPowchj0UBGj/V6cTPnXXtQOPUbhZ6CmGzAD/rW22LQK6E96pcdJXk4A4w==}
