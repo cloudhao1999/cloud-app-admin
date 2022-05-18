@@ -16,6 +16,8 @@ export default defineConfig(({ command, mode }) => {
       extensions: [".ts", ".js", ".vue", ".json"]
     },
     server: {
+      host: true,
+      port: env.VITE_PORT,
       proxy: {
         "/api": {
           target: env.VITE_MOCK_ENABLE ? "/" : env.VITE_API_URL,
