@@ -5,8 +5,11 @@ import "@vue/runtime-core";
 
 declare module "@vue/runtime-core" {
   export interface GlobalComponents {
-    ElButton: typeof import("element-plus/es")["ElButton"];
     HelloWorld: typeof import("./src/components/HelloWorld.vue")["default"];
+    IMdiAccountBox: typeof import("~icons/mdi/account-box")["default"];
+    IMdiQqchat: typeof import("~icons/mdi/qqchat")["default"];
+    IMdiQqChat: typeof import("~icons/mdi/qq-chat")["default"];
+    IMdiWechat: typeof import("~icons/mdi/wechat")["default"];
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
   }

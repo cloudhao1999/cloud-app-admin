@@ -4,6 +4,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import { setupMockPlugin } from "./mock";
 import autoImport from "./autoImport";
 import styleImport from "./styleImport";
+import { setupUnpluginIcons } from "./icon";
 
 export default function setupPlugins(isBuild: boolean, env: ImportMetaEnv) {
   const plugins: Plugin[] = [vue(), vueJsx()];
@@ -14,5 +15,6 @@ export default function setupPlugins(isBuild: boolean, env: ImportMetaEnv) {
 
   autoImport(plugins);
   styleImport(plugins);
+  setupUnpluginIcons(plugins);
   return plugins;
 }
