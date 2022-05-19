@@ -5,11 +5,22 @@ import "@vue/runtime-core";
 
 declare module "@vue/runtime-core" {
   export interface GlobalComponents {
+    ElAside: typeof import("element-plus/es")["ElAside"];
+    ElContainer: typeof import("element-plus/es")["ElContainer"];
+    ElDropdown: typeof import("element-plus/es")["ElDropdown"];
+    ElDropdownItem: typeof import("element-plus/es")["ElDropdownItem"];
+    ElDropdownMenu: typeof import("element-plus/es")["ElDropdownMenu"];
+    ElHeader: typeof import("element-plus/es")["ElHeader"];
+    ElIcon: typeof import("element-plus/es")["ElIcon"];
+    ElMain: typeof import("element-plus/es")["ElMain"];
+    ElMenu: typeof import("element-plus/es")["ElMenu"];
+    ElMenuItem: typeof import("element-plus/es")["ElMenuItem"];
+    ElMenuItemGroup: typeof import("element-plus/es")["ElMenuItemGroup"];
+    ElScrollbar: typeof import("element-plus/es")["ElScrollbar"];
+    ElSubMenu: typeof import("element-plus/es")["ElSubMenu"];
+    ElTable: typeof import("element-plus/es")["ElTable"];
+    ElTableColumn: typeof import("element-plus/es")["ElTableColumn"];
     HelloWorld: typeof import("./src/components/HelloWorld.vue")["default"];
-    IMdiAccountBox: typeof import("~icons/mdi/account-box")["default"];
-    IMdiQqchat: typeof import("~icons/mdi/qqchat")["default"];
-    IMdiQqChat: typeof import("~icons/mdi/qq-chat")["default"];
-    IMdiWechat: typeof import("~icons/mdi/wechat")["default"];
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
   }
