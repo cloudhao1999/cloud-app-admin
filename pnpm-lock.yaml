@@ -33,6 +33,7 @@ specifiers:
   postcss: ^8.4.13
   prettier: ^2.6.2
   qs: ^6.10.3
+  reset-css: ^5.0.1
   rollup: ^2.73.0
   rollup-plugin-visualizer: ^5.6.0
   sass: ^1.51.0
@@ -66,6 +67,7 @@ dependencies:
   nprogress: 0.2.0
   pinia: 2.0.14_ytvqwwdyss532bvoq2clv4ed5m
   qs: 6.10.3
+  reset-css: 5.0.1
   vue: 3.2.33
   vue-router: 4.0.13_vue@3.2.33
   vxe-table: 4.2.3_vue@3.2.33+xe-utils@3.5.4
@@ -3718,6 +3720,10 @@ packages:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /reset-css/5.0.1:
+    resolution: {integrity: sha512-VyuJdNFfp5x/W6e5wauJM59C02Vs0P22sxzZGhQMPaqu/NGTeFxlBFOOw3eq9vQd19gIDdZp7zi89ylyKOJ33Q==}
+    dev: false
 
   /resolve-dir/1.0.1:
     resolution: {integrity: sha512-R7uiTjECzvOsWSfdM0QKFNBVFcK27aHOUwdvK53BcW8zqnGdYp0Fbj82cy54+2A4P2tFM22J5kRfe1R+lM/1yg==}

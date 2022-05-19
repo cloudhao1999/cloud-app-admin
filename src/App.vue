@@ -9,10 +9,6 @@ onMounted(async () => {
 </script>
 <template>
   <div class="text-center">
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
-    <router-link to="/home">Home</router-link>
-    <el-button>你好啊</el-button>
     <router-view></router-view>
-    <hello-world msg="你好" />
   </div>
 </template>
