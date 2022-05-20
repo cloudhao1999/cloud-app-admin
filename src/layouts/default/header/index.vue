@@ -1,10 +1,31 @@
 <script lang="ts" setup>
-import { Setting } from "@element-plus/icons-vue";
 import Breadcrumb from "../breadcrumb/index.vue";
 import Drawer from "../drawer/index.vue";
-import { useNow, useDateFormat } from "@vueuse/core";
 
+import { Setting } from "@element-plus/icons-vue";
+import { useNow, useDateFormat } from "@vueuse/core";
+import { GITHUB_REPOSITORY } from "@/enum/userEnum";
+import { openNewTab } from "@/utils/web";
+import { useRouter } from "vue-router";
+import { useDialog } from "@/hooks/useDialog";
+import { useMessage } from "@/hooks/useMessage";
+
+const router = useRouter();
 const formatted = useDateFormat(useNow(), "YYYY-MM-DD HH:mm");
+
+function toLogin() {
+  useDialog(
+    "是否确认退出系统?",
+    () => {
+      router.push("/login");
+      useMessage("success", "退出成功");
+    },
+    (err) => {
+      console.log(err);
+      useMessage("error", `退出失败：${err}`);
+    }
+  );
+}
 </script>
 
 <template>
@@ -28,8 +49,8 @@ const formatted = useDateFormat(useNow(), "YYYY-MM-DD HH:mm");
         <el-icon :size="20" class="ml-2 mt-[1px] cursor-pointer"><setting /></el-icon>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>Github仓库</el-dropdown-item>
-            <el-dropdown-item>退出登录</el-dropdown-item>
+            <el-dropdown-item @click="openNewTab(GITHUB_REPOSITORY)">Github仓库</el-dropdown-item>
+            <el-dropdown-item @click="toLogin">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -38,10 +59,6 @@ const formatted = useDateFormat(useNow(), "YYYY-MM-DD HH:mm");
 </template>
 
 <style scoped>
-.el-header {
-  position: relative;
-}
-
 .el-main {
   padding: 0;
 }

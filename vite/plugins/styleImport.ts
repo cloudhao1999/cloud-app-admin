@@ -1,9 +1,10 @@
 import { Plugin } from "vite";
-import { createStyleImportPlugin } from "vite-plugin-style-import";
+import { createStyleImportPlugin, ElementPlusResolve } from "vite-plugin-style-import";
 
 export default function styleImport(plugins: Plugin[]) {
   plugins.push(
     createStyleImportPlugin({
+      resolves: [ElementPlusResolve()],
       libs: [
         {
           libraryName: "vxe-table",

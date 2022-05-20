@@ -3,7 +3,7 @@ import Banner from "../banner/index.vue";
 </script>
 
 <template>
-  <el-aside class="w-[280px] min-h-screen h-full border-r border-gray-200 border-solid">
+  <el-aside class="w-[200px] min-h-screen h-full border-r border-gray-200 border-solid">
     <div class="flex justify-center">
       <Banner />
     </div>
