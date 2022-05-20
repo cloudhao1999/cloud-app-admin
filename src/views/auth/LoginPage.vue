@@ -1,4 +1,29 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ILoginForm } from "@/api/user";
+import { useMessage } from "@/hooks/useMessage";
+import { userStore } from "@/store/user";
+import { reactive, unref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const userState = userStore();
+const userInfo = reactive<ILoginForm>({
+  account: "",
+  password: ""
+});
+function onSubmit() {
+  userState.login(
+    unref(userInfo),
+    () => {
+      router.push("/dashboard");
+      useMessage("success", `欢迎回来，${userState.info!.name}`);
+    },
+    (err) => {
+      useMessage("error", err);
+    }
+  );
+}
+</script>
 
 <template>
   <div class="h-screen font-sans login bg-cover">
@@ -14,9 +39,10 @@
           <label for="" class="block mt-3 text-2xl text-gray-700 text-center font-semibold">
             登录
           </label>
-          <form method="#" action="#" class="mt-10">
+          <form class="mt-10" @submit.prevent="onSubmit">
             <div>
               <input
+                v-model="userInfo.account"
                 type="email"
                 placeholder="请输入账号或邮箱"
                 class="mt-1 pl-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
@@ -25,6 +51,7 @@
 
             <div class="mt-7">
               <input
+                v-model="userInfo.password"
                 type="password"
                 placeholder="请输入密码"
                 class="mt-1 pl-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"

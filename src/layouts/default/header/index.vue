@@ -9,8 +9,10 @@ import { openNewTab } from "@/utils/web";
 import { useRouter } from "vue-router";
 import { useDialog } from "@/hooks/useDialog";
 import { useMessage } from "@/hooks/useMessage";
+import { userStore } from "@/store/user";
 
 const router = useRouter();
+const userState = userStore();
 const formatted = useDateFormat(useNow(), "YYYY-MM-DD HH:mm");
 
 function toLogin() {
@@ -40,9 +42,9 @@ function toLogin() {
       <Breadcrumb />
     </div>
     <div class="flex items-center gap-2 justify-end h-full flex-1">
-      <el-avatar shape="square" :size="40" src="../../src/assets/img/avatar.jpg" />
+      <el-avatar shape="square" :size="40" :src="userState.avatar" />
       <div class="flex flex-col items-start">
-        <span class="font-sans text-gray-600 text-sm font-medium">你好，股东小陈</span>
+        <span class="font-sans text-gray-600 text-sm font-medium">你好，{{ userState.name }}</span>
         <span class="font-sans text-gray-500 text-sm">{{ formatted }}</span>
       </div>
       <el-dropdown>

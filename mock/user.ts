@@ -10,9 +10,9 @@ export default [
         message: "请示成功",
         status: "success",
         data: {
-          name: "向军大叔",
+          name: "股东小陈",
           age: 18,
-          avatar: "/images/xj.jpg",
+          avatar: "../../src/assets/img/avatar.jpg",
           permissions: ["article_edit", "markdown_editor", "base_editor"]
         }
       };
@@ -27,7 +27,7 @@ export default [
         message: "登录成功",
         status: "success",
         data: {
-          token: Random.string(10)
+          token: Random.string(20)
         }
       };
     }
@@ -41,7 +41,7 @@ export default [
         message: "注册成功",
         status: "success",
         data: {
-          token: Random.string(10)
+          token: Random.string(20)
         }
       };
     }
@@ -55,7 +55,7 @@ export default [
         message: "登录成功",
         status: "success",
         data: {
-          token: Random.string(10)
+          token: Random.string(20)
         }
       };
     }
