@@ -4,7 +4,7 @@ export default {
   name: "error",
   path: "/error",
   component: () => import("@/layouts/empty-page.vue"),
-  meta: { auth: true, menu: { title: "错误页面", icon: "Caution" } },
+  meta: { auth: true, menu: { title: "错误页面", icon: "InfoFilled" } },
   children: [
     {
       name: "404",

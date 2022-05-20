@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 import Banner from "../banner/index.vue";
+import menuService from "@/hooks/useMenu";
+
+console.log(menuService.menus.value);
 </script>
 
 <template>
@@ -8,35 +11,22 @@ import Banner from "../banner/index.vue";
       <Banner />
     </div>
     <el-scrollbar>
-      <el-menu :default-openeds="['1', '3']">
-        <el-menu-item index="1-1">
-          <el-icon><component :is="'Monitor'" /></el-icon>首页
-        </el-menu-item>
-        <el-sub-menu index="1">
+      <el-menu :default-openeds="['0', '1']">
+        <el-sub-menu
+          v-for="(menu, index) of menuService.menus.value"
+          :key="index"
+          :index="'' + index"
+        >
           <template #title>
-            <el-icon><EditPen /></el-icon>编辑器
+            <el-icon><component :is="menu.icon" /></el-icon>{{ menu.title }}
           </template>
-          <el-menu-item index="1-1">文本编辑</el-menu-item>
-          <el-menu-item index="1-2">Markdown编辑</el-menu-item>
-        </el-sub-menu>
-        <el-sub-menu index="2">
-          <template #title>
-            <el-icon><Reading /></el-icon>表单展示
-          </template>
-          <el-menu-item index="2-1">普通表单</el-menu-item>
-          <el-menu-item index="2-2">动态表单</el-menu-item>
-          <el-menu-item index="2-3">虚拟化表单</el-menu-item>
-          <el-sub-menu index="2-4">
-            <template #title>其它</template>
-            <el-menu-item index="2-4-1">可编辑表单</el-menu-item>
-          </el-sub-menu>
-        </el-sub-menu>
-        <el-sub-menu index="3">
-          <template #title>
-            <el-icon><Setting /></el-icon>订单管理
-          </template>
-          <el-menu-item index="3-1">购物车管理</el-menu-item>
-          <el-menu-item index="3-2">历史记录</el-menu-item>
+          <el-menu-item
+            v-for="(cmenu, key) of menu.children"
+            :key="key"
+            :index="index + '-' + key"
+            @click="$router.push({ name: cmenu.route })"
+            >{{ cmenu?.title }}</el-menu-item
+          >
         </el-sub-menu>
       </el-menu>
     </el-scrollbar>

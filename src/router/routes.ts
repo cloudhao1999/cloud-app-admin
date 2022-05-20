@@ -5,7 +5,7 @@ const routes = [
     path: "/",
     name: "HomePage",
     component: () => import("@/layouts/common-page.vue"),
-    meta: { auth: true, menu: { title: "Dashboard", icon: "Monitor" } },
+    meta: { auth: true, menu: { title: "首页", icon: "Monitor" } },
     children: [
       {
         path: "dashboard",
@@ -21,12 +21,12 @@ const routes = [
     meta: { guest: true },
     component: () => import("@/views/auth/LoginPage.vue")
   },
-  { path: "/", redirect: { name: "Dashboard" } },
   {
     path: "/:any(.*)",
     name: "notFound",
     component: () => import("@/views/errors/404.vue")
-  }
+  },
+  { path: "/", redirect: { name: "Dashboard" } }
 ] as RouteRecordRaw[];
 
 export default routes;
