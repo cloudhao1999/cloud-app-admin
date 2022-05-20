@@ -19,7 +19,10 @@ export const userStore = defineStore("user", {
   },
   actions: {
     async getUserInfo() {
-      return await fetchUserInfo();
+      const { data } = await fetchUserInfo();
+      if (data) {
+        this.$state.info = data;
+      }
     },
     async login(loginParam: ILoginForm, success: () => void, error: (err: any) => void) {
       try {
@@ -28,13 +31,8 @@ export const userStore = defineStore("user", {
         } = await userLogin(loginParam);
         if (token) {
           setToken(token);
-          const { data } = await this.getUserInfo();
-          if (data) {
-            this.$state.info = data;
-            success();
-          } else {
-            throw "获取用户信息失败";
-          }
+          await this.getUserInfo();
+          success();
         } else {
           throw "获取token失败";
         }
