@@ -2,6 +2,9 @@
 import { Setting } from "@element-plus/icons-vue";
 import Breadcrumb from "../breadcrumb/index.vue";
 import Drawer from "../drawer/index.vue";
+import { useNow, useDateFormat } from "@vueuse/core";
+
+const formatted = useDateFormat(useNow(), "YYYY-MM-DD HH:mm");
 </script>
 
 <template>
@@ -19,7 +22,7 @@ import Drawer from "../drawer/index.vue";
       <el-avatar shape="square" :size="40" src="../../src/assets/img/avatar.jpg" />
       <div class="flex flex-col items-start">
         <span class="font-sans text-gray-600 text-sm font-medium">你好，股东小陈</span>
-        <span class="font-sans text-gray-500 text-sm">2022-5-20</span>
+        <span class="font-sans text-gray-500 text-sm">{{ formatted }}</span>
       </div>
       <el-dropdown>
         <el-icon :size="20" class="ml-2 mt-[1px] cursor-pointer"><setting /></el-icon>

@@ -11,7 +11,7 @@ const tags = ref([
 </script>
 
 <template>
-  <div class="self-start flex w-full p-3 border-b border-gray-200 border-solid">
+  <div class="self-start flex w-full p-1 border-b border-gray-200 border-solid">
     <el-space wrap :size="size">
       <el-tag
         v-for="tag in tags"
