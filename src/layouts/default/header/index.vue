@@ -58,8 +58,4 @@ function toLogin() {
   </el-header>
 </template>
 
-<style scoped>
-.el-main {
-  padding: 0;
-}
-</style>
+<style scoped></style>

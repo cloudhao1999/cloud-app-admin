@@ -10,7 +10,7 @@ import Banner from "../banner/index.vue";
     <el-scrollbar>
       <el-menu :default-openeds="['1', '3']">
         <el-menu-item index="1-1">
-          <el-icon><Monitor /></el-icon>首页
+          <el-icon><component :is="'Monitor'" /></el-icon>首页
         </el-menu-item>
         <el-sub-menu index="1">
           <template #title>
