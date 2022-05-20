@@ -6,6 +6,9 @@ import "@vue/runtime-core";
 declare module "@vue/runtime-core" {
   export interface GlobalComponents {
     ElAside: typeof import("element-plus/es")["ElAside"];
+    ElAvatar: typeof import("element-plus/es")["ElAvatar"];
+    ElBreadcrumb: typeof import("element-plus/es")["ElBreadcrumb"];
+    ElBreadcrumbItem: typeof import("element-plus/es")["ElBreadcrumbItem"];
     ElContainer: typeof import("element-plus/es")["ElContainer"];
     ElDropdown: typeof import("element-plus/es")["ElDropdown"];
     ElDropdownItem: typeof import("element-plus/es")["ElDropdownItem"];
@@ -15,12 +18,12 @@ declare module "@vue/runtime-core" {
     ElMain: typeof import("element-plus/es")["ElMain"];
     ElMenu: typeof import("element-plus/es")["ElMenu"];
     ElMenuItem: typeof import("element-plus/es")["ElMenuItem"];
-    ElMenuItemGroup: typeof import("element-plus/es")["ElMenuItemGroup"];
     ElScrollbar: typeof import("element-plus/es")["ElScrollbar"];
+    ElSpace: typeof import("element-plus/es")["ElSpace"];
     ElSubMenu: typeof import("element-plus/es")["ElSubMenu"];
-    ElTable: typeof import("element-plus/es")["ElTable"];
-    ElTableColumn: typeof import("element-plus/es")["ElTableColumn"];
+    ElTag: typeof import("element-plus/es")["ElTag"];
     HelloWorld: typeof import("./src/components/HelloWorld.vue")["default"];
+    IMdiFormatIndentDecrease: typeof import("~icons/mdi/format-indent-decrease")["default"];
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
   }

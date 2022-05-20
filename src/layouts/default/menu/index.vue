@@ -1,50 +1,42 @@
 <script lang="ts" setup>
-import { Menu as IconMenu, Message, Setting } from "@element-plus/icons-vue";
+import Banner from "../banner/index.vue";
 </script>
 
 <template>
   <el-aside class="w-[280px] min-h-screen h-full border-r border-gray-200 border-solid">
+    <div class="flex justify-center">
+      <Banner />
+    </div>
     <el-scrollbar>
       <el-menu :default-openeds="['1', '3']">
+        <el-menu-item index="1-1">
+          <el-icon><Monitor /></el-icon>首页
+        </el-menu-item>
         <el-sub-menu index="1">
           <template #title>
-            <el-icon><message /></el-icon>父目录 1
+            <el-icon><EditPen /></el-icon>编辑器
           </template>
-          <el-menu-item index="1-1">选项 1</el-menu-item>
-          <el-menu-item index="1-2">选项 2</el-menu-item>
-          <el-menu-item index="1-3">选项 3</el-menu-item>
-          <el-sub-menu index="1-4">
-            <template #title>选项4</template>
-            <el-menu-item index="1-4-1">选项 4-1</el-menu-item>
-          </el-sub-menu>
-          <el-sub-menu index="1-5">
-            <template #title>选项5</template>
-            <el-menu-item index="1-5-1">选项 5-1</el-menu-item>
-          </el-sub-menu>
+          <el-menu-item index="1-1">文本编辑</el-menu-item>
+          <el-menu-item index="1-2">Markdown编辑</el-menu-item>
         </el-sub-menu>
         <el-sub-menu index="2">
           <template #title>
-            <el-icon><icon-menu /></el-icon>父目录 2
+            <el-icon><Reading /></el-icon>表单展示
           </template>
-          <el-menu-item index="2-1">选项 1</el-menu-item>
-          <el-menu-item index="2-2">选项 2</el-menu-item>
-          <el-menu-item index="2-3">选项 3</el-menu-item>
+          <el-menu-item index="2-1">普通表单</el-menu-item>
+          <el-menu-item index="2-2">动态表单</el-menu-item>
+          <el-menu-item index="2-3">虚拟化表单</el-menu-item>
           <el-sub-menu index="2-4">
-            <template #title>选项 4</template>
-            <el-menu-item index="2-4-1">选项 4-1</el-menu-item>
+            <template #title>其它</template>
+            <el-menu-item index="2-4-1">可编辑表单</el-menu-item>
           </el-sub-menu>
         </el-sub-menu>
         <el-sub-menu index="3">
           <template #title>
-            <el-icon><setting /></el-icon>父目录 3
+            <el-icon><Setting /></el-icon>订单管理
           </template>
-          <el-menu-item index="3-1">选项 1</el-menu-item>
-          <el-menu-item index="3-2">选项 2</el-menu-item>
-          <el-menu-item index="3-3">选项 3</el-menu-item>
-          <el-sub-menu index="3-4">
-            <template #title>选项 4</template>
-            <el-menu-item index="3-4-1">选项 4-1</el-menu-item>
-          </el-sub-menu>
+          <el-menu-item index="3-1">购物车管理</el-menu-item>
+          <el-menu-item index="3-2">历史记录</el-menu-item>
         </el-sub-menu>
       </el-menu>
     </el-scrollbar>

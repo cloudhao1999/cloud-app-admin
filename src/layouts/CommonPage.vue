@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import Menu from "@/layouts/default/menu/index.vue";
 import Header from "@/layouts/default/header/index.vue";
+import History from "@/layouts/default/history/index.vue";
 import PageView from "./pages/index.vue";
 </script>
 <template>
@@ -8,6 +9,7 @@ import PageView from "./pages/index.vue";
     <Menu />
     <el-container direction="vertical">
       <Header />
+      <History />
       <PageView />
     </el-container>
   </el-container>
