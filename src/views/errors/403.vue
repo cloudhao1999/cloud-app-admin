@@ -9,7 +9,7 @@ function goHome() {
 </script>
 
 <template>
-  <div class="h-screen w-screen flex items-center flex-1 bg-gray-100">
+  <div class="h-full w-full flex items-center flex-1 bg-gray-100">
     <div class="flex-1 flex flex-col md:flex-row items-center justify-center px-5 text-gray-700">
       <div class="max-w-md">
         <div class="text-5xl font-dark font-bold">403</div>
