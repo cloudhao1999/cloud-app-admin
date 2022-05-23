@@ -9,6 +9,7 @@ class Menu {
   public menus = ref<IMenu[]>([]);
   public history = useStorage<IMenu[]>(CacheEnum.HISTORY_MENU, []);
   public route = ref(null as null | RouteLocationNormalized);
+  public close = useStorage<boolean>(CacheEnum.MENU_CLOSE_STATE, false);
 
   constructor() {
     this.menus.value = this.getMenuByRoute();
@@ -51,6 +52,10 @@ class Menu {
       });
     });
     return activeIndex;
+  }
+
+  toggleState() {
+    this.close.value = !this.close.value;
   }
 
   // 根据路由元数据构建菜单列表

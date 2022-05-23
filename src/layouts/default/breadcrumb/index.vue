@@ -15,7 +15,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div>
+  <div class="breadcrumb">
     <el-breadcrumb :separator-icon="ArrowRight">
       <el-breadcrumb-item v-for="(bread, index) in breadArr" :key="index">{{
         bread
@@ -24,4 +24,10 @@ watchEffect(() => {
   </div>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+@media screen and(max-width:768px) {
+  .breadcrumb {
+    display: none;
+  }
+}
+</style>

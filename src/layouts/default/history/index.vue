@@ -13,7 +13,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="self-start flex w-full p-1 border-b border-gray-200 border-solid">
+  <div class="history self-start flex w-full p-1 border-b border-gray-200 border-solid">
     <el-space wrap :size="size">
       <el-tag
         v-for="tag in menuService.history.value"
@@ -31,4 +31,10 @@ watchEffect(() => {
   </div>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+@media screen and(max-width:768px) {
+  .history {
+    display: none;
+  }
+}
+</style>

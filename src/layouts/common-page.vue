@@ -17,7 +17,7 @@ watch(
 );
 </script>
 <template>
-  <el-container class="h-full w-full font-sans">
+  <el-container class="h-screen w-full font-sans">
     <Menu />
     <el-container direction="vertical">
       <Header />

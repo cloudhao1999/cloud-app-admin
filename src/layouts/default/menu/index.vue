@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import Banner from "../banner/index.vue";
 import menuService from "@/hooks/useMenu";
-import { ref, watchEffect } from "vue";
+import { computed, ref, watchEffect } from "vue";
 import { ElMenu } from "element-plus";
 import { useRoute } from "vue-router";
 
@@ -11,41 +11,69 @@ const acticeIndex = ref<string>("");
 watchEffect(() => {
   acticeIndex.value = menuService.getCurrentMenu(route) as unknown as string;
 });
+
+const isCollapse = computed(() => {
+  return menuService.close.value;
+});
 </script>
 
 <template>
-  <el-aside class="w-[200px] min-h-screen h-full border-r border-gray-200 border-solid">
+  <el-aside class="admin-menu" :class="{ close: menuService.close.value }">
     <div class="flex justify-center">
       <Banner />
     </div>
-    <el-scrollbar>
-      <el-menu :default-active="acticeIndex">
-        <el-sub-menu
-          v-for="(menu, index) of menuService.menus.value"
-          :key="index"
-          :index="menu.title!"
+    <el-menu :collapse="isCollapse" :default-active="acticeIndex">
+      <el-sub-menu
+        v-for="(menu, index) of menuService.menus.value"
+        :key="index"
+        :index="menu.title!"
+      >
+        <template #title>
+          <el-icon><component :is="menu.icon" /></el-icon>
+          <span>{{ menu.title }}</span>
+        </template>
+        <el-menu-item
+          v-for="(cmenu, key) of menu.children"
+          :key="key"
+          :index="menu.title + '-' + cmenu.title"
+          @click="$router.push({ name: cmenu.route })"
+          >{{ cmenu?.title }}</el-menu-item
         >
-          <template #title>
-            <el-icon><component :is="menu.icon" /></el-icon>{{ menu.title }}
-          </template>
-          <el-menu-item
-            v-for="(cmenu, key) of menu.children"
-            :key="key"
-            :index="menu.title + '-' + cmenu.title"
-            @click="$router.push({ name: cmenu.route })"
-            >{{ cmenu?.title }}</el-menu-item
-          >
-        </el-sub-menu>
-      </el-menu>
-    </el-scrollbar>
+      </el-sub-menu>
+    </el-menu>
+    <teleport to="body">
+      <div
+        v-show="!menuService.close.value"
+        class="bg block md:hidden"
+        @click="menuService.toggleState"
+      ></div>
+    </teleport>
   </el-aside>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .el-aside {
   color: var(--el-text-color-primary);
 }
 .el-menu {
   border-right: none;
+}
+.admin-menu {
+  @apply w-[250px] bg-white min-h-screen h-full border-r border-gray-200 border-solid z-50;
+  &.close {
+    @apply w-[70px] duration-500;
+  }
+}
+
+@media screen and(max-width:768px) {
+  .admin-menu {
+    @apply w-[250px] duration-500 absolute top-0 left-0 min-h-screen h-full border-r border-gray-200 border-solid;
+    &.close {
+      @apply left-[-250px] duration-500;
+    }
+  }
+  .bg {
+    @apply bg-gray-600 w-screen h-screen z-20 opacity-75  absolute left-0 top-0;
+  }
 }
 </style>
