@@ -17,12 +17,13 @@ declare module "@vue/runtime-core" {
     ElIcon: typeof import("element-plus/es")["ElIcon"];
     ElMain: typeof import("element-plus/es")["ElMain"];
     ElMenuItem: typeof import("element-plus/es")["ElMenuItem"];
-    ElScrollbar: typeof import("element-plus/es")["ElScrollbar"];
     ElSpace: typeof import("element-plus/es")["ElSpace"];
     ElSubMenu: typeof import("element-plus/es")["ElSubMenu"];
     ElTag: typeof import("element-plus/es")["ElTag"];
     HelloWorld: typeof import("./src/components/HelloWorld.vue")["default"];
     IMdiFormatIndentDecrease: typeof import("~icons/mdi/format-indent-decrease")["default"];
+    IMdiQqchat: typeof import("~icons/mdi/qqchat")["default"];
+    IMdiWechat: typeof import("~icons/mdi/wechat")["default"];
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
   }

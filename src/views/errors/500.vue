@@ -184,6 +184,11 @@ function goHome() {
 </template>
 
 <style lang="scss" scoped>
+@media screen and(max-width:768px) {
+  svg {
+    width: 90%;
+  }
+}
 .cls-1 {
   fill: #d6b49a;
 }

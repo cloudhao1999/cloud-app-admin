@@ -28,7 +28,7 @@ function onSubmit() {
 <template>
   <div class="h-screen font-sans login bg-cover">
     <div class="container mx-auto h-full flex flex-1 justify-center items-center">
-      <div class="relative sm:max-w-sm w-full">
+      <div class="relative mx-10 sm:max-w-sm w-full">
         <div
           class="card bg-blue-400 shadow-lg w-full h-full rounded-3xl absolute transform -rotate-6"
         ></div>

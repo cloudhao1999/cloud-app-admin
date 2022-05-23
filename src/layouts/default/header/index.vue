@@ -17,19 +17,12 @@ const userState = userStore();
 const formatted = useDateFormat(useNow(), "YYYY-MM-DD HH:mm");
 
 function toLogin() {
-  useDialog(
-    "是否确认退出系统?",
-    () => {
-      removeToken(() => {
-        router.replace("/login");
-        useMessage("success", "退出成功");
-      });
-    },
-    (err) => {
-      console.log(err);
-      useMessage("error", `退出失败：${err}`);
-    }
-  );
+  useDialog("是否确认退出系统?", () => {
+    removeToken(() => {
+      router.replace("/login");
+      useMessage("success", "退出成功");
+    });
+  });
 }
 </script>
 
