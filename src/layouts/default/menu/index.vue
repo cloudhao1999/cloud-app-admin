@@ -31,7 +31,7 @@ watchEffect(() => {
           <el-menu-item
             v-for="(cmenu, key) of menu.children"
             :key="key"
-            :index="menu.title + '-' + cmenu.route"
+            :index="menu.title + '-' + cmenu.title"
             @click="$router.push({ name: cmenu.route })"
             >{{ cmenu?.title }}</el-menu-item
           >

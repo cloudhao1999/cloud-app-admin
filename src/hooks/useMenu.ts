@@ -46,7 +46,7 @@ class Menu {
     this.menus.value.forEach((m) => {
       m.children?.forEach((c) => {
         if (c.route === route.name) {
-          activeIndex = `${m.title}-${c.route}`;
+          activeIndex = `${m.title}-${c.title}`;
         }
       });
     });
