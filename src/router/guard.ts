@@ -17,7 +17,6 @@ class Guard {
     if (this.token()) {
       await userState.getUserInfo();
     }
-
     if (to.meta.guest && this.token()) return from;
   }
 

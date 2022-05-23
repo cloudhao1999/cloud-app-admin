@@ -14,7 +14,8 @@ export function setToken(dataString: string) {
 }
 
 // 删除token
-export function removeToken() {
+export function removeToken(successCallback?: () => any) {
   Cookies.remove(UserEnum.TOKEN_KEY);
   sessionStorage.removeItem(UserEnum.TOKEN_KEY);
+  successCallback && successCallback();
 }

@@ -10,6 +10,7 @@ import { useRouter } from "vue-router";
 import { useDialog } from "@/hooks/useDialog";
 import { useMessage } from "@/hooks/useMessage";
 import { userStore } from "@/store/user";
+import { removeToken } from "@/utils/auth";
 
 const router = useRouter();
 const userState = userStore();
@@ -19,8 +20,10 @@ function toLogin() {
   useDialog(
     "是否确认退出系统?",
     () => {
-      router.push("/login");
-      useMessage("success", "退出成功");
+      removeToken(() => {
+        router.replace("/login");
+        useMessage("success", "退出成功");
+      });
     },
     (err) => {
       console.log(err);
