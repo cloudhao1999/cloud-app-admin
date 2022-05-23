@@ -1,8 +1,16 @@
 <script lang="ts" setup>
 import Banner from "../banner/index.vue";
 import menuService from "@/hooks/useMenu";
+import { ref, watchEffect } from "vue";
+import { ElMenu } from "element-plus";
+import { useRoute } from "vue-router";
 
-console.log(menuService.menus.value);
+const route = useRoute();
+const acticeIndex = ref<string>("");
+
+watchEffect(() => {
+  acticeIndex.value = menuService.getCurrentMenu(route) as unknown as string;
+});
 </script>
 
 <template>
@@ -11,11 +19,11 @@ console.log(menuService.menus.value);
       <Banner />
     </div>
     <el-scrollbar>
-      <el-menu :default-openeds="['0', '1']">
+      <el-menu :default-active="acticeIndex">
         <el-sub-menu
           v-for="(menu, index) of menuService.menus.value"
           :key="index"
-          :index="'' + index"
+          :index="menu.title!"
         >
           <template #title>
             <el-icon><component :is="menu.icon" /></el-icon>{{ menu.title }}
@@ -23,7 +31,7 @@ console.log(menuService.menus.value);
           <el-menu-item
             v-for="(cmenu, key) of menu.children"
             :key="key"
-            :index="index + '-' + key"
+            :index="menu.title + '-' + cmenu.route"
             @click="$router.push({ name: cmenu.route })"
             >{{ cmenu?.title }}</el-menu-item
           >

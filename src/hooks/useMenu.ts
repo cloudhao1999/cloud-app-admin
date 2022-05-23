@@ -1,12 +1,25 @@
 import { IMenu } from "#/menu";
 import { ref } from "vue";
 import router from "@/router";
+import { RouteLocationNormalizedLoaded } from "vue-router";
 
 class Menu {
   public menus = ref<IMenu[]>([]);
 
   constructor() {
     this.menus.value = this.getMenuByRoute();
+  }
+
+  getCurrentMenu(route: RouteLocationNormalizedLoaded) {
+    let activeIndex: string | null = null;
+    this.menus.value.forEach((m) => {
+      m.children?.forEach((c) => {
+        if (c.route === route.name) {
+          activeIndex = `${m.title}-${c.route}`;
+        }
+      });
+    });
+    return activeIndex;
   }
 
   // 根据路由元数据构建菜单列表
