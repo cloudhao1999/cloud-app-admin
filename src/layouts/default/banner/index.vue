@@ -4,7 +4,7 @@ import menuService from "@/hooks/useMenu";
 
 <template>
   <div
-    class="bg-white flex align-center items-center py-2 w-[220px] cursor-pointer"
+    class="flex align-center items-center py-2 w-[220px] cursor-pointer"
     @click="$router.push('/')"
   >
     <div class="w-10 ml-4">

@@ -1,0 +1,4 @@
+html.dark {
+  /* custom dark bg color */
+  --el-bg-color: #626aef;
+}

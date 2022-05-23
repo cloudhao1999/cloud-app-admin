@@ -1,0 +1,48 @@
+<script setup lang="ts">
+import { Setting } from "@element-plus/icons-vue";
+import { UserEnum } from "@/enum/userEnum";
+import { useRouter } from "vue-router";
+import { useNow, useDateFormat } from "@vueuse/core";
+import { useDialog } from "@/hooks/useDialog";
+import { useMessage } from "@/hooks/useMessage";
+import { removeToken } from "@/utils/auth";
+import { userStore } from "@/store/user";
+import { openNewTab } from "@/utils/web";
+
+const router = useRouter();
+
+const userState = userStore();
+const formatted = useDateFormat(useNow(), "YYYY-MM-DD HH:mm");
+
+function toLogin() {
+  useDialog("是否确认退出系统?", () => {
+    removeToken(() => {
+      router.replace("/login");
+      useMessage("success", "退出成功");
+    });
+  });
+}
+</script>
+
+<template>
+  <el-avatar shape="square" :size="40" :src="userState.avatar" />
+  <div class="flex flex-col items-start">
+    <span class="font-sans dark:text-white text-gray-600 text-sm font-medium"
+      >你好，{{ userState.name }}</span
+    >
+    <span class="font-sans dark:text-white text-gray-500 text-sm">{{ formatted }}</span>
+  </div>
+  <el-dropdown>
+    <el-icon :size="20" class="ml-2 mt-[1px] cursor-pointer"><setting /></el-icon>
+    <template #dropdown>
+      <el-dropdown-menu>
+        <el-dropdown-item @click="openNewTab(UserEnum.GITHUB_REPOSITORY)"
+          >Github仓库</el-dropdown-item
+        >
+        <el-dropdown-item @click="toLogin">退出登录</el-dropdown-item>
+      </el-dropdown-menu>
+    </template>
+  </el-dropdown>
+</template>
+
+<style scoped></style>

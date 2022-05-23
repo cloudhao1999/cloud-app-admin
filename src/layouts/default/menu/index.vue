@@ -54,12 +54,13 @@ const isCollapse = computed(() => {
 <style lang="scss" scoped>
 .el-aside {
   color: var(--el-text-color-primary);
+  @apply bg-white;
 }
 .el-menu {
   border-right: none;
 }
 .admin-menu {
-  @apply w-[250px] bg-white min-h-screen h-full border-r border-gray-200 border-solid z-50;
+  @apply w-[250px] dark:bg-black bg-white min-h-screen h-full border-r border-gray-200 border-solid z-50;
   &.close {
     @apply w-[70px] duration-500;
   }

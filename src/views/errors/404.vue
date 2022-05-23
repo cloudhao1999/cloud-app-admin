@@ -13,7 +13,7 @@ const hStyle = computed(() => (route.name === "404" ? "h-full" : "h-screen"));
 </script>
 
 <template>
-  <div :class="hStyle" class="w-full flex items-center flex-1 bg-gray-100">
+  <div :class="hStyle" class="w-full flex items-center flex-1 bg-gray-100 dark:bg-black">
     <div class="flex-1 flex flex-col md:flex-row items-center justify-center px-5 text-gray-700">
       <div class="max-w-md">
         <div class="text-5xl font-dark font-bold">404</div>
