@@ -4,7 +4,7 @@ import Drawer from "../drawer/index.vue";
 
 import { Setting } from "@element-plus/icons-vue";
 import { useNow, useDateFormat } from "@vueuse/core";
-import { GITHUB_REPOSITORY } from "@/enum/userEnum";
+import { UserEnum } from "@/enum/userEnum";
 import { openNewTab } from "@/utils/web";
 import { useRouter } from "vue-router";
 import { useDialog } from "@/hooks/useDialog";
@@ -51,7 +51,9 @@ function toLogin() {
         <el-icon :size="20" class="ml-2 mt-[1px] cursor-pointer"><setting /></el-icon>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item @click="openNewTab(GITHUB_REPOSITORY)">Github仓库</el-dropdown-item>
+            <el-dropdown-item @click="openNewTab(UserEnum.GITHUB_REPOSITORY)"
+              >Github仓库</el-dropdown-item
+            >
             <el-dropdown-item @click="toLogin">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </template>

@@ -2,7 +2,19 @@
 import Menu from "@/layouts/default/menu/index.vue";
 import Header from "@/layouts/default/header/index.vue";
 import History from "@/layouts/default/history/index.vue";
+import menuService from "@/hooks/useMenu";
 import PageView from "./pages/index.vue";
+import { useRoute } from "vue-router";
+import { watch } from "vue";
+
+const route = useRoute();
+watch(
+  route,
+  () => {
+    menuService.addHistoryMenu(route);
+  },
+  { immediate: true }
+);
 </script>
 <template>
   <el-container class="h-full w-full font-sans">
