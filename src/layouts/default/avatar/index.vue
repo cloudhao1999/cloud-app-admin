@@ -33,7 +33,9 @@ function toLogin() {
     <span class="font-sans dark:text-white text-gray-500 text-sm">{{ formatted }}</span>
   </div>
   <el-dropdown>
-    <el-icon :size="20" class="ml-2 mt-[1px] cursor-pointer"><setting /></el-icon>
+    <el-icon :size="20" class="ml-2 mt-[1px] hover:rotate-90 duration-500 cursor-pointer"
+      ><setting
+    /></el-icon>
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item @click="openNewTab(UserEnum.GITHUB_REPOSITORY)"

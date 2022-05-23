@@ -8,16 +8,20 @@ const toggleDark = useToggle(isDark);
 <template>
   <i-mdi-white-balance-sunny
     v-show="!isDark"
-    class="cursor-pointer mx-2 text-gray-500"
+    class="dark-mode text-gray-500"
     style="font-size: 1.6em"
     @click="() => toggleDark()"
   />
   <i-mdi-weather-night
     v-show="isDark"
-    class="cursor-pointer mx-2"
+    class="dark-mode"
     style="font-size: 1.6em"
     @click="() => toggleDark()"
   />
 </template>
 
-<style scoped></style>
+<style scoped>
+.dark-mode {
+  @apply cursor-pointer mx-2 hover:rotate-90 duration-500;
+}
+</style>
