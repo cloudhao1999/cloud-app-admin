@@ -12,7 +12,7 @@ class Guard {
   private async beforeEach(to: RouteLocationNormalized, from: RouteLocationNormalized) {
     const userState = userStore();
     if (to.meta.auth && !this.token()) {
-      return { name: "login" };
+      return { name: "LoginPage" };
     }
     if (this.token()) {
       await userState.getUserInfo();
