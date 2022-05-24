@@ -21,9 +21,7 @@ declare module "@vue/runtime-core" {
     ElSubMenu: typeof import("element-plus/es")["ElSubMenu"];
     ElTag: typeof import("element-plus/es")["ElTag"];
     IMdiFormatIndentDecrease: typeof import("~icons/mdi/format-indent-decrease")["default"];
-    IMdiQqchat: typeof import("~icons/mdi/qqchat")["default"];
     IMdiWeatherNight: typeof import("~icons/mdi/weather-night")["default"];
-    IMdiWechat: typeof import("~icons/mdi/wechat")["default"];
     IMdiWhiteBalanceSunny: typeof import("~icons/mdi/white-balance-sunny")["default"];
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
