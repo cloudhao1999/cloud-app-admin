@@ -16,6 +16,8 @@
     "@types/js-cookie": "^3.0.2",
     "@types/qs": "^6.9.7",
     "@typescript-eslint/eslint-plugin": "^5.24.0",
+    "@vee-validate/i18n": "^4.5.11",
+    "@vee-validate/rules": "^4.5.11",
     "@vitejs/plugin-vue-jsx": "^1.3.10",
     "@vueuse/core": "^8.5.0",
     "axios": "^0.27.2",
@@ -32,10 +34,12 @@
     "pinia": "^2.0.14",
     "qs": "^6.10.3",
     "reset-css": "^5.0.1",
+    "vee-validate": "^4.5.11",
     "vue": "^3.2.25",
     "vue-router": "^4.0.13",
     "vxe-table": "^4.2.3",
-    "xe-utils": "^3.5.4"
+    "xe-utils": "^3.5.4",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.15",

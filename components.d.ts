@@ -20,7 +20,6 @@ declare module "@vue/runtime-core" {
     ElSpace: typeof import("element-plus/es")["ElSpace"];
     ElSubMenu: typeof import("element-plus/es")["ElSubMenu"];
     ElTag: typeof import("element-plus/es")["ElTag"];
-    HelloWorld: typeof import("./src/components/HelloWorld.vue")["default"];
     IMdiFormatIndentDecrease: typeof import("~icons/mdi/format-indent-decrease")["default"];
     IMdiQqchat: typeof import("~icons/mdi/qqchat")["default"];
     IMdiWeatherNight: typeof import("~icons/mdi/weather-night")["default"];
@@ -28,6 +27,7 @@ declare module "@vue/runtime-core" {
     IMdiWhiteBalanceSunny: typeof import("~icons/mdi/white-balance-sunny")["default"];
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
+    VeeValidateError: typeof import("./src/components/veeValidateError.vue")["default"];
   }
 }
 
