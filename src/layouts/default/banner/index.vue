@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import menuService from "@/hooks/useMenu";
+import { ref } from "vue";
+
+const globalTitle = ref<string>(import.meta.env.VITE_GLOB_APP_TITLE);
 </script>
 
 <template>
@@ -11,7 +14,7 @@ import menuService from "@/hooks/useMenu";
       <img src="../../../assets/img/logo.png" alt="logo" />
     </div>
     <div v-show="!menuService.close.value" class="flex-1 mr-1">
-      <span class="text-lg font-bold">喵喵App管理系统</span>
+      <span class="text-lg font-bold">{{ globalTitle }}</span>
     </div>
   </div>
 </template>
