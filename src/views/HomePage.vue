@@ -6,7 +6,7 @@ import TimeLine from "./dashboard/TimeLine.vue";
 <template>
   <TopPanel />
   <el-row>
-    <el-col class="mt-1" :sm="24" :md="12" :xl="12">
+    <el-col class="mt-1" :sm="24" :md="6" :xl="6">
       <TimeLine />
     </el-col>
     <el-col class="mt-1" :sm="24" :md="12" :xl="12">

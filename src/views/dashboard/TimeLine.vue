@@ -176,7 +176,7 @@ const activities = [
   <Card>
     <template #title> 时间线 </template>
     <template #content>
-      <div class="time-line-box h-[270px] overflow-y-auto px-6 py-5">
+      <div class="time-line-box h-[260px] overflow-y-auto px-6 py-5">
         <el-timeline>
           <el-timeline-item
             v-for="(activity, index) in activities"
