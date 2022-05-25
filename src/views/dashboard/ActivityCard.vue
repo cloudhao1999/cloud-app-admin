@@ -66,7 +66,7 @@ const tableData = [
             >
               <el-table-column prop="name" label="名称" />
               <el-table-column sortable prop="price" label="价格" width="80" />
-              <el-table-column prop="category" width="120" label="类别">
+              <el-table-column prop="category" width="100" label="类别">
                 <template #default="scope">
                   <span class="p-1 rounded-md bg-gray-500 text-white text-sm">{{
                     scope.row.category
