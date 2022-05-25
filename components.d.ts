@@ -9,6 +9,7 @@ declare module "@vue/runtime-core" {
     ElAvatar: typeof import("element-plus/es")["ElAvatar"];
     ElBreadcrumb: typeof import("element-plus/es")["ElBreadcrumb"];
     ElBreadcrumbItem: typeof import("element-plus/es")["ElBreadcrumbItem"];
+    ElCol: typeof import("element-plus/es")["ElCol"];
     ElContainer: typeof import("element-plus/es")["ElContainer"];
     ElDropdown: typeof import("element-plus/es")["ElDropdown"];
     ElDropdownItem: typeof import("element-plus/es")["ElDropdownItem"];
@@ -17,6 +18,7 @@ declare module "@vue/runtime-core" {
     ElIcon: typeof import("element-plus/es")["ElIcon"];
     ElMain: typeof import("element-plus/es")["ElMain"];
     ElMenuItem: typeof import("element-plus/es")["ElMenuItem"];
+    ElRow: typeof import("element-plus/es")["ElRow"];
     ElSpace: typeof import("element-plus/es")["ElSpace"];
     ElSubMenu: typeof import("element-plus/es")["ElSubMenu"];
     ElTag: typeof import("element-plus/es")["ElTag"];

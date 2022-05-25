@@ -1,8 +1,8 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import TopPanel from "./dashboard/TopPanel.vue";
+</script>
 <template>
-  <div class="h-full w-full flex items-center justify-center">
-    <span class="text-3xl font-bold text-gray-600">首页</span>
-  </div>
+  <TopPanel />
 </template>
 
 <style scoped></style>
