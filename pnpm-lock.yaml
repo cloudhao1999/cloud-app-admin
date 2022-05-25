@@ -8,6 +8,7 @@ specifiers:
   '@types/mockjs': ^1.0.6
   '@types/nprogress': ^0.2.0
   '@types/qs': ^6.9.7
+  '@types/tailwindcss': ^3.0.10
   '@typescript-eslint/eslint-plugin': ^5.24.0
   '@typescript-eslint/parser': ^5.24.0
   '@vee-validate/i18n': ^4.5.11
@@ -64,6 +65,7 @@ dependencies:
   '@element-plus/icons-vue': 1.1.4_vue@3.2.33
   '@types/js-cookie': 3.0.2
   '@types/qs': 6.9.7
+  '@types/tailwindcss': 3.0.10
   '@typescript-eslint/eslint-plugin': 5.24.0_a2vfux54jinxt3roahlcrnxvuq
   '@vee-validate/i18n': 4.5.11
   '@vee-validate/rules': 4.5.11
@@ -756,6 +758,10 @@ packages:
     dependencies:
       '@types/node': 17.0.34
     dev: true
+
+  /@types/tailwindcss/3.0.10:
+    resolution: {integrity: sha512-1UnZIHO0NOPyPlPFV0HuMjki2SHkvG9uBA1ZehWj/OQMSROk503nuNyyfmJSIT289yewxTbKoPG+KLxYRvfIIg==}
+    dev: false
 
   /@typescript-eslint/eslint-plugin/5.24.0_a2vfux54jinxt3roahlcrnxvuq:
     resolution: {integrity: sha512-6bqFGk6wa9+6RrU++eLknKyDqXU1Oc8nyoLu5a1fU17PNRJd9UBr56rMF7c4DRaRtnarlkQ4jwxUbvBo8cNlpw==}

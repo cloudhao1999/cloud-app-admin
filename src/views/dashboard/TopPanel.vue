@@ -8,37 +8,37 @@ import Jieni from "@/assets/img/jieni.jpeg";
 const animalList = [
   {
     id: 1,
-    name: "喵喵",
+    name: "皮卡丘",
     price: "1000",
     unit: "RMB",
-    category: "暹罗猫",
+    category: "雷电系",
     color: "bg-yellow-300",
-    description: "只会喵喵叫",
+    description: "小智的那只最牛",
     img: PiKa
   },
   {
     id: 2,
-    name: "汪汪",
+    name: "方酱",
     price: "600",
     unit: "RMB",
-    category: "柯基犬",
+    category: "草系",
     color: "bg-green-500",
-    description: "只会汪汪叫",
+    description: "只会睡觉",
     img: Kabi
   },
   {
     id: 3,
-    name: "兔子",
+    name: "可达鸭",
     price: "50",
     unit: "RMB",
-    category: "田园兔",
+    category: "精神系",
     color: "bg-yellow-500",
-    description: "兔子怎么叫",
+    description: "最近在肯德基很火",
     img: Keda
   },
   {
     id: 4,
-    name: "乌龟",
+    name: "杰尼龟",
     price: "70",
     unit: "RMB",
     category: "鳄龟",
@@ -51,7 +51,7 @@ const animalList = [
 
 <template>
   <el-row>
-    <el-col v-for="animal in animalList" :key="animal.id" :sm="24" :md="12" :xl="6">
+    <el-col v-for="animal in animalList" :key="animal.id" class="mt-1" :sm="24" :md="12" :xl="6">
       <Panel :badge-color="animal.color" :img-url="animal.img">
         <template #title> {{ animal.name }} </template>
         <template #subtitle> {{ animal.price }} </template>
@@ -63,4 +63,8 @@ const animalList = [
   </el-row>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.el-col {
+  margin: 8px 0;
+}
+</style>
