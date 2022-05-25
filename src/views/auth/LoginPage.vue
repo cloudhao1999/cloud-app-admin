@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import v from "@/plugins/validate";
-import FormVeeValidateError from "@/components/veeValidateError.vue";
+import FormVeeValidateError from "@/components/VeeValidateError.vue";
 import redirectService from "@/hooks/useRedirect";
 import { useMessage } from "@/hooks/useMessage";
 import { userStore } from "@/store/user";

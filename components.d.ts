@@ -21,15 +21,21 @@ declare module "@vue/runtime-core" {
     ElRow: typeof import("element-plus/es")["ElRow"];
     ElSpace: typeof import("element-plus/es")["ElSpace"];
     ElSubMenu: typeof import("element-plus/es")["ElSubMenu"];
+    ElTable: typeof import("element-plus/es")["ElTable"];
+    ElTableColumn: typeof import("element-plus/es")["ElTableColumn"];
     ElTag: typeof import("element-plus/es")["ElTag"];
+    IMdiClipboardListOutline: typeof import("~icons/mdi/clipboard-list-outline")["default"];
     IMdiFormatIndentDecrease: typeof import("~icons/mdi/format-indent-decrease")["default"];
+    IMdiFormatListNumbered: typeof import("~icons/mdi/format-list-numbered")["default"];
     IMdiFullscreen: typeof import("~icons/mdi/fullscreen")["default"];
     IMdiFullscreenExit: typeof import("~icons/mdi/fullscreen-exit")["default"];
+    IMdiTrendingDown: typeof import("~icons/mdi/trending-down")["default"];
+    IMdiTrendingUp: typeof import("~icons/mdi/trending-up")["default"];
     IMdiWeatherNight: typeof import("~icons/mdi/weather-night")["default"];
     IMdiWhiteBalanceSunny: typeof import("~icons/mdi/white-balance-sunny")["default"];
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
-    VeeValidateError: typeof import("./src/components/veeValidateError.vue")["default"];
+    VeeValidateError: typeof import("./src/components/VeeValidateError.vue")["default"];
   }
 }
 
