@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import v from "@/plugins/validate";
 import FormVeeValidateError from "@/components/veeValidateError.vue";
+import redirectService from "@/hooks/useRedirect";
 import { useMessage } from "@/hooks/useMessage";
 import { userStore } from "@/store/user";
 import { unref } from "vue";
@@ -32,7 +33,13 @@ const onSubmit = handleSubmit(async (values: any) => {
   userState.login(
     unref(values),
     () => {
-      router.push("/dashboard");
+      if (redirectService.redirect.value) {
+        router.push({
+          name: redirectService.redirect.value
+        });
+      } else {
+        router.push("/dashboard");
+      }
       useMessage("success", `欢迎回来，${userState.info!.name}`);
     },
     (err) => {

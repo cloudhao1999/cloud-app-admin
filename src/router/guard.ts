@@ -1,5 +1,6 @@
 import { userStore } from "@/store/user";
 import { getToken } from "@/utils/auth";
+import redirectService from "@/hooks/useRedirect";
 import { RouteLocationNormalized, Router } from "vue-router";
 
 class Guard {
@@ -11,7 +12,9 @@ class Guard {
 
   private async beforeEach(to: RouteLocationNormalized, from: RouteLocationNormalized) {
     const userState = userStore();
+
     if (to.meta.auth && !this.token()) {
+      redirectService.addRedirect(to.name as unknown as string);
       return { name: "LoginPage" };
     }
     if (this.token()) {
