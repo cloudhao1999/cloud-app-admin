@@ -1,5 +1,10 @@
 @import 'reset-css/sass/reset';
 
+::-webkit-scrollbar {
+  /*隐藏滚轮*/
+  display: none;
+}
+
 input {
   outline:none
 }

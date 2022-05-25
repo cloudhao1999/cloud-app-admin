@@ -12,7 +12,7 @@
             <slot name="actions"></slot>
           </div>
         </div>
-        <div class="py-3">
+        <div class="my-3">
           <slot name="content"></slot>
         </div>
       </div>

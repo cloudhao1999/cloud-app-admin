@@ -52,45 +52,35 @@ const tableData = [
 
 <template>
   <div>
-    <el-row>
-      <el-col class="mt-1" :sm="24" :md="12" :xl="12">
-        <Card>
-          <template #title> 排行榜 </template>
-          <template #content>
-            <el-table
-              :data="tableData"
-              align="right"
-              header-align="right"
-              stripe
-              style="width: 100%"
-            >
-              <el-table-column prop="name" label="名称" />
-              <el-table-column sortable prop="price" label="价格" width="80" />
-              <el-table-column prop="category" width="100" label="类别">
-                <template #default="scope">
-                  <span class="p-1 rounded-md bg-gray-500 text-white text-sm">{{
-                    scope.row.category
-                  }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column prop="sort" width="100" label="同比">
-                <template #default="scope">
-                  <div class="flex">
-                    <i-mdi-trending-up
-                      v-if="scope.row.sortUnit === 'up'"
-                      class="text-red-500"
-                      style="font-size: 1.6em"
-                    />
-                    <i-mdi-trending-down v-else class="text-green-500" style="font-size: 1.6em" />
-                    <span class="pl-2">{{ scope.row.sort }}</span>
-                  </div>
-                </template>
-              </el-table-column>
-            </el-table>
-          </template>
-        </Card>
-      </el-col>
-    </el-row>
+    <Card>
+      <template #title> 排行榜 </template>
+      <template #content>
+        <el-table :data="tableData" align="right" header-align="right" stripe style="width: 100%">
+          <el-table-column prop="name" label="名称" />
+          <el-table-column sortable prop="price" label="价格" width="80" />
+          <el-table-column prop="category" width="100" label="类别">
+            <template #default="scope">
+              <span class="p-1 rounded-md bg-gray-500 text-white text-sm">{{
+                scope.row.category
+              }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column prop="sort" width="120" label="同比">
+            <template #default="scope">
+              <div class="flex">
+                <i-mdi-trending-up
+                  v-if="scope.row.sortUnit === 'up'"
+                  class="text-red-500"
+                  style="font-size: 1.6em"
+                />
+                <i-mdi-trending-down v-else class="text-green-500" style="font-size: 1.6em" />
+                <span class="pl-2">{{ scope.row.sort }}</span>
+              </div>
+            </template>
+          </el-table-column>
+        </el-table>
+      </template>
+    </Card>
   </div>
 </template>
 

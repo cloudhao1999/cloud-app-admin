@@ -9,6 +9,7 @@ declare module "@vue/runtime-core" {
     ElAvatar: typeof import("element-plus/es")["ElAvatar"];
     ElBreadcrumb: typeof import("element-plus/es")["ElBreadcrumb"];
     ElBreadcrumbItem: typeof import("element-plus/es")["ElBreadcrumbItem"];
+    ElCard: typeof import("element-plus/es")["ElCard"];
     ElCol: typeof import("element-plus/es")["ElCol"];
     ElContainer: typeof import("element-plus/es")["ElContainer"];
     ElDropdown: typeof import("element-plus/es")["ElDropdown"];
@@ -24,9 +25,9 @@ declare module "@vue/runtime-core" {
     ElTable: typeof import("element-plus/es")["ElTable"];
     ElTableColumn: typeof import("element-plus/es")["ElTableColumn"];
     ElTag: typeof import("element-plus/es")["ElTag"];
-    IMdiClipboardListOutline: typeof import("~icons/mdi/clipboard-list-outline")["default"];
+    ElTimeline: typeof import("element-plus/es")["ElTimeline"];
+    ElTimelineItem: typeof import("element-plus/es")["ElTimelineItem"];
     IMdiFormatIndentDecrease: typeof import("~icons/mdi/format-indent-decrease")["default"];
-    IMdiFormatListNumbered: typeof import("~icons/mdi/format-list-numbered")["default"];
     IMdiFullscreen: typeof import("~icons/mdi/fullscreen")["default"];
     IMdiFullscreenExit: typeof import("~icons/mdi/fullscreen-exit")["default"];
     IMdiTrendingDown: typeof import("~icons/mdi/trending-down")["default"];
