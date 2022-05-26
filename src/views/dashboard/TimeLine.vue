@@ -7,6 +7,7 @@ import { Collection, Pouring, BrushFilled, Star } from "@element-plus/icons-vue"
 import { onMounted, ref, unref } from "vue";
 import { useDateFormat } from "@vueuse/core";
 import { useMessage } from "@/hooks/useMessage";
+import { SecretEnum } from "@/enum/secretEnum";
 
 const activitieList = ref<Record<string, timeLineType>>({});
 const loading = ref(false);
@@ -81,7 +82,7 @@ onMounted(async () => {
     const res = await fetchCommits(
       UserEnum.GITHUB_USER,
       UserEnum.GITHUB_REPO,
-      UserEnum.GITHUB_ACCESS_TOKEN
+      SecretEnum.GITHUB_ACCESS_TOKEN
     );
     const mapState = filterCommitByType(res.data);
     transformCommitList(mapState);
