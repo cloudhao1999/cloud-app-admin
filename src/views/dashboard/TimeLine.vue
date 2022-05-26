@@ -39,7 +39,7 @@ function subStr(message: string) {
   }
 }
 
-// 给分好类的数据加icon和color
+// 分好类的数据加icon和color
 function addTagsByType(s: mapStateType, key: string) {
   if (s.message.includes("feat")) {
     activitieList.value[key].color = TagColorEnum.FEAT;
