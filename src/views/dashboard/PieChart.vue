@@ -30,7 +30,7 @@ const options = ref({
       },
       emphasis: {
         label: {
-          show: true
+          show: false
         }
       },
       data: [
