@@ -76,8 +76,9 @@ function transformCommitList(state: Array<mapStateType>) {
   });
 }
 
-onMounted(async () => {
+async function onLoad() {
   loading.value = true;
+  activitieList.value = {};
   try {
     const res = await fetchCommits(
       UserEnum.GITHUB_USER,
@@ -91,12 +92,23 @@ onMounted(async () => {
   } finally {
     loading.value = false;
   }
+}
+
+onMounted(async () => {
+  onLoad();
 });
 </script>
 
 <template>
   <Card>
     <template #title> 时间线 </template>
+    <template #actions>
+      <i-mdi-refresh
+        class="cursor-pointer text-gray-400 dark:text-white hover:rotate-180 duration-500"
+        style="font-size: 1.2em"
+        @click="() => onLoad()"
+      />
+    </template>
     <template #content>
       <div v-loading="loading" class="time-line-box h-[260px] overflow-y-auto px-6 py-5">
         <el-timeline>
