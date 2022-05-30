@@ -9,26 +9,26 @@ export type RequestMethods = Extract<
   "get" | "post" | "put" | "delete" | "patch" | "option" | "head"
 >;
 
-export interface PureHttpError extends AxiosError {
+export interface CloudHttpError extends AxiosError {
   isCancelRequest?: boolean;
 }
 
-export interface PureHttpResoponse extends AxiosResponse {
-  config: PureHttpRequestConfig;
+export interface CloudHttpResoponse extends AxiosResponse {
+  config: CloudHttpRequestConfig;
 }
 
-export interface PureHttpRequestConfig extends AxiosRequestConfig {
-  beforeRequestCallback?: (request: PureHttpRequestConfig) => void;
-  beforeResponseCallback?: (response: PureHttpResoponse) => void;
+export interface CloudHttpRequestConfig extends AxiosRequestConfig {
+  beforeRequestCallback?: (request: CloudHttpRequestConfig) => void;
+  beforeResponseCallback?: (response: CloudHttpResoponse) => void;
 }
 
-export default class PureHttp {
+export default class CloudHttp {
   request<T>(
     method: RequestMethods,
     url: string,
     param?: AxiosRequestConfig,
-    axiosConfig?: PureHttpRequestConfig
+    axiosConfig?: CloudHttpRequestConfig
   ): Promise<T>;
-  post<T, P>(url: string, params?: T, config?: PureHttpRequestConfig): Promise<P>;
-  get<T, P>(url: string, params?: T, config?: PureHttpRequestConfig): Promise<P>;
+  post<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P>;
+  get<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P>;
 }

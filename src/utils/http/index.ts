@@ -1,5 +1,5 @@
 import Axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-import { PureHttpError, RequestMethods, PureHttpResoponse, PureHttpRequestConfig } from "#/http";
+import { CloudHttpError, RequestMethods, CloudHttpResoponse, CloudHttpRequestConfig } from "#/http";
 import qs from "qs";
 import { getToken } from "@/utils/auth";
 
@@ -15,29 +15,29 @@ const defaultConfig: AxiosRequestConfig = {
   paramsSerializer: (params) => qs.stringify(params, { indices: false })
 };
 
-class PureHttp {
+class CloudHttp {
   constructor() {
     this.httpInterceptorsRequest();
     this.httpInterceptorsResponse();
   }
   // 初始化配置对象
-  private static initConfig: PureHttpRequestConfig = {};
+  private static initConfig: CloudHttpRequestConfig = {};
 
   // 保存当前Axios实例对象
   private static axiosInstance: AxiosInstance = Axios.create(defaultConfig);
 
   // 请求拦截
   private httpInterceptorsRequest(): void {
-    PureHttp.axiosInstance.interceptors.request.use(
-      (config: PureHttpRequestConfig) => {
+    CloudHttp.axiosInstance.interceptors.request.use(
+      (config: CloudHttpRequestConfig) => {
         const $config = config;
         // 优先判断post/get等方法是否传入回掉，否则执行初始化设置等回掉
         if (typeof config.beforeRequestCallback === "function") {
           config.beforeRequestCallback($config);
           return $config;
         }
-        if (PureHttp.initConfig.beforeRequestCallback) {
-          PureHttp.initConfig.beforeRequestCallback($config);
+        if (CloudHttp.initConfig.beforeRequestCallback) {
+          CloudHttp.initConfig.beforeRequestCallback($config);
           return $config;
         }
         const token = getToken();
@@ -56,22 +56,22 @@ class PureHttp {
 
   // 响应拦截
   private httpInterceptorsResponse(): void {
-    const instance = PureHttp.axiosInstance;
+    const instance = CloudHttp.axiosInstance;
     instance.interceptors.response.use(
-      (response: PureHttpResoponse) => {
+      (response: CloudHttpResoponse) => {
         const $config = response.config;
         // 优先判断post/get等方法是否传入回掉，否则执行初始化设置等回掉
         if (typeof $config.beforeResponseCallback === "function") {
           $config.beforeResponseCallback(response);
           return response.data;
         }
-        if (PureHttp.initConfig.beforeResponseCallback) {
-          PureHttp.initConfig.beforeResponseCallback(response);
+        if (CloudHttp.initConfig.beforeResponseCallback) {
+          CloudHttp.initConfig.beforeResponseCallback(response);
           return response.data;
         }
         return response.data;
       },
-      (error: PureHttpError) => {
+      (error: CloudHttpError) => {
         const $error = error;
         $error.isCancelRequest = Axios.isCancel($error);
         // 所有的响应异常 区分来源为取消请求/非取消请求
@@ -85,18 +85,18 @@ class PureHttp {
     method: RequestMethods,
     url: string,
     param?: AxiosRequestConfig,
-    axiosConfig?: PureHttpRequestConfig
+    axiosConfig?: CloudHttpRequestConfig
   ): Promise<T> {
     const config = {
       method,
       url,
       ...param,
       ...axiosConfig
-    } as PureHttpRequestConfig;
+    } as CloudHttpRequestConfig;
 
     // 单独处理自定义请求/响应回掉
     return new Promise((resolve, reject) => {
-      PureHttp.axiosInstance
+      CloudHttp.axiosInstance
         .request(config)
         .then((response: any) => {
           resolve(response);
@@ -108,14 +108,14 @@ class PureHttp {
   }
 
   // 单独抽离的post工具函数
-  public post<T, P>(url: string, params?: T, config?: PureHttpRequestConfig): Promise<P> {
+  public post<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P> {
     return this.request<P>("post", url, params, config);
   }
 
   // 单独抽离的get工具函数
-  public get<T, P>(url: string, params?: T, config?: PureHttpRequestConfig): Promise<P> {
+  public get<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P> {
     return this.request<P>("get", url, params, config);
   }
 }
 
-export const http = new PureHttp();
+export const http = new CloudHttp();
