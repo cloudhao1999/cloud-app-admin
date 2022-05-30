@@ -15,6 +15,19 @@ export default defineConfig(({ command, mode }) => {
       alias,
       extensions: [".ts", ".js", ".vue", ".json"]
     },
+    build: {
+      outDir: "./dist/",
+      rollupOptions: {
+        emptyOutDir: true,
+        output: {
+          manualChunks(id: string) {
+            if (id.includes("node_modules")) {
+              return id.split("/node_modules/").pop()?.split("/")[0];
+            }
+          }
+        }
+      }
+    },
     server: {
       host: true,
       port: env.VITE_PORT,
