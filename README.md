@@ -41,3 +41,21 @@ pnpm install
 ```bash
 pnpm dev
 ```
+
+## 运行截图
+
+- 登陆页
+
+![login](./screenshot/login.png)
+
+- 首页
+
+![dashboard-light](./screenshot/dashboard-light.png)
+
+- 暗黑模式
+
+![dashboard-dark](./screenshot/dashboard-dark.png)
+
+- 自适应
+
+![mobile](./screenshot/mobile.png)
