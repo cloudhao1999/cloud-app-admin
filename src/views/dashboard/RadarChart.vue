@@ -2,8 +2,6 @@
 import { ref } from "vue";
 import * as echarts from "echarts";
 
-import Card from "./components/Card.vue";
-
 const options = ref({
   color: ["#56A3F1", "#FF917C"],
   radar: [

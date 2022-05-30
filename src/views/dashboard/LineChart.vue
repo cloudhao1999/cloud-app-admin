@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import Card from "./components/Card.vue";
 const data = [
   ["2022-05-05", 116],
   ["2022-05-06", 129],

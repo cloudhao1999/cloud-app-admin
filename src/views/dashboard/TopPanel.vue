@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Panel from "./components/panel.vue";
 import PiKa from "@/assets/img/pika.jpeg";
 import Kabi from "@/assets/img/kabi.jpeg";
 import Keda from "@/assets/img/keda.jpeg";

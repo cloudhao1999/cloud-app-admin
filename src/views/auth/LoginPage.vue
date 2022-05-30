@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import v from "@/plugins/validate";
-import FormVeeValidateError from "@/components/VeeValidateError.vue";
 import redirectService from "@/hooks/useRedirect";
 import { useMessage } from "@/hooks/useMessage";
 import { userStore } from "@/store/user";
@@ -71,7 +70,7 @@ const onSubmit = handleSubmit(async (values: any) => {
                 placeholder="请输入账号或邮箱"
                 class="mt-1 pl-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
               />
-              <FormVeeValidateError :error="errors.account" />
+              <VeeValidateError :error="errors.account" />
             </div>
 
             <div class="mt-7 relative">
@@ -81,7 +80,7 @@ const onSubmit = handleSubmit(async (values: any) => {
                 placeholder="请输入密码"
                 class="mt-1 pl-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
               />
-              <FormVeeValidateError :error="errors.password" />
+              <VeeValidateError :error="errors.password" />
             </div>
 
             <div class="mt-10 flex">

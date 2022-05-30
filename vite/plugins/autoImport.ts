@@ -11,6 +11,8 @@ export default function autoImport(plugins: Plugin[]) {
     }),
     Components({
       dts: true,
+      dirs: ["src/components"],
+      directoryAsNamespace: true,
       resolvers: [
         ElementPlusResolver(),
         IconsResolver({

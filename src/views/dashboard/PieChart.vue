@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import Card from "./components/Card.vue";
-
 const options = ref({
   legend: {
     orient: "vertical",

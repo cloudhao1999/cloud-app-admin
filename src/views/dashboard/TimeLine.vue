@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Card from "./components/Card.vue";
 import { UserEnum } from "@/enum/userEnum";
 import { TagColorEnum } from "@/enum/TagEnum";
 import { fetchCommits, GithubCommitResultType } from "@/api/github";

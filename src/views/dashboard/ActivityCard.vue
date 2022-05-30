@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import Card from "./components/Card.vue";
-
 const tableData = [
   {
     name: "可达鸭",
