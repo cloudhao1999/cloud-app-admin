@@ -14,6 +14,7 @@ cloud-app-admin 使用了最新的`vue3.2+` `vite2` `Element-Plus` `TypeScript`�
 - [x] 代码规范集成（EditorConfig、Eslint、Prettier、Husky、Lint-staged）📒
 - [x] Vxe-table多维度图表组件引入📈
 - [x] Echarts图表组件库引入🪐
+- [x] 富文本编辑器引入（WangEditor）📝
 - [x] Mock引入🔍
 - [x] 支持暗黑模式🎆
 - [x] unplugin-icons引入，配合unplugin-components，无需注册即可按需访问数千个图标作为组件 😊
