@@ -1,3 +1,22 @@
 html.dark {
   --el-bg-color: #484848;
+
+  --w-e-textarea-bg-color: #202120;
+  --w-e-textarea-color: #333;
+  --w-e-textarea-border-color: #202120;
+  --w-e-textarea-slight-border-color: #e8e8e8;
+  --w-e-textarea-slight-color: #6b7280;
+  --w-e-textarea-slight-bg-color: #f5f2f0;
+  --w-e-textarea-selected-border-color: #7c8494;
+  --w-e-textarea-handler-bg-color: #6b7280;
+
+  --w-e-toolbar-color: #595959;
+  --w-e-toolbar-bg-color: #202120;
+  --w-e-toolbar-active-color: #333;
+  --w-e-toolbar-active-bg-color: #6b7280;
+  --w-e-toolbar-disabled-color: #999;
+  --w-e-toolbar-border-color: #6b7280;
+
+  --w-e-modal-button-bg-color: #6b7280;
+  --w-e-modal-button-border-color: #d9d9d9;
 }

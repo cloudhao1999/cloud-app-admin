@@ -2,8 +2,12 @@
 
 <template>
   <el-main>
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <Transition appear name="el-fade-in-linear">
+        <component :is="Component" />
+      </Transition>
+    </router-view>
   </el-main>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped></style>
