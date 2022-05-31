@@ -1,7 +1,7 @@
 {
   "name": "cloud-app-admin",
   "private": true,
-  "version": "0.2.0",
+  "version": "1.1",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
