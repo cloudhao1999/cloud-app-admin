@@ -1,4 +1,4 @@
-import { App } from "vue";
+import { App, Component } from "vue";
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 import zhCn from "element-plus/es/locale/lang/zh-cn";
 import "element-plus/dist/index.css";
@@ -8,7 +8,7 @@ import ElementPlus from "element-plus";
 
 export function setupElementIcons(app: App) {
   for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-    app.component(key, component);
+    app.component(key, component as unknown as Component);
   }
 }
 

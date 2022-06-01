@@ -51,6 +51,18 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     modalFormRef.value.title = title;
   };
 
+  const handleDelete = async (id: number) => {
+    if (!url.delete) {
+      useMessage("error", "请设置url.delete属性");
+      return;
+    }
+    const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.delete, { id });
+    if (res.code === 200 && res.data.count > 0) {
+      useMessage("success", "删除成功");
+      loadData(true);
+    }
+  };
+
   const handleAddDrawer = () => {
     drawerFormRef.value.add();
     drawerFormRef.value.title = "新增";
@@ -79,12 +91,14 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     loadData,
     handleAdd,
     handleEdit,
+    handleDelete,
     handleAddDrawer,
     handleEditDrawer,
     handleSizeChange,
     handleCurrentChange,
     dataSource,
-    ipagination
+    ipagination,
+    modalFormRef
   };
 }
 

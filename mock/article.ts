@@ -19,5 +19,19 @@ export default [
         })
       };
     }
+  },
+  {
+    url: "/api/deleteArticle",
+    method: "post",
+    response: () => {
+      return {
+        code: 200,
+        message: "删除成功",
+        status: "success",
+        data: {
+          count: 1
+        }
+      };
+    }
   }
 ] as MockMethod[];
