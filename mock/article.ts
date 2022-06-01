@@ -9,6 +9,7 @@ export default [
         code: 200,
         message: "请示成功",
         status: "success",
+        total: 20,
         data: new Array(10).fill("").map((article, index) => {
           return {
             id: index + 1,

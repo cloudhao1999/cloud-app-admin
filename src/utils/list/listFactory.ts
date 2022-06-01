@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 
 export type UrlListType = {
   list: string;
@@ -14,6 +14,12 @@ class ListFactory<T, U> {
   url = ref<Partial<UrlListType>>({});
   modalFormRef = ref<any>();
   drawerFormRef = ref<any>();
+  ipagination = reactive({
+    current: 1,
+    total: 0,
+    pageSize: 10,
+    pageSizeOptions: [5, 10, 20, 50, 100]
+  });
 
   constructor(url: Partial<UrlListType>) {
     this.url.value = url;

@@ -114,7 +114,7 @@ class CloudHttp {
 
   // 单独抽离的get工具函数
   public get<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P> {
-    return this.request<P>("get", url, params, config);
+    return this.request<P>("get", url, { params }, config);
   }
 }
 

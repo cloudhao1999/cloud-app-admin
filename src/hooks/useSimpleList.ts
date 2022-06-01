@@ -4,12 +4,22 @@ import { useMessage } from "./useMessage";
 import { BasicGetResult } from "#/resultType";
 import ListFactory, { UrlListType } from "@/utils/list/listFactory";
 
+/**
+ * 接受一个url对象，提供基础的增删改查方法
+ * @param url url对象
+ * @returns 方法合集
+ */
 function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
   const factory = new ListFactory<T, U>(url);
-  const { dataSource, loading, queryParam, modalFormRef, drawerFormRef } = toRefs(factory);
+  const { dataSource, ipagination, loading, queryParam, modalFormRef, drawerFormRef } =
+    toRefs(factory);
 
   const getQueryParams = () => {
-    return queryParam.value;
+    return {
+      page: ipagination.value.current,
+      pageSize: ipagination.value.pageSize,
+      ...queryParam.value
+    } as unknown as U;
   };
 
   const loadData = async <T>(firstPage = false) => {
@@ -18,13 +28,14 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
       return;
     }
     if (firstPage) {
-      console.log("firstPage");
+      ipagination.value.current = 1;
     }
     const params = getQueryParams();
     try {
       loading.value = true;
       const res = await http.get<U, BasicGetResult<T[]>>(url.list, params);
       dataSource.value = res.data as any;
+      ipagination.value.total = res.total!;
     } finally {
       loading.value = false;
     }
@@ -50,6 +61,16 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     drawerFormRef.value.title = title;
   };
 
+  const handleSizeChange = (val: number) => {
+    ipagination.value.pageSize = val;
+    loadData();
+  };
+
+  const handleCurrentChange = (val: number) => {
+    ipagination.value.current = val;
+    loadData();
+  };
+
   onMounted(async () => {
     await loadData(true);
   });
@@ -60,7 +81,10 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     handleEdit,
     handleAddDrawer,
     handleEditDrawer,
-    dataSource
+    handleSizeChange,
+    handleCurrentChange,
+    dataSource,
+    ipagination
   };
 }
 
