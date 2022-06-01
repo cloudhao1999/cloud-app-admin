@@ -12,6 +12,7 @@ const {
   dataSource,
   ipagination,
   modalFormRef,
+  loadData,
   handleSizeChange,
   handleCurrentChange,
   handleEdit,
@@ -41,6 +42,7 @@ const {
         <el-pagination
           v-model:currentPage="ipagination.current"
           v-model:page-size="ipagination.pageSize"
+          small
           :page-sizes="ipagination.pageSizeOptions"
           :background="true"
           layout="sizes, prev, pager, next"
@@ -50,7 +52,7 @@ const {
         />
       </div>
     </div>
-    <ArticleEditDialogVue ref="modalFormRef" />
+    <ArticleEditDialogVue ref="modalFormRef" @close="loadData" />
   </div>
 </template>
 

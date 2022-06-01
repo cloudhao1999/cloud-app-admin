@@ -42,7 +42,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
   };
 
   const handleAdd = () => {
-    modalFormRef.value.add();
+    modalFormRef.value.edit({});
     modalFormRef.value.title = "新增";
   };
 
