@@ -13,7 +13,7 @@ const globalTitle = ref<string>(import.meta.env.VITE_GLOB_APP_TITLE);
     <div class="w-10 ml-4">
       <img src="../../../assets/img/logo.png" alt="logo" />
     </div>
-    <div v-show="!menuService.close.value" class="flex-1 mr-1">
+    <div v-show="!menuService.close.value" class="flex-1 duration-500 ml-2 mr-1 w-[160px]">
       <span class="text-lg font-bold">{{ globalTitle }}</span>
     </div>
   </div>

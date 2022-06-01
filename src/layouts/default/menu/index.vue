@@ -60,7 +60,7 @@ const isCollapse = computed(() => {
   border-right: none;
 }
 .admin-menu {
-  @apply w-[250px] dark:bg-black bg-white min-h-screen h-full border-r border-gray-200 border-solid z-50;
+  @apply w-[250px] duration-500 dark:bg-black bg-white min-h-screen h-full border-r border-gray-200 border-solid z-50;
   &.close {
     @apply w-[70px] duration-500;
   }
