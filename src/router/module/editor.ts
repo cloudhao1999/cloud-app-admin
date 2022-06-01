@@ -11,6 +11,12 @@ export default {
       path: "editor",
       component: () => import("@/views/design/EditorPage.vue"),
       meta: { menu: { title: "富文本编辑器" } }
+    },
+    {
+      name: "article",
+      path: "article",
+      component: () => import("@/views/design/ArticlePage.vue"),
+      meta: { menu: { title: "文章列表" } }
     }
   ]
 } as RouteRecordRaw;
