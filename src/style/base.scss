@@ -16,3 +16,6 @@ input {
 .message-box-custom-class {
   min-width: 350px !important;
 }
+.el-popover.el-popper {
+  background: var(--el-bg-color-overlay) !important
+}
