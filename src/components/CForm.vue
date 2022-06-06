@@ -10,6 +10,8 @@ const types: Record<string, string> = {
   datePicker: "el-date-picker"
 };
 
+const inputTypes = ["el-input", "el-input-number"];
+
 const props = defineProps({
   options: {
     type: Array,
@@ -132,12 +134,27 @@ watchEffect(() => {
               :label="item.label"
               v-bind="item.itemExtra"
             >
-              <component
-                :is="item.tagName"
-                v-model="modelProps[item.name]"
-                v-bind="item.props"
-                v-on="item.on"
-              />
+              <template v-if="item.scopedSlot && $slots[item.scopedSlot]">
+                <slot :name="item.scopedSlot" :model="value" :option="item" />
+              </template>
+              <template v-else-if="item.tagName">
+                <template v-if="inputTypes.includes(item.tagName)">
+                  <component
+                    :is="item.tagName"
+                    v-model.trim="modelProps[item.name]"
+                    v-bind="item.props"
+                    v-on="item.on"
+                  />
+                </template>
+                <template v-else>
+                  <component
+                    :is="item.tagName"
+                    v-model="modelProps[item.name]"
+                    v-bind="item.props"
+                    v-on="item.on"
+                  />
+                </template>
+              </template>
             </el-form-item>
           </el-col>
         </template>
