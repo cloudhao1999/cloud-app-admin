@@ -79,6 +79,11 @@ async function onLoad() {
   loading.value = true;
   activitieList.value = {};
   try {
+    /**
+     * GITHUB_ACCESS_TOKEN 访问GitHub API的密钥，需要改为自己的，如何获取可自行搜索
+     * GITHUB_USER 为自己的GitHub用户名
+     * GITHUB_REPO 为你自己的仓库名称
+     *  */
     const res = await fetchCommits(
       UserEnum.GITHUB_USER,
       UserEnum.GITHUB_REPO,
