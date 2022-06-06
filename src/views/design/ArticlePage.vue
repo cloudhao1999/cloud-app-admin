@@ -56,16 +56,16 @@ const {
 
 <template>
   <div class="relative w-full">
-    <div class="mx-3 mt-5">
-      <search-filter
-        :model="searchParams"
-        :options="filterOptions"
-        :show-reset="true"
-        @reset="handleReset"
-        @search="handleSearch"
-      />
-    </div>
     <div class="p-[8px] absolute w-full">
+      <div class="mx-3 mt-5">
+        <search-filter
+          :model="searchParams"
+          :options="filterOptions"
+          :show-reset="true"
+          @reset="handleReset"
+          @search="handleSearch"
+        />
+      </div>
       <el-table
         v-loading="loading"
         :data="dataSource"
