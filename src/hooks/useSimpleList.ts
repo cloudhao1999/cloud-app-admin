@@ -110,7 +110,8 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     handleCurrentChange,
     dataSource,
     ipagination,
-    modalFormRef
+    modalFormRef,
+    loading
   };
 }
 

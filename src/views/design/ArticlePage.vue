@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { UrlListType } from "@/utils/list/listFactory";
 import { SimpleListType, useSimpleList } from "@/hooks/useSimpleList";
-import ArticleEditDialogVue from "./modules/ArticleEditDialog.vue";
+import ArticleEditDialog from "./modules/ArticleEditDialog.vue";
 import { ArticleModel } from "@/model/article";
 import { computed, ref } from "vue";
 
@@ -40,6 +40,7 @@ const filterOptions = computed(() => {
   ];
 });
 const {
+  loading,
   dataSource,
   ipagination,
   modalFormRef,
@@ -65,7 +66,14 @@ const {
       />
     </div>
     <div class="p-[8px] absolute w-full">
-      <el-table :data="dataSource" align="right" header-align="right" stripe style="width: 100%">
+      <el-table
+        v-loading="loading"
+        :data="dataSource"
+        align="right"
+        header-align="right"
+        stripe
+        style="width: 100%"
+      >
         <el-table-column prop="id" label="ID" width="80" />
         <el-table-column prop="title" label="标题" width="180" />
         <el-table-column prop="content" label="内容" show-overflow-tooltip />
@@ -94,8 +102,6 @@ const {
         />
       </div>
     </div>
-    <ArticleEditDialogVue ref="modalFormRef" @close="loadData" />
+    <ArticleEditDialog ref="modalFormRef" @close="loadData" />
   </div>
 </template>
-
-<style lang="scss" scoped></style>

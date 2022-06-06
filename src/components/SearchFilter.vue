@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onDeactivated, onMounted, ref, watch } from "vue";
+import { ArrowUp, ArrowDown } from "@element-plus/icons-vue";
 import CForm from "@/components/CForm.vue";
 
 let already = false;
@@ -215,7 +216,8 @@ onDeactivated(() => {
       <slot name="extraButtons" :loading="loading" />
       <a v-if="showExpandBtn" @click="handleToggleSearch">
         {{ expanded ? "收起" : "展开" }}
-        <a-icon :type="expanded ? 'up' : 'down'" />
+        <el-icon v-show="expanded"><ArrowUp /></el-icon>
+        <el-icon v-show="!expanded"><ArrowDown /></el-icon>
       </a>
     </c-form>
   </div>
