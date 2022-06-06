@@ -46,6 +46,16 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     modalFormRef.value.title = "新增";
   };
 
+  const handleSearch = (values: any) => {
+    queryParam.value = values;
+    loadData(true);
+  };
+
+  const handleReset = () => {
+    queryParam.value = {} as any;
+    loadData(true);
+  };
+
   const handleEdit = <T>(record: T, title = "编辑") => {
     modalFormRef.value.edit(record);
     modalFormRef.value.title = title;
@@ -91,7 +101,9 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     loadData,
     handleAdd,
     handleEdit,
+    handleReset,
     handleDelete,
+    handleSearch,
     handleAddDrawer,
     handleEditDrawer,
     handleSizeChange,

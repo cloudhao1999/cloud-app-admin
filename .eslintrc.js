@@ -40,6 +40,7 @@ module.exports = {
   rules: {
     "vue/no-v-html": "off",
     "vue/require-default-prop": "off",
+    "vue/no-deprecated-dollar-listeners-api": "off",
     "vue/require-explicit-emits": "off",
     "vue/multi-word-component-names": "off",
     "@typescript-eslint/no-explicit-any": "off", // any

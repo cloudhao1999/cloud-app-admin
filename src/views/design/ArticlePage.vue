@@ -3,11 +3,42 @@ import { UrlListType } from "@/utils/list/listFactory";
 import { SimpleListType, useSimpleList } from "@/hooks/useSimpleList";
 import ArticleEditDialogVue from "./modules/ArticleEditDialog.vue";
 import { ArticleModel } from "@/model/article";
+import { computed, ref } from "vue";
 
 const url: Partial<UrlListType> = {
   list: "/article",
   delete: "/deleteArticle"
 };
+
+const initialValues = {
+  title: "",
+  content: ""
+};
+
+const searchParams = ref(initialValues);
+
+const filterOptions = computed(() => {
+  return [
+    {
+      label: "标题",
+      name: "title",
+      tagName: "el-input",
+      props: {
+        placeholder: "请输入标题",
+        maxLength: "24"
+      }
+    },
+    {
+      label: "内容",
+      name: "content",
+      tagName: "el-input",
+      props: {
+        placeholder: "请输入内容",
+        maxLength: "24"
+      }
+    }
+  ];
+});
 const {
   dataSource,
   ipagination,
@@ -16,12 +47,23 @@ const {
   handleSizeChange,
   handleCurrentChange,
   handleEdit,
-  handleDelete
+  handleDelete,
+  handleSearch,
+  handleReset
 } = useSimpleList<ArticleModel>(url) as SimpleListType;
 </script>
 
 <template>
   <div class="relative w-full">
+    <div class="mx-3 mt-5">
+      <search-filter
+        :model="searchParams"
+        :options="filterOptions"
+        :show-reset="true"
+        @reset="handleReset"
+        @search="handleSearch"
+      />
+    </div>
     <div class="p-[8px] absolute w-full">
       <el-table :data="dataSource" align="right" header-align="right" stripe style="width: 100%">
         <el-table-column prop="id" label="ID" width="80" />
