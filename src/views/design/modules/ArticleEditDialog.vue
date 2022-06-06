@@ -1,8 +1,8 @@
 <template>
-  <el-dialog v-model="visible" :width="dialogWidth" :title="title">
+  <el-dialog v-model="visible" :width="dialogWidth" :title="title" @close="cancel">
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="visible = false">取消</el-button>
+        <el-button @click="cancel">取消</el-button>
         <el-button type="primary" @click="submitForm(ruleFormRef)">确定</el-button>
       </span>
     </template>
@@ -33,6 +33,12 @@ function edit(record: ArticleModel) {
   model.value = Object.assign({}, record);
   visible.value = true;
 }
+
+function cancel() {
+  ruleFormRef.value?.clearValidate();
+  visible.value = false;
+}
+
 async function submitForm(formEl: FormInstance | undefined) {
   if (!formEl) return;
   await formEl.validate((valid) => {
