@@ -1,4 +1,5 @@
-import { columnType } from "#/table";
+import { CTableColumn } from "#/table";
+import { ArticleModel } from "@/model/article";
 
 export const articleFilterOptions = [
   {
@@ -21,7 +22,7 @@ export const articleFilterOptions = [
   }
 ];
 
-export const articleColumns: columnType[] = [
+export const articleColumns: CTableColumn<ArticleModel>[] = [
   {
     prop: "id",
     label: "ID",

@@ -1,3 +1,4 @@
+import type { TableColumnCtx } from "element-plus/es/components/table/src/table-column/defaults";
 export type columnType = {
   prop: string;
   label: string;
@@ -6,4 +7,8 @@ export type columnType = {
   showOverflowTooltip?: boolean;
   fixed?: string;
   width?: string;
+};
+
+type CTableColumn<T> = Partial<TableColumnCtx<T>> & {
+  scoped?: string;
 };

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { columnType } from "#/table";
+import { CTableColumn } from "#/table";
 
 interface Props {
-  columns: columnType[];
+  columns: CTableColumn<any>[];
   selectionIsNeeded?: boolean;
   tableData: any[];
 }
