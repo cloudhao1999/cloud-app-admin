@@ -140,8 +140,10 @@ function onResize() {
   if (!valid.value) return;
   valid.value = false;
   timer.value = setTimeout(() => {
-    wrapWidth.value = filterWrapRef.value!.clientWidth || 0;
-    valid.value = true;
+    if (filterWrapRef.value) {
+      wrapWidth.value = filterWrapRef.value.offsetWidth;
+      valid.value = true;
+    }
   }, 300) as unknown as number;
 }
 
