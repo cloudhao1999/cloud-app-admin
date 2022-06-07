@@ -1,7 +1,7 @@
 import { UserEnum } from "@/enum/userEnum";
 import Cookies from "js-cookie";
 
-// 获取token
+// 获取token字段
 export function getToken() {
   // 此处与TOKEN_KEY相同，此写法解决初始化时Cookies中不存在TOKEN_KEY报错
   return sessionStorage.getItem(UserEnum.TOKEN_KEY);
