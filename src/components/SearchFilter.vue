@@ -140,7 +140,7 @@ function onResize() {
   if (!valid.value) return;
   valid.value = false;
   timer.value = setTimeout(() => {
-    wrapWidth.value = filterWrapRef.value!.clientWidth;
+    wrapWidth.value = filterWrapRef.value!.clientWidth || 0;
     valid.value = true;
   }, 300) as unknown as number;
 }
@@ -216,8 +216,8 @@ onDeactivated(() => {
       <slot name="extraButtons" :loading="loading" />
       <a v-if="showExpandBtn" @click="handleToggleSearch">
         {{ expanded ? "收起" : "展开" }}
-        <el-icon v-show="expanded"><ArrowUp /></el-icon>
-        <el-icon v-show="!expanded"><ArrowDown /></el-icon>
+        <el-icon v-show="expanded"><component :is="ArrowUp" /></el-icon>
+        <el-icon v-show="!expanded"><component :is="ArrowDown" /></el-icon>
       </a>
     </c-form>
   </div>
