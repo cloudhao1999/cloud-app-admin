@@ -66,7 +66,9 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
       useMessage("error", "请设置url.delete属性");
       return;
     }
-    const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.delete, { id });
+    const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.delete, {
+      params: { id }
+    });
     if (res.code === 200 && res.data.count > 0) {
       useMessage("success", "删除成功");
       loadData(true);

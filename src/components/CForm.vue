@@ -55,7 +55,6 @@ watch(
   (val) => {
     const validatorRulesObj: any = {};
     formData.value = val.map((item) => {
-      console.log(item);
       let { name, type, rules, tagName, ...rest } = item;
       if (rules) {
         validatorRulesObj[name] = rules;
@@ -69,7 +68,6 @@ watch(
         tagName
       };
     });
-    console.log("formData", formData.value);
     validatorRules.value = validatorRulesObj;
   },
   { immediate: true }
