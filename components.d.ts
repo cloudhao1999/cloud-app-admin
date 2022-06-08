@@ -38,10 +38,12 @@ declare module "@vue/runtime-core" {
     IMdiFormatIndentDecrease: typeof import("~icons/mdi/format-indent-decrease")["default"];
     IMdiFullscreen: typeof import("~icons/mdi/fullscreen")["default"];
     IMdiFullscreenExit: typeof import("~icons/mdi/fullscreen-exit")["default"];
+    IMdiQqchat: typeof import("~icons/mdi/qqchat")["default"];
     IMdiRefresh: typeof import("~icons/mdi/refresh")["default"];
     IMdiTrendingDown: typeof import("~icons/mdi/trending-down")["default"];
     IMdiTrendingUp: typeof import("~icons/mdi/trending-up")["default"];
     IMdiWeatherNight: typeof import("~icons/mdi/weather-night")["default"];
+    IMdiWechat: typeof import("~icons/mdi/wechat")["default"];
     IMdiWhiteBalanceSunny: typeof import("~icons/mdi/white-balance-sunny")["default"];
     Loading: typeof import("element-plus/es")["ElLoadingDirective"];
     Panel: typeof import("./src/components/Panel.vue")["default"];
