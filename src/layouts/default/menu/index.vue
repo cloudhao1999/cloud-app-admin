@@ -36,7 +36,7 @@ const isCollapse = computed(() => {
           v-for="(cmenu, key) of menu.children"
           :key="key"
           :index="menu.title + '-' + cmenu.title"
-          @click="$router.push({ name: cmenu.route })"
+          @click="menuService.linkPage(cmenu)"
           >{{ cmenu?.title }}</el-menu-item
         >
       </el-sub-menu>

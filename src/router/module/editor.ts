@@ -7,16 +7,16 @@ export default {
   meta: { auth: true, menu: { title: "创意设计", icon: "EditPen" } },
   children: [
     {
-      name: "editor",
-      path: "editor",
-      component: () => import("@/views/design/EditorPage.vue"),
-      meta: { menu: { title: "富文本编辑器" } }
-    },
-    {
       name: "article",
       path: "article",
       component: () => import("@/views/design/ArticlePage.vue"),
       meta: { menu: { title: "文章列表" } }
+    },
+    {
+      name: "editor",
+      path: "editor",
+      component: () => import("@/views/design/EditorPage.vue"),
+      meta: { menu: { title: "富文本编辑器" } }
     }
   ]
 } as RouteRecordRaw;

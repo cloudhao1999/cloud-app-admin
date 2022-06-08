@@ -54,6 +54,14 @@ class Menu {
     return activeIndex;
   }
 
+  linkPage(menu: IMenu) {
+    this.isExternalLink(menu) ? window.open(menu.path) : router.push({ name: menu.route });
+  }
+
+  isExternalLink(menu: IMenu) {
+    return !!menu.path;
+  }
+
   toggleState() {
     this.close.value = !this.close.value;
   }

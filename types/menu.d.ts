@@ -3,6 +3,7 @@ interface Menu {
   icon?: string;
   isClick?: boolean;
   route?: string;
+  path?: string;
 }
 
 export interface IMenu extends Menu {
