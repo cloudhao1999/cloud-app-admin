@@ -7,7 +7,7 @@ export default {
     {
       name: "Github",
       path: "404",
-      component: () => import("@/views/default/Blank.vue"),
+      component: () => import("@/layouts/empty-page.vue"),
       meta: {
         menu: { title: "Github仓库", path: "https://github.com/cloudhao1999/cloud-app-admin" }
       }
