@@ -13,7 +13,7 @@
   <a href="https://github.com/cloudhao1999/cloud-app-admin/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/cloudhao1999/cloud-app-admin">
   </a>
-  <a href="https://github.com/1esse/vue-clownfish-admin/releases">
+  <a href="https://github.com/cloudhao1999/cloud-app-admin/releases">
     <img src="https://img.shields.io/github/v/release/cloudhao1999/cloud-app-admin.svg" alt="GitHub release">
   </a>
 </p>
