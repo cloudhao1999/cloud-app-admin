@@ -106,3 +106,18 @@ pnpm commit
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png" alt="IE" width="24px" height="24px"  />](http://godban.github.io/browsers-support-badges/)IE | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt=" Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)Safari |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |                         not support                          |                       last 2 versions                        |                       last 2 versions                        |                       last 2 versions                        |                       last 2 versions                        |
+
+## Q&A
+
+1. 启动项目进入首页出现401报错怎么回事？
+
+   这是由于时间线组件调用了GitHub的API来获取仓库的commit信息，调用API需要申请token，申请token的方法可参考 [github的token使用方法](https://blog.csdn.net/chengwenyang/article/details/120060010)，token获取后可以在`src/enum/secretEnum.ts`中进行修改，在`TimeLine.vue`组件中，你可以修改 `UserEnum.GITHUB_USER`,`UserEnum.GITHUB_REPO`,` SecretEnum.GITHUB_ACCESS_TOKEN`枚举字段实现监测自己仓库commit信息功能。
+
+2. 登录界面账号密码是多少？
+
+   随便填，但是账号和密码需要遵循校验规则，账号为手机号或标准邮箱格式，密码不低于三位。
+
+   
+
+   
+
