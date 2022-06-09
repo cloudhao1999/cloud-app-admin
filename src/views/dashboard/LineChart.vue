@@ -48,7 +48,6 @@ const options = ref({
   tooltip: {
     trigger: "axis",
     formatter: function (params: any) {
-      console.log("params", params);
       return `${params[0].marker}${params[0].value} RMB`;
     }
   },
