@@ -1,6 +1,6 @@
 export default {
-  name: "error",
-  path: "/error",
+  name: "external",
+  path: "/external",
   component: () => import("@/layouts/common-page.vue"),
   meta: { menu: { title: "外链", icon: "Link" } },
   children: [
