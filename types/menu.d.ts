@@ -4,6 +4,7 @@ interface Menu {
   isClick?: boolean;
   route?: string;
   path?: string;
+  link?: string;
 }
 
 export interface IMenu extends Menu {
