@@ -65,7 +65,7 @@ pnpm dev
 
 ## Git 贡献提交规范
 
-项目已经内置angular提交规范，通过git cz 代替git commit 命令即可
+项目已经内置angular提交规范，通过cz 代替git commit 命令即可
 
 ```bash
 pnpm commit
