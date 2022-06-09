@@ -20,7 +20,7 @@
 
 ## 简介
 
-cloud-app-admin 使用了最新的`vue3.2+` `vite2` `Element-Plus` `TypeScript`等主流技术开发，希望能和大家一起学习最新前端技术。
+cloud-app-admin 使用了最新的`vue3.2+` `vite2` `Element-Plus` `TypeScript` `Tailwind CSS`等主流技术开发，希望能和大家一起学习最新前端技术。
 
 ## 已实现功能
 
@@ -32,6 +32,7 @@ cloud-app-admin 使用了最新的`vue3.2+` `vite2` `Element-Plus` `TypeScript`�
 - [x] Axios二次封装📦
 - [x] 代码规范集成（EditorConfig、Eslint、Prettier、Husky、Lint-staged）📒
 - [x] Vxe-table多维度图表组件引入📈
+- [x] 封装常用通知、表格Hooks 🎺
 - [x] Echarts图表组件库引入🪐
 - [x] 富文本编辑器引入（WangEditor）📝
 - [x] Mock引入🔍
@@ -75,6 +76,14 @@ pnpm dev
 - 暗黑模式
 
 ![dashboard-dark](./screenshot/dashboard-dark.png)
+
+- 富文本编辑器
+
+  ![editor](./screenshot/editor.png)
+
+- CRUD列表
+
+  ![crud](./screenshot/crud.png)
 
 - 自适应
 
