@@ -8,10 +8,12 @@ import { useMessage } from "@/hooks/useMessage";
 import { removeToken } from "@/utils/auth";
 import { userStore } from "@/store/user";
 import { openNewTab } from "@/utils/web";
+import { useI18n } from "vue-i18n";
 
 const router = useRouter();
 
 const userState = userStore();
+const { t } = useI18n();
 const formatted = useDateFormat(useNow(), "YYYY-MM-DD HH:mm");
 
 function toLogin() {
@@ -27,9 +29,9 @@ function toLogin() {
 <template>
   <el-avatar shape="square" :size="40" :src="userState.avatar" />
   <div class="flex flex-col items-start">
-    <span class="font-sans dark:text-white text-gray-600 text-sm font-medium"
-      >你好，{{ userState.name }}</span
-    >
+    <span class="font-sans dark:text-white text-gray-600 text-sm font-medium">{{
+      t("hello") + userState.name
+    }}</span>
     <span class="font-sans dark:text-white text-gray-500 text-sm">{{ formatted }}</span>
   </div>
   <el-dropdown>

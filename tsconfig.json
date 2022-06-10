@@ -16,7 +16,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "types": ["node", "vite/client", "element-plus/global"],
+    "types": ["node", "vite/client", "element-plus/global", "@intlify/vite-plugin-vue-i18n/client"],
     "typeRoots": ["./node_modules/@types/", "./types"],
     "skipLibCheck": true
   },
