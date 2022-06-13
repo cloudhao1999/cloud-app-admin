@@ -4,7 +4,7 @@ import messages from "@intlify/vite-plugin-vue-i18n/messages";
 
 export function setupI18n(app: App) {
   const i18n = createI18n({
-    locale: "en", // zh-CN
+    locale: "zh-CN", // zh-CN
     messages
   });
   app.use(i18n);
