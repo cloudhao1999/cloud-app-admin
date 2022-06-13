@@ -1,3 +1,18 @@
 {
-  "hello": "你好，"
+  "hello": "你好，",
+  "github": "Github 仓库",
+  "logout": "退出登录",
+  "router.home": "首页",
+  "router.dashboard": "工作台",
+  "router.design": "创意设计",
+  "router.article": "文章列表",
+  "router.editor": "富文本编辑器",
+  "router.error": "错误页面",
+  "router.404": "404页面",
+  "router.403": "403页面",
+  "router.500": "500页面",
+  "router.external": "外链",
+  "router.github": "Github仓库",
+  "router.iframe": "内嵌页面",
+  "router.vue": "Vue.js"
 }

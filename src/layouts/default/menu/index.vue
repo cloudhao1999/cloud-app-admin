@@ -4,8 +4,10 @@ import menuService from "@/hooks/useMenu";
 import { computed, ref, watchEffect } from "vue";
 import { ElMenu } from "element-plus";
 import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
 
 const route = useRoute();
+const { t } = useI18n();
 const acticeIndex = ref<string>("");
 
 watchEffect(() => {
@@ -30,14 +32,14 @@ const isCollapse = computed(() => {
       >
         <template #title>
           <el-icon><component :is="menu.icon" /></el-icon>
-          <span>{{ menu.title }}</span>
+          <span>{{ t(menu.title!) }}</span>
         </template>
         <el-menu-item
           v-for="(cmenu, key) of menu.children"
           :key="key"
           :index="menu.title + '-' + cmenu.title"
           @click="menuService.linkPage(cmenu)"
-          >{{ cmenu?.title }}</el-menu-item
+          >{{ t(cmenu?.title!) }}</el-menu-item
         >
       </el-sub-menu>
     </el-menu>

@@ -40,10 +40,10 @@ function toLogin() {
     /></el-icon>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item @click="openNewTab(UserEnum.GITHUB_REPOSITORY)"
-          >Github仓库</el-dropdown-item
-        >
-        <el-dropdown-item @click="toLogin">退出登录</el-dropdown-item>
+        <el-dropdown-item @click="openNewTab(UserEnum.GITHUB_REPOSITORY)">{{
+          t("github")
+        }}</el-dropdown-item>
+        <el-dropdown-item @click="toLogin">{{ t("logout") }}</el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>

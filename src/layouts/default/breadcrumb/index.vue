@@ -3,8 +3,10 @@ import { ArrowRight } from "@element-plus/icons-vue";
 import menuService from "@/hooks/useMenu";
 import { ref, watchEffect } from "vue";
 import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
 
 const route = useRoute();
+const { t } = useI18n();
 const currentBread = ref<string>("");
 const breadArr = ref<string[]>([]);
 
@@ -18,7 +20,7 @@ watchEffect(() => {
   <div class="breadcrumb">
     <el-breadcrumb :separator-icon="ArrowRight">
       <el-breadcrumb-item v-for="(bread, index) in breadArr" :key="index">{{
-        bread
+        t(bread)
       }}</el-breadcrumb-item>
     </el-breadcrumb>
   </div>

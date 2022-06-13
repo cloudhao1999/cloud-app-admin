@@ -6,12 +6,12 @@ const routes = [
     name: "HomePage",
     redirect: { name: "Dashboard" },
     component: () => import("@/layouts/common-page.vue"),
-    meta: { auth: true, menu: { title: "首页", icon: "Monitor" } },
+    meta: { auth: true, menu: { title: "router.home", icon: "Monitor" } },
     children: [
       {
         path: "dashboard",
         name: "Dashboard",
-        meta: { menu: { title: "工作台" } },
+        meta: { menu: { title: "router.dashboard" } },
         component: () => import("@/views/HomePage.vue")
       }
     ]

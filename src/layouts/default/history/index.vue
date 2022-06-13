@@ -2,9 +2,12 @@
 import { ref, watchEffect } from "vue";
 import menuService from "@/hooks/useMenu";
 import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
 
 const size = ref(0);
 const route = useRoute();
+const { t } = useI18n();
+
 const activeHistory = ref<string>();
 
 watchEffect(() => {
@@ -25,7 +28,7 @@ watchEffect(() => {
         @close="menuService.removeHistoryMenu(tag)"
         @click="$router.push({ name: tag.route })"
       >
-        {{ tag.title }}
+        {{ t(tag.title!) }}
       </el-tag>
     </el-space>
   </div>

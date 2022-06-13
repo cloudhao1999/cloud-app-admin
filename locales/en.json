@@ -1,3 +1,18 @@
 {
-  "hello": "Hello,"
+  "hello": "Hello,",
+  "github": "Github Pages",
+  "logout": "Logout",
+  "router.home": "Home",
+  "router.dashboard": "Dashboard",
+  "router.design": "Design",
+  "router.article": "Article",
+  "router.editor": "Editor",
+  "router.error": "Error",
+  "router.404": "Page 404",
+  "router.403": "Page 403",
+  "router.500": "Page 500",
+  "router.external": "External",
+  "router.github": "Github Pages",
+  "router.iframe": "Iframe",
+  "router.vue": "Vue.js"
 }
