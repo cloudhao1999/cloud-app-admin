@@ -2,7 +2,7 @@ export default {
   name: "iframe",
   path: "/iframe",
   component: () => import("@/layouts/common-page.vue"),
-  meta: { menu: { title: "router.iframe", icon: "MoonNight" } },
+  meta: { auth: true, menu: { title: "router.iframe", icon: "MoonNight" } },
   children: [
     {
       name: "Vue.js",
