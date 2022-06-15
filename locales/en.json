@@ -14,5 +14,7 @@
   "router.external": "External",
   "router.github": "Github Pages",
   "router.iframe": "Iframe",
-  "router.vue": "Vue.js"
+  "router.vue": "Vue.js",
+  "router.i18n": "i18n",
+  "router.i18nTest": "i18n Test"
 }

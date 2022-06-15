@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
+import i18nService from "@/hooks/useI18n";
 
-const { availableLocales, locale } = useI18n();
+const { locale } = useI18n();
 const toggleLocales = () => {
-  const locales = availableLocales;
-  locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length];
+  locale.value = i18nService.locale.value === "zh-CN" ? "en" : "zh-CN";
+  i18nService.toggleLocale();
 };
 </script>
 

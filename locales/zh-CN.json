@@ -14,5 +14,7 @@
   "router.external": "外链",
   "router.github": "Github仓库",
   "router.iframe": "内嵌页面",
-  "router.vue": "Vue.js"
+  "router.vue": "Vue.js",
+  "router.i18n": "国际化",
+  "router.i18nTest": "国际化测试"
 }
