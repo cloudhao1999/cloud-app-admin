@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import "@wangeditor/editor/dist/css/style.css";
-import { onBeforeUnmount, ref, shallowRef, watch } from "vue";
+import { nextTick, onBeforeUnmount, ref, shallowRef, watch, watchEffect } from "vue";
+import i18nService from "@/hooks/useI18n";
 import { Editor, Toolbar } from "@wangeditor/editor-for-vue";
-import { IEditorConfig, IDomEditor, IToolbarConfig } from "@wangeditor/editor";
+import { IEditorConfig, IDomEditor, IToolbarConfig, i18nChangeLanguage } from "@wangeditor/editor";
 
 interface IProps {
   modelValue?: any;
@@ -12,6 +13,16 @@ const props = withDefaults(defineProps<IProps>(), {
 });
 
 const emit = defineEmits(["update:modelValue"]);
+
+watchEffect(() => {
+  // 修复语言切换后编辑器显示滞后的问题
+  i18nChangeLanguage(i18nService.locale.value);
+  nextTick(() => {
+    const editor = editorRef.value;
+    if (editor == null) return;
+    editor.focus();
+  });
+});
 
 // 编辑器实例，必须用 shallowRef
 const editorRef = shallowRef<IDomEditor>();
