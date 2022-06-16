@@ -4,7 +4,7 @@ export default {
   name: "i18n",
   path: "/i18n",
   component: () => import("@/layouts/common-page.vue"),
-  meta: { auth: true, menu: { title: "router.i18n", icon: "EditPen" } },
+  meta: { auth: true, menu: { title: "router.i18n", icon: "Promotion" } },
   children: [
     {
       name: "i18nTest",
