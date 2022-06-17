@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import menuService from "@/hooks/useMenu";
-import { ref } from "vue";
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 
-const globalTitle = ref<string>(import.meta.env.VITE_GLOB_APP_TITLE);
+const { t } = useI18n();
+const globalTitle = computed(() => {
+  return t("global_title");
+});
 </script>
 
 <template>

@@ -2,6 +2,7 @@
 import { computed, nextTick, onDeactivated, onMounted, ref, watch } from "vue";
 import { ArrowUp, ArrowDown } from "@element-plus/icons-vue";
 import CForm from "@/components/CForm.vue";
+import { useI18n } from "vue-i18n";
 
 let already = false;
 const expanded = ref(false);
@@ -11,6 +12,7 @@ const timer = ref(0);
 const minWidth = 300;
 const form = ref<InstanceType<typeof CForm>>();
 const modelProps = ref<any>({});
+const { t } = useI18n();
 
 const cols = computed(() => {
   let cols = Math.floor(wrapWidth.value / minWidth) || 3;
@@ -201,7 +203,7 @@ onDeactivated(() => {
             :disabled="searchDisabled"
             @click="handleSubmit"
           >
-            搜索
+            {{ t("page.common.btn.search") }}
           </el-button>
           <el-button
             v-if="showReset"
@@ -211,7 +213,7 @@ onDeactivated(() => {
             :disabled="resetDisabled"
             @click="handleReset"
           >
-            重置
+            {{ t("page.common.btn.reset") }}
           </el-button>
         </el-space>
       </template>

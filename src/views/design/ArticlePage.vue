@@ -4,7 +4,10 @@ import { SimpleListType, useSimpleList } from "@/hooks/useSimpleList";
 import ArticleEditDialog from "./components/ArticleEditDialog.vue";
 import { ArticleModel } from "@/model/article";
 import { computed, ref } from "vue";
-import { articleFilterOptions, articleColumns } from "./modules/design";
+import { setupArticleAttributes } from "./modules/design";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const url: Partial<UrlListType> = {
   list: "/article",
@@ -16,10 +19,12 @@ const initialValues = {
   content: ""
 };
 
+const { articleFilterOptions, articleColumns } = setupArticleAttributes();
+
 const searchParams = ref(initialValues);
 
 const filterOptions = computed(() => {
-  return articleFilterOptions;
+  return articleFilterOptions.value;
 });
 const {
   loading,
@@ -58,10 +63,15 @@ const {
         style="width: 100%"
       >
         <template #actions="scope">
-          <el-button size="small" @click="handleEdit(scope.row)">编辑</el-button>
-          <el-popconfirm title="确认删除该条记录?" @confirm="handleDelete(scope.row.id)">
+          <el-button size="small" @click="handleEdit(scope.row)">{{
+            t("page.common.btn.edit")
+          }}</el-button>
+          <el-popconfirm
+            :title="t('page.common.btn.delete_popover')"
+            @confirm="handleDelete(scope.row.id)"
+          >
             <template #reference>
-              <el-button size="small" type="danger">删除</el-button>
+              <el-button size="small" type="danger">{{ t("page.common.btn.delete") }}</el-button>
             </template>
           </el-popconfirm>
         </template>

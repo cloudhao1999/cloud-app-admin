@@ -1,27 +1,17 @@
-<template>
-  <el-dialog v-model="visible" :width="dialogWidth" :title="title" @close="cancel">
-    <template #footer>
-      <span class="dialog-footer">
-        <el-button @click="cancel">取消</el-button>
-        <el-button type="primary" @click="submitForm(ruleFormRef)">确定</el-button>
-      </span>
-    </template>
-    <c-form ref="ruleFormRef" v-model:value="model" :options="options" />
-  </el-dialog>
-</template>
-
 <script lang="ts" setup>
 import { useMessage } from "@/hooks/useMessage";
 import { ArticleModel } from "@/model/article";
 import { useWindowSize } from "@vueuse/core";
 import { FormInstance } from "element-plus";
 import { computed, ref } from "vue";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const emit = defineEmits(["close"]);
 
 const visible = ref(false);
 const ruleFormRef = ref<FormInstance>();
-const title = ref("新增");
+const title = ref("");
 const { width } = useWindowSize();
 const model = ref<Partial<ArticleModel>>({});
 
@@ -43,40 +33,68 @@ async function submitForm(formEl: FormInstance | undefined) {
   if (!formEl) return;
   await formEl.validate((valid) => {
     if (valid) {
-      useMessage("success", "提交成功");
+      useMessage("success", t("page.common.notice.submit_success"));
       emit("close");
       visible.value = false;
     }
   });
 }
 
-const options = [
-  {
-    name: "title",
-    type: "input",
-    label: "标题",
-    rules: [{ required: true, message: "请输入标题", trigger: "blur" }],
-    props: {
-      maxLength: 50,
-      placeholder: "请输入标题"
+const options = computed(() => {
+  return [
+    {
+      name: "title",
+      type: "input",
+      label: t("page.common.design.article.form.title"),
+      rules: [
+        {
+          required: true,
+          message: t("page.common.design.article.form.title_placeholder"),
+          trigger: "blur"
+        }
+      ],
+      props: {
+        maxLength: 50,
+        placeholder: t("page.common.design.article.form.title_placeholder")
+      }
+    },
+    {
+      name: "content",
+      type: "input",
+      label: t("page.common.design.article.form.content"),
+      rules: [
+        {
+          required: true,
+          message: t("page.common.design.article.form.content_placeholder"),
+          trigger: "blur"
+        }
+      ],
+      props: {
+        autosize: { minRows: 4, maxRows: 8 },
+        type: "textarea",
+        placeholder: t("page.common.design.article.form.content_placeholder")
+      }
     }
-  },
-  {
-    name: "content",
-    type: "input",
-    label: "内容",
-    rules: [{ required: true, message: "请输入内容！", trigger: "blur" }],
-    props: {
-      autosize: { minRows: 4, maxRows: 8 },
-      type: "textarea",
-      placeholder: "请输入内容"
-    }
-  }
-];
+  ];
+});
 
 defineExpose({
   edit,
   title: title
 });
 </script>
+<template>
+  <el-dialog v-model="visible" :width="dialogWidth" :title="title" @close="cancel">
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="cancel">{{ t("page.common.btn.cancel") }}</el-button>
+        <el-button type="primary" @click="submitForm(ruleFormRef)">{{
+          t("page.common.btn.confirm")
+        }}</el-button>
+      </span>
+    </template>
+    <c-form ref="ruleFormRef" v-model:value="model" :options="options" />
+  </el-dialog>
+</template>
+
 <style scoped></style>

@@ -3,6 +3,7 @@ import { http } from "@/utils/http";
 import { useMessage } from "./useMessage";
 import { BasicGetResult } from "#/resultType";
 import ListFactory, { UrlListType } from "@/utils/list/listFactory";
+import { useI18n } from "vue-i18n";
 
 /**
  * 接受一个url对象，提供基础的增删改查方法
@@ -11,6 +12,8 @@ import ListFactory, { UrlListType } from "@/utils/list/listFactory";
  */
 function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
   const factory = new ListFactory<T, U>(url);
+  const { t } = useI18n();
+
   const { dataSource, ipagination, loading, queryParam, modalFormRef, drawerFormRef } =
     toRefs(factory);
 
@@ -24,7 +27,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
 
   const loadData = async <T>(firstPage = false) => {
     if (!url.list) {
-      useMessage("error", "请设置url.list属性");
+      useMessage("error", t("page.common.notice.set_url_list"));
       return;
     }
     if (firstPage) {
@@ -43,7 +46,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
 
   const handleAdd = () => {
     modalFormRef.value.edit({});
-    modalFormRef.value.title = "新增";
+    modalFormRef.value.title = t("page.common.title.add");
   };
 
   const handleSearch = (values: any) => {
@@ -56,31 +59,31 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     loadData(true);
   };
 
-  const handleEdit = <T>(record: T, title = "编辑") => {
+  const handleEdit = <T>(record: T, title = t("page.common.title.edit")) => {
     modalFormRef.value.edit(record);
     modalFormRef.value.title = title;
   };
 
   const handleDelete = async (id: number) => {
     if (!url.delete) {
-      useMessage("error", "请设置url.delete属性");
+      useMessage("error", t("page.common.notice.set_url_delete"));
       return;
     }
     const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.delete, {
       params: { id }
     });
     if (res.code === 200 && res.data.count > 0) {
-      useMessage("success", "删除成功");
+      useMessage("success", t("page.common.notice.delete_success"));
       loadData(true);
     }
   };
 
   const handleAddDrawer = () => {
     drawerFormRef.value.add();
-    drawerFormRef.value.title = "新增";
+    drawerFormRef.value.title = t("page.common.title.add");
   };
 
-  const handleEditDrawer = <T>(record: T, title = "编辑") => {
+  const handleEditDrawer = <T>(record: T, title = t("page.common.title.edit")) => {
     drawerFormRef.value.edit(record);
     drawerFormRef.value.title = title;
   };
