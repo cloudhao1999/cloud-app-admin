@@ -93,7 +93,7 @@ defineExpose({
         }}</el-button>
       </span>
     </template>
-    <c-form ref="ruleFormRef" v-model:value="model" :options="options" />
+    <c-form ref="ruleFormRef" v-model:value="model" label-width="80px" :options="options" />
   </el-dialog>
 </template>
 
