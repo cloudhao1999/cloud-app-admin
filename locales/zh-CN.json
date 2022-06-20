@@ -42,6 +42,15 @@
   "page.common.design.article.form.title": "标题",
   "page.common.design.article.form.content": "内容",
   "page.common.design.article.form.title_placeholder": "请输入标题",
-  "page.common.design.article.form.content_placeholder": "请输入内容"
+  "page.common.design.article.form.content_placeholder": "请输入内容",
+  "page.common.dashboard.card.leaderboard": "排行榜",
+  "page.common.dashboard.card.timeline": "时间线",
+  "page.common.dashboard.card.coda": "可达鸭行情",
+  "page.common.dashboard.card.percentage": "宠物类别占比",
+  "page.common.dashboard.card.pixie": "小精灵数据",
+  "page.common.dashboard.column.leaderboard.name": "名称",
+  "page.common.dashboard.column.leaderboard.price": "价格",
+  "page.common.dashboard.column.leaderboard.tag": "类别",
+  "page.common.dashboard.column.leaderboard.compared": "同比"
 
 }

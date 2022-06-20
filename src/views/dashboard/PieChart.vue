@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const options = ref({
   legend: {
     orient: "vertical",
@@ -48,7 +50,7 @@ const options = ref({
 
 <template>
   <Card>
-    <template #title>宠物类别占比</template>
+    <template #title>{{ t("page.common.dashboard.card.percentage") }}</template>
     <template #content>
       <div class="overflow-auto">
         <VChart class="chart" :autoresize="true" :option="options" />

@@ -7,7 +7,9 @@ import { onMounted, ref, unref } from "vue";
 import { useDateFormat } from "@vueuse/core";
 import { useMessage } from "@/hooks/useMessage";
 import { SecretEnum } from "@/enum/secretEnum";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const activitieList = ref<Record<string, timeLineType>>({});
 const loading = ref(false);
 
@@ -105,7 +107,7 @@ onMounted(async () => {
 
 <template>
   <Card>
-    <template #title> 时间线 </template>
+    <template #title> {{ t("page.common.dashboard.card.timeline") }} </template>
     <template #actions>
       <i-mdi-refresh
         class="cursor-pointer text-gray-400 dark:text-white hover:rotate-180 duration-500"

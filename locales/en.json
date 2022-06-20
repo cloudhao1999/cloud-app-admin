@@ -42,5 +42,14 @@
   "page.common.design.article.form.title": "Title",
   "page.common.design.article.form.content": "Content",
   "page.common.design.article.form.title_placeholder": "Please Input Title",
-  "page.common.design.article.form.content_placeholder": "Please Input Content"
+  "page.common.design.article.form.content_placeholder": "Please Input Content",
+  "page.common.dashboard.card.leaderboard": "Leaderboard",
+  "page.common.dashboard.card.timeline": "Timeline",
+  "page.common.dashboard.card.coda": "Coda Duck Quotes",
+  "page.common.dashboard.card.percentage": "Percentage of pet categories",
+  "page.common.dashboard.card.pixie": "Pixie Data",
+  "page.common.dashboard.column.leaderboard.name": "Name",
+  "page.common.dashboard.column.leaderboard.price": "Price",
+  "page.common.dashboard.column.leaderboard.tag": "Tag",
+  "page.common.dashboard.column.leaderboard.compared": "Compared"
 }

@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import * as echarts from "echarts";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const options = ref({
   color: ["#56A3F1", "#FF917C"],
   radar: [
@@ -67,7 +69,7 @@ const options = ref({
 
 <template>
   <Card>
-    <template #title>小精灵数据</template>
+    <template #title>{{ t("page.common.dashboard.card.pixie") }}</template>
     <template #content>
       <VChart class="chart" :autoresize="true" :option="options" />
     </template>

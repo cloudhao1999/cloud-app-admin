@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 const tableData = [
   {
     name: "可达鸭",
@@ -51,19 +54,35 @@ const tableData = [
 <template>
   <div>
     <Card>
-      <template #title> 排行榜 </template>
+      <template #title> {{ t("page.common.dashboard.card.leaderboard") }} </template>
       <template #content>
         <el-table :data="tableData" align="right" header-align="right" stripe style="width: 100%">
-          <el-table-column prop="name" label="名称" />
-          <el-table-column sortable prop="price" label="价格" width="80" />
-          <el-table-column prop="category" width="100" label="类别">
+          <el-table-column
+            prop="name"
+            :label="t('page.common.dashboard.column.leaderboard.name')"
+          />
+          <el-table-column
+            sortable
+            prop="price"
+            :label="t('page.common.dashboard.column.leaderboard.price')"
+            width="85"
+          />
+          <el-table-column
+            prop="category"
+            width="80"
+            :label="t('page.common.dashboard.column.leaderboard.tag')"
+          >
             <template #default="scope">
               <span class="p-1 rounded-md bg-gray-500 text-white text-sm">{{
                 scope.row.category
               }}</span>
             </template>
           </el-table-column>
-          <el-table-column prop="sort" width="120" label="同比">
+          <el-table-column
+            prop="sort"
+            width="110"
+            :label="t('page.common.dashboard.column.leaderboard.compared')"
+          >
             <template #default="scope">
               <div class="flex">
                 <i-mdi-trending-up

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const data = [
   ["2022-05-05", 116],
   ["2022-05-06", 129],
@@ -76,7 +78,7 @@ const options = ref({
 
 <template>
   <Card>
-    <template #title>可达鸭行情</template>
+    <template #title>{{ t("page.common.dashboard.card.coda") }}</template>
     <template #content>
       <div class="overflow-auto">
         <VChart class="chart" :autoresize="true" :option="options" />
