@@ -6,17 +6,21 @@
       <template v-if="route.meta.menu?.iframe_link">
         <keep-alive>
           <Transition appear name="el-fade-in-linear">
-            <iframe
-              class="w-full h-full"
-              :src="route.meta.menu?.iframe_link"
-              frameborder="0"
-            ></iframe>
+            <EmptyBlock>
+              <iframe
+                class="w-full h-full"
+                :src="route.meta.menu?.iframe_link"
+                frameborder="0"
+              ></iframe>
+            </EmptyBlock>
           </Transition>
         </keep-alive>
       </template>
       <template v-else>
         <Transition appear name="el-fade-in-linear">
-          <component :is="Component" />
+          <EmptyBlock>
+            <component :is="Component" />
+          </EmptyBlock>
         </Transition>
       </template>
     </router-view>

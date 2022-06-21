@@ -8,6 +8,7 @@ import { useDateFormat } from "@vueuse/core";
 import { useMessage } from "@/hooks/useMessage";
 import { SecretEnum } from "@/enum/secretEnum";
 import { useI18n } from "vue-i18n";
+import { shallowRef } from "vue";
 
 const { t } = useI18n();
 const activitieList = ref<Record<string, timeLineType>>({});
@@ -45,19 +46,19 @@ function subStr(message: string) {
 function addTagsByType(s: mapStateType, key: string) {
   if (s.message.includes("feat")) {
     activitieList.value[key].color = TagColorEnum.FEAT;
-    activitieList.value[key].icon = BrushFilled;
+    activitieList.value[key].icon = shallowRef(BrushFilled);
   } else if (s.message.includes("fix")) {
     activitieList.value[key].color = TagColorEnum.FIX;
-    activitieList.value[key].icon = Pouring;
+    activitieList.value[key].icon = shallowRef(Pouring);
   } else if (s.message.includes("docs")) {
     activitieList.value[key].color = TagColorEnum.DOCS;
-    activitieList.value[key].icon = Collection;
+    activitieList.value[key].icon = shallowRef(Collection);
   } else if (s.message.includes("style")) {
     activitieList.value[key].color = TagColorEnum.STYLE;
-    activitieList.value[key].icon = Star;
+    activitieList.value[key].icon = shallowRef(Star);
   } else {
     activitieList.value[key].color = TagColorEnum.FEAT;
-    activitieList.value[key].icon = BrushFilled;
+    activitieList.value[key].icon = shallowRef(BrushFilled);
   }
 }
 

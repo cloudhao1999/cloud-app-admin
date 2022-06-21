@@ -37,6 +37,7 @@ declare module "@vue/runtime-core" {
     ElTag: typeof import("element-plus/es")["ElTag"];
     ElTimeline: typeof import("element-plus/es")["ElTimeline"];
     ElTimelineItem: typeof import("element-plus/es")["ElTimelineItem"];
+    EmptyBlock: typeof import("./src/components/EmptyBlock.vue")["default"];
     IMdiFormatIndentDecrease: typeof import("~icons/mdi/format-indent-decrease")["default"];
     IMdiFullscreen: typeof import("~icons/mdi/fullscreen")["default"];
     IMdiFullscreenExit: typeof import("~icons/mdi/fullscreen-exit")["default"];
