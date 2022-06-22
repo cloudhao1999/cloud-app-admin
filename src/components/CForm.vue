@@ -143,7 +143,7 @@ watchEffect(() => {
                     :is="item.tagName"
                     v-model.trim="modelProps[item.name]"
                     v-bind="item.props"
-                    v-on="item.on"
+                    v-on="item.on ?? {}"
                   />
                 </template>
                 <template v-else>
@@ -151,7 +151,7 @@ watchEffect(() => {
                     :is="item.tagName"
                     v-model="modelProps[item.name]"
                     v-bind="item.props"
-                    v-on="item.on"
+                    v-on="item.on ?? {}"
                   />
                 </template>
               </template>

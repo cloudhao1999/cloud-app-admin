@@ -1,4 +1,4 @@
-import { onMounted, toRefs } from "vue";
+import { onMounted, reactive, toRefs } from "vue";
 import { http } from "@/utils/http";
 import { useMessage } from "./useMessage";
 import { BasicGetResult } from "#/resultType";
@@ -14,8 +14,9 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
   const factory = new ListFactory<T, U>(url);
   const { t } = useI18n();
 
-  const { dataSource, ipagination, loading, queryParam, modalFormRef, drawerFormRef } =
-    toRefs(factory);
+  const { dataSource, ipagination, loading, queryParam, modalFormRef, drawerFormRef } = toRefs(
+    reactive(factory)
+  );
 
   const getQueryParams = () => {
     return {
