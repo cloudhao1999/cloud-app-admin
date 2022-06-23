@@ -25,14 +25,6 @@ const props = defineProps({
     type: Object,
     require: false
   },
-  labelCol: {
-    type: Object,
-    require: false
-  },
-  wrapperCol: {
-    type: Object,
-    require: false
-  },
   value: {
     type: Object,
     require: true,
@@ -127,13 +119,7 @@ watchEffect(() => {
       <el-row :gutter="gutter">
         <template v-for="(item, index) in formData" :key="index">
           <el-col v-if="!item.hidden" v-bind="item.colSpan || computedColSpan" :key="item.name">
-            <el-form-item
-              :label-col="item.labelCol || labelCol"
-              :wrapper-col="item.wrapperCol || wrapperCol"
-              :prop="item.name"
-              :label="item.label"
-              v-bind="item.itemExtra"
-            >
+            <el-form-item :prop="item.name" :label="item.label" v-bind="item.itemExtra">
               <template v-if="item.scopedSlot && $slots[item.scopedSlot]">
                 <slot :name="item.scopedSlot" :value="value" :option="item" />
               </template>
