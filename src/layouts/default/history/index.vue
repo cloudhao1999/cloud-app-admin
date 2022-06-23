@@ -23,7 +23,7 @@ watchEffect(() => {
         :key="tag.title"
         size="large"
         :type="activeHistory === tag.route ? '' : 'info'"
-        class="mx-1 cursor-pointer"
+        class="m-1 cursor-pointer"
         :closable="activeHistory === tag.route ? false : true"
         @close="menuService.removeHistoryMenu(tag)"
         @click="$router.push({ name: tag.route })"
