@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { UserEnum } from "@/enum/userEnum";
-import { TagColorEnum } from "@/enum/TagEnum";
+import { TagColorEnum } from "@/enum/tagsEnum";
 import { fetchCommits, GithubCommitResultType } from "@/api/github";
 import { Collection, Pouring, BrushFilled, Star } from "@element-plus/icons-vue";
 import { onMounted, ref, unref } from "vue";
