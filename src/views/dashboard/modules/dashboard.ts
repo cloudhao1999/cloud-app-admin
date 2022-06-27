@@ -1,11 +1,12 @@
 import { CTableColumn } from "#/table";
+import { ActivityModel } from "@/model/activity";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 
 export const setupDashobardAttributes = () => {
   const { t } = useI18n();
 
-  const activityColumns = computed<CTableColumn<any>[]>(() => {
+  const activityColumns = computed<CTableColumn<ActivityModel>[]>(() => {
     return [
       {
         prop: "name",
