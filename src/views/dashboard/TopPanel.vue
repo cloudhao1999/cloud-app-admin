@@ -40,7 +40,7 @@ const animalList = [
     name: "杰尼龟",
     price: "70",
     unit: "RMB",
-    category: "鳄龟",
+    category: "水系",
     color: "bg-blue-400",
     description: "他会咬你信不信",
     img: Jieni

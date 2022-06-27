@@ -38,7 +38,7 @@ const options = ref({
         { value: 38, name: "水系" },
         { value: 32, name: "草系" },
         { value: 30, name: "精神系" },
-        { value: 28, name: "鳄龟" },
+        { value: 28, name: "水系" },
         { value: 26, name: "火系" },
         { value: 22, name: "控制系" },
         { value: 18, name: "岩石系" }
