@@ -66,7 +66,7 @@ VXETable.setup({
   }
 });
 
-export function setUpTable(app: App) {
+export function setupTable(app: App) {
   app
     .use(Header)
     .use(Footer)
