@@ -31,7 +31,7 @@ class CloudHttp {
     CloudHttp.axiosInstance.interceptors.request.use(
       (config: CloudHttpRequestConfig) => {
         const $config = config;
-        // 优先判断post/get等方法是否传入回掉，否则执行初始化设置等回掉
+        // 优先判断post/get等方法是否传入回调，否则执行初始化设置等回调
         if (typeof config.beforeRequestCallback === "function") {
           config.beforeRequestCallback($config);
           return $config;
@@ -60,7 +60,7 @@ class CloudHttp {
     instance.interceptors.response.use(
       (response: CloudHttpResoponse) => {
         const $config = response.config;
-        // 优先判断post/get等方法是否传入回掉，否则执行初始化设置等回掉
+        // 优先判断post/get等方法是否传入回调，否则执行初始化设置等回调
         if (typeof $config.beforeResponseCallback === "function") {
           $config.beforeResponseCallback(response);
           return response.data;
@@ -94,7 +94,7 @@ class CloudHttp {
       ...axiosConfig
     } as CloudHttpRequestConfig;
 
-    // 单独处理自定义请求/响应回掉
+    // 单独处理自定义请求/响应回调
     return new Promise((resolve, reject) => {
       CloudHttp.axiosInstance
         .request(config)
