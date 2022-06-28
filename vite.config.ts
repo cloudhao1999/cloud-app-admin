@@ -15,6 +15,7 @@ export default defineConfig(({ command, mode }) => {
       alias,
       extensions: [".ts", ".js", ".vue", ".json"]
     },
+    base: isBuild ? "cloud-app-admin" : "",
     build: {
       outDir: "./dist/",
       rollupOptions: {
