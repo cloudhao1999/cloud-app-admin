@@ -10,6 +10,10 @@ input {
   outline:none
 }
 
+button, [type=button], [type=reset], [type=submit] {
+  background-color: var(--el-button-bg-color)
+}
+
 .el-main {
   padding: 0 !important;
 }
