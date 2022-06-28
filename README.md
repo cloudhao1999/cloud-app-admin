@@ -22,6 +22,10 @@
 
 cloud-app-admin 使用了最新的`vue3.2+` `vite2` `Element-Plus` `TypeScript` `Tailwind CSS`等主流技术开发，希望能和大家一起学习最新前端技术。
 
+## 在线体验
+
+线上地址： [cloud-app-admin](https://cloudhao1999.github.io/cloud-app-admin/)
+
 ## 已实现功能
 
 - [x] 路由集成 🧭
