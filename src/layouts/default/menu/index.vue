@@ -66,7 +66,7 @@ const isCollapse = computed(() => {
   }
 }
 
-@media screen and(max-width:768px) {
+@media screen and(max-width:766px) {
   .admin-menu {
     @apply w-[250px] duration-500 absolute top-0 left-0 min-h-screen h-full border-r border-gray-200 border-solid;
     &.close {
