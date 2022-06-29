@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { ref, watchEffect } from "vue";
 import menuService from "@/hooks/useMenu";
-import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 
 const size = ref(0);

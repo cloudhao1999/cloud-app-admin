@@ -1,5 +1,3 @@
-import { reactive, ref } from "vue";
-
 export type UrlListType = {
   list: string;
   delete: string;

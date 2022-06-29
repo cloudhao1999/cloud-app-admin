@@ -3,7 +3,6 @@ import { UrlListType } from "@/utils/list/listFactory";
 import { SimpleListType, useSimpleList } from "@/hooks/useSimpleList";
 import ArticleEditDialog from "./components/ArticleEditDialog.vue";
 import { ArticleModel } from "@/model/article";
-import { computed, ref } from "vue";
 import { setupArticleAttributes } from "./modules/design";
 import { useI18n } from "vue-i18n";
 

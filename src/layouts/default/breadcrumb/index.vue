@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ArrowRight } from "@element-plus/icons-vue";
 import menuService from "@/hooks/useMenu";
-import { ref, watchEffect } from "vue";
-import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 
 const route = useRoute();

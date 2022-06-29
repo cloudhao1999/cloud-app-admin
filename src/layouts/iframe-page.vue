@@ -4,8 +4,6 @@ import Header from "@/layouts/default/header/index.vue";
 import History from "@/layouts/default/history/index.vue";
 import menuService from "@/hooks/useMenu";
 import IframePageView from "./pages/index.vue";
-import { useRoute } from "vue-router";
-import { watch } from "vue";
 
 const route = useRoute();
 watch(

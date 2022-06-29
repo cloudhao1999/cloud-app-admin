@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Setting } from "@element-plus/icons-vue";
 import { UserEnum } from "@/enum/userEnum";
-import { useRouter } from "vue-router";
 import { useNow, useDateFormat } from "@vueuse/core";
 import { useDialog } from "@/hooks/useDialog";
 import { useMessage } from "@/hooks/useMessage";

@@ -1,9 +1,7 @@
 <script lang="ts" setup>
 import Banner from "../banner/index.vue";
 import menuService from "@/hooks/useMenu";
-import { computed, ref, watchEffect } from "vue";
 import { ElMenu } from "element-plus";
-import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 
 const route = useRoute();

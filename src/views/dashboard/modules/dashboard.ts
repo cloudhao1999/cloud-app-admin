@@ -1,6 +1,5 @@
 import { CTableColumn } from "#/table";
 import { ActivityModel } from "@/model/activity";
-import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 
 export const setupDashobardAttributes = () => {

@@ -1,5 +1,3 @@
-import { ref } from "vue";
-
 /**
  * 控制page的全屏状态
  */

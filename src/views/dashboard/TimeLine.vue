@@ -3,12 +3,10 @@ import { UserEnum } from "@/enum/userEnum";
 import { TagColorEnum } from "@/enum/tagsEnum";
 import { fetchCommits, GithubCommitResultType } from "@/api/github";
 import { Collection, Pouring, BrushFilled, Star } from "@element-plus/icons-vue";
-import { onMounted, ref, unref } from "vue";
 import { useDateFormat } from "@vueuse/core";
 import { useMessage } from "@/hooks/useMessage";
 import { SecretEnum } from "@/enum/secretEnum";
 import { useI18n } from "vue-i18n";
-import { shallowRef } from "vue";
 
 const { t } = useI18n();
 const activitieList = ref<Record<string, timeLineType>>({});

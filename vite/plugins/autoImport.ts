@@ -7,7 +7,12 @@ import IconsResolver from "unplugin-icons/resolver";
 export default function autoImport(plugins: Plugin[]) {
   plugins.push(
     AutoImport({
-      resolvers: [ElementPlusResolver()]
+      resolvers: [ElementPlusResolver()],
+      dts: true,
+      eslintrc: {
+        enabled: true
+      },
+      imports: ["vue", "vue-router"]
     }),
     Components({
       dts: true,

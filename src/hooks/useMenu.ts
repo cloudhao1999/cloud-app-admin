@@ -1,5 +1,4 @@
 import { IMenu } from "#/menu";
-import { ref } from "vue";
 import router from "@/router";
 import { RouteLocationNormalized, RouteLocationNormalizedLoaded, RouteRecordRaw } from "vue-router";
 import { useStorage } from "@vueuse/core";

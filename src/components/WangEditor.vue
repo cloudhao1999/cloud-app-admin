@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import "@wangeditor/editor/dist/css/style.css";
-import { nextTick, onBeforeUnmount, ref, shallowRef, watch, watchEffect } from "vue";
 import i18nService from "@/hooks/useI18n";
 import { Editor, Toolbar } from "@wangeditor/editor-for-vue";
 import { IEditorConfig, IDomEditor, IToolbarConfig, i18nChangeLanguage } from "@wangeditor/editor";
