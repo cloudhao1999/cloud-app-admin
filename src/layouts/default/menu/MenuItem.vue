@@ -7,10 +7,18 @@ const { t } = useI18n();
 
 interface Props {
   subMenu: Menu[];
+  activeKey: string;
 }
 const props = withDefaults(defineProps<Props>(), {
-  subMenu: () => []
+  subMenu: () => [],
+  activeKey: ""
 });
+
+const getActiveKey = (menu: Menu, cmenu: Menu) => {
+  return props.activeKey === ""
+    ? menu.title + "-" + cmenu.title
+    : props.activeKey + "-" + cmenu.title;
+};
 </script>
 
 <template>
@@ -20,11 +28,16 @@ const props = withDefaults(defineProps<Props>(), {
       <span>{{ t(menu.title!) }}</span>
     </template>
     <template v-for="(cmenu, key) of menu.children">
-      <menu-item v-if="cmenu.children" :key="'sub_ ' + key" :sub-menu="menu.children"></menu-item>
+      <menu-item
+        v-if="cmenu.children"
+        :key="'sub_ ' + key"
+        :active-key="menu.title + '-' + cmenu.title"
+        :sub-menu="menu.children"
+      ></menu-item>
       <el-menu-item
         v-else
         :key="key"
-        :index="menu.title + '-' + cmenu.title"
+        :index="getActiveKey(menu, cmenu)"
         @click="menuService.linkPage(cmenu)"
         >{{ t(cmenu?.title!) }}</el-menu-item
       >
