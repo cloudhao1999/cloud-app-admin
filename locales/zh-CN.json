@@ -55,7 +55,7 @@
   "page.common.dashboard.column.leaderboard.price": "价格",
   "page.common.dashboard.column.leaderboard.tag": "类别",
   "page.common.dashboard.column.leaderboard.compared": "同比",
-  "page.common.nested.text.level1": "层级1",
-  "page.common.nested.text.level2": "层级2"
+  "page.common.nested.text.level1": "我是第一层路由",
+  "page.common.nested.text.level2": "我是第二层路由"
 
 }
