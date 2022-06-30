@@ -46,20 +46,28 @@ class Menu {
     });
   }
 
-  getNestedMenuByRoute(menus: IMenu[], activeIndex: string, route: RouteLocationNormalizedLoaded) {
-    let index = activeIndex;
-    menus.forEach((m) => {
-      m.children?.forEach((c) => {
-        if (c.route === route.name) {
-          index += `${m.title}-${c.title}`;
-        }
-      });
+  /**
+   * 获取嵌套路由的面包屑
+   * @param m 菜单对象
+   * @param routerMap 用于存储路由名称对应的面包屑名称
+   * @param title 用于连接面包屑名称
+   */
+  getNestedMenuByRoute(m: IMenu, routerMap: Map<string, string>, title = "") {
+    m.children?.forEach((c) => {
+      title !== "" ? (title = `${title}-${c.title}`) : (title = `${m.title}-${c.title}`);
+      routerMap.set(c.route!, title);
+      if (c.children) {
+        this.getNestedMenuByRoute(c, routerMap, title);
+      }
     });
-    return index;
   }
 
   getCurrentMenu(route: RouteLocationNormalizedLoaded) {
-    return this.getNestedMenuByRoute(this.menus.value, "", route);
+    const routerMap = new Map();
+    this.menus.value.forEach((m) => {
+      this.getNestedMenuByRoute(m, routerMap);
+    });
+    return routerMap.get(route.name);
   }
 
   linkPage(menu: IMenu) {
