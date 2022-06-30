@@ -54,7 +54,7 @@ const toolbarConfig: Partial<IToolbarConfig> = {
 const editorConfig: Partial<IEditorConfig> = {
   MENU_CONF: {
     uploadImage: {
-      server: "/api/upload/image"
+      server: `${import.meta.env.VITE_API_URL}/upload/image`
     }
   }
 };
