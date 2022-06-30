@@ -1,11 +1,10 @@
 <script lang="ts" setup>
 import Banner from "../banner/index.vue";
 import menuService from "@/hooks/useMenu";
+import MenuItem from "./MenuItem.vue";
 import { ElMenu } from "element-plus";
-import { useI18n } from "vue-i18n";
 
 const route = useRoute();
-const { t } = useI18n();
 const acticeIndex = ref<string>("");
 
 watchEffect(() => {
@@ -23,23 +22,7 @@ const isCollapse = computed(() => {
       <Banner />
     </div>
     <el-menu :collapse="isCollapse" :default-active="acticeIndex">
-      <el-sub-menu
-        v-for="(menu, index) of menuService.menus.value"
-        :key="index"
-        :index="menu.title!"
-      >
-        <template #title>
-          <el-icon><component :is="menu.icon" /></el-icon>
-          <span>{{ t(menu.title!) }}</span>
-        </template>
-        <el-menu-item
-          v-for="(cmenu, key) of menu.children"
-          :key="key"
-          :index="menu.title + '-' + cmenu.title"
-          @click="menuService.linkPage(cmenu)"
-          >{{ t(cmenu?.title!) }}</el-menu-item
-        >
-      </el-sub-menu>
+      <menu-item :sub-menu="menuService.menus.value" />
     </el-menu>
     <teleport to="body">
       <div

@@ -5,8 +5,9 @@ interface Menu {
   route?: string;
   path?: string;
   iframe_link?: string;
+  children?: Menu[];
 }
 
 export interface IMenu extends Menu {
-  children?: Menu[];
+  nested?: boolean;
 }

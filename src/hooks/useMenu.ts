@@ -1,6 +1,11 @@
 import { IMenu } from "#/menu";
 import router from "@/router";
-import { RouteLocationNormalized, RouteLocationNormalizedLoaded, RouteRecordRaw } from "vue-router";
+import {
+  RouteLocationNormalized,
+  RouteLocationNormalizedLoaded,
+  RouteRecordNormalized,
+  RouteRecordRaw
+} from "vue-router";
 import { useStorage } from "@vueuse/core";
 import { CacheEnum } from "@/enum/cacheEnum";
 
@@ -41,16 +46,20 @@ class Menu {
     });
   }
 
-  getCurrentMenu(route: RouteLocationNormalizedLoaded) {
-    let activeIndex: string | null = null;
-    this.menus.value.forEach((m) => {
+  getNestedMenuByRoute(menus: IMenu[], activeIndex: string, route: RouteLocationNormalizedLoaded) {
+    let index = activeIndex;
+    menus.forEach((m) => {
       m.children?.forEach((c) => {
         if (c.route === route.name) {
-          activeIndex = `${m.title}-${c.title}`;
+          index += `${m.title}-${c.title}`;
         }
       });
     });
-    return activeIndex;
+    return index;
+  }
+
+  getCurrentMenu(route: RouteLocationNormalizedLoaded) {
+    return this.getNestedMenuByRoute(this.menus.value, "", route);
   }
 
   linkPage(menu: IMenu) {
@@ -65,18 +74,31 @@ class Menu {
     this.close.value = !this.close.value;
   }
 
+  /**
+   * 组装嵌套菜单对象
+   * @param children 嵌套的子菜单
+   * @returns 嵌套菜单对象
+   */
+  filterNestedMenu(children: RouteRecordNormalized["children"]): IMenu[] {
+    return children
+      .filter((route) => route.meta?.menu)
+      .map((route) => {
+        if (route.children) {
+          const childRoute = this.filterNestedMenu(route.children);
+          return { ...route.meta?.menu, route: route.name, children: childRoute };
+        }
+        return { ...route.meta?.menu, route: route.name };
+      }) as IMenu[];
+  }
+
   // 根据路由元数据构建菜单列表
   getMenuByRoute() {
     return router
       .getRoutes()
-      .filter((route) => route.children.length && route.meta.menu)
+      .filter((route) => route.children.length && route.meta.menu && !route.meta.menu.nested)
       .map((route) => {
         const menu: IMenu = { ...route.meta?.menu };
-        menu.children = route.children
-          .filter((route) => route.meta?.menu)
-          .map((route) => {
-            return { ...route.meta?.menu, route: route.name };
-          }) as IMenu[];
+        menu.children = this.filterNestedMenu(route.children);
         return menu;
       })
       .filter((menu) => menu.children?.length) as IMenu[];
