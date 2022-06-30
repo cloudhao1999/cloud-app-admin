@@ -4,6 +4,7 @@ import redirectService from "@/hooks/useRedirect";
 import { useMessage } from "@/hooks/useMessage";
 import { userStore } from "@/store/user";
 import { useRouter } from "vue-router";
+import { timeFix } from "@/utils/web";
 
 const router = useRouter();
 const userState = userStore();
@@ -38,7 +39,7 @@ const onSubmit = handleSubmit(async (values: any) => {
       } else {
         router.push("/dashboard");
       }
-      useMessage("success", `欢迎回来，${userState.info!.name}`);
+      useMessage("success", `${timeFix()}，${userState.info!.name}`);
     },
     (err) => {
       useMessage("error", err);
