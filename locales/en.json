@@ -54,5 +54,7 @@
   "page.common.dashboard.column.leaderboard.name": "Name",
   "page.common.dashboard.column.leaderboard.price": "Price",
   "page.common.dashboard.column.leaderboard.tag": "Tag",
-  "page.common.dashboard.column.leaderboard.compared": "Compared"
+  "page.common.dashboard.column.leaderboard.compared": "Compared",
+  "page.common.nested.text.level1": "Level 1",
+  "page.common.nested.text.level2": "level 2"
 }

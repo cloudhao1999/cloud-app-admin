@@ -54,6 +54,8 @@
   "page.common.dashboard.column.leaderboard.name": "名称",
   "page.common.dashboard.column.leaderboard.price": "价格",
   "page.common.dashboard.column.leaderboard.tag": "类别",
-  "page.common.dashboard.column.leaderboard.compared": "同比"
+  "page.common.dashboard.column.leaderboard.compared": "同比",
+  "page.common.nested.text.level1": "层级1",
+  "page.common.nested.text.level2": "层级2"
 
 }
