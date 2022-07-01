@@ -3,6 +3,10 @@ const props = defineProps({
   empty: {
     type: Boolean,
     default: false
+  },
+  errCapture: {
+    type: Boolean,
+    default: false
   }
 });
 </script>
@@ -23,7 +27,12 @@ const props = defineProps({
           </div>
         </div>
         <div class="my-3">
-          <slot name="content"></slot>
+          <div v-show="!errCapture">
+            <slot name="content"></slot>
+          </div>
+          <div v-show="errCapture">
+            <slot name="error"></slot>
+          </div>
         </div>
       </div>
     </div>
