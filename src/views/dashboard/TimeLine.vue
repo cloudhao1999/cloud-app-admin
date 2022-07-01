@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { UserEnum } from "@/enum/userEnum";
-import { TagColorEnum } from "@/enum/tagsEnum";
 import { fetchCommits, GithubCommitResultType } from "@/api/github";
-import { Collection, Pouring, BrushFilled, Star } from "@element-plus/icons-vue";
 import { useDateFormat } from "@vueuse/core";
 import { useMessage } from "@/hooks/useMessage";
 import { SecretEnum } from "@/enum/secretEnum";
 import { useI18n } from "vue-i18n";
+import { tagsType, tagsTypeMap } from "./modules/timeline";
 
 const { t } = useI18n();
 const activitieList = ref<Record<string, timeLineType>>({});
+const errorMessage = ref<string>("");
 const loading = ref(false);
 
 type timeLineType = {
@@ -32,38 +32,26 @@ function filterCommitByType(commits: GithubCommitResultType[]): Array<mapStateTy
 }
 
 // 正则获取冒号前的标识符
-function subStr(message: string) {
+function subColon(message: string) {
   try {
-    return message.match(/(\S*):/)![0];
+    return message.match(/(\S*):/)![1];
   } catch {
-    return "feat:";
+    return "feat";
   }
 }
 
 // 分好类的数据加icon和color
 function addTagsByType(s: mapStateType, key: string) {
-  if (s.message.includes("feat")) {
-    activitieList.value[key].color = TagColorEnum.FEAT;
-    activitieList.value[key].icon = shallowRef(BrushFilled);
-  } else if (s.message.includes("fix")) {
-    activitieList.value[key].color = TagColorEnum.FIX;
-    activitieList.value[key].icon = shallowRef(Pouring);
-  } else if (s.message.includes("docs")) {
-    activitieList.value[key].color = TagColorEnum.DOCS;
-    activitieList.value[key].icon = shallowRef(Collection);
-  } else if (s.message.includes("style")) {
-    activitieList.value[key].color = TagColorEnum.STYLE;
-    activitieList.value[key].icon = shallowRef(Star);
-  } else {
-    activitieList.value[key].color = TagColorEnum.FEAT;
-    activitieList.value[key].icon = shallowRef(BrushFilled);
-  }
+  const keywords: tagsType = subColon(s.message) as tagsType;
+
+  activitieList.value[key].color = tagsTypeMap.get(keywords)![0];
+  activitieList.value[key].icon = tagsTypeMap.get(keywords)![1];
 }
 
 // 转化成需要的数据结构
 function transformCommitList(state: Array<mapStateType>) {
   state.forEach((s) => {
-    let key = s.date + subStr(s.message);
+    let key = s.date + subColon(s.message);
     if (activitieList.value[key]) {
       activitieList.value[key].content.push(s.message);
     } else {
@@ -79,6 +67,7 @@ function transformCommitList(state: Array<mapStateType>) {
 async function onLoad() {
   loading.value = true;
   activitieList.value = {};
+  errorMessage.value = "";
   try {
     /**
      * GITHUB_ACCESS_TOKEN 访问GitHub API的密钥，需要改为自己的，如何获取可自行搜索
@@ -93,6 +82,7 @@ async function onLoad() {
     const mapState = filterCommitByType(res.data);
     transformCommitList(mapState);
   } catch (e: any) {
+    errorMessage.value = e.message;
     useMessage("error", e.message);
   } finally {
     loading.value = false;
@@ -105,7 +95,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Card>
+  <Card :err-capture="!!errorMessage">
     <template #title> {{ t("page.common.dashboard.card.timeline") }} </template>
     <template #actions>
       <i-mdi-refresh
@@ -113,6 +103,13 @@ onMounted(async () => {
         style="font-size: 1.2em"
         @click="() => onLoad()"
       />
+    </template>
+    <template #error>
+      <div class="flex justify-center items-center h-[220px] w-8/12 text-center mx-auto">
+        <p class="text-lg font-semibold text-gray-500">
+          {{ `${t("page.common.dashboard.card.timeline.woops")}${errorMessage}` }}
+        </p>
+      </div>
     </template>
     <template #content>
       <div v-loading="loading" class="time-line-box h-[260px] overflow-y-auto px-6 py-5">
