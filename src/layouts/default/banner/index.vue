@@ -17,7 +17,7 @@ const globalTitle = computed(() => {
       <img src="../../../assets/img/logo.png" alt="logo" />
     </div>
     <div v-show="!menuService.close.value" class="flex-1 duration-500 ml-2 mr-1 w-[160px]">
-      <span class="text-lg font-bold">{{ globalTitle }}</span>
+      <span class="text-base font-bold">{{ globalTitle }}</span>
     </div>
   </div>
 </template>
