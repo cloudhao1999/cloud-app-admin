@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/badge/vue-3.2.37-brightgreen.svg" alt="vue">
   </a>
   <a href="https://github.com/vitejs/vite">
-    <img src="https://img.shields.io/badge/vite-2.9.12-brightgreen.svg" alt="vue">
+    <img src="https://img.shields.io/badge/vite-2.9.13-brightgreen.svg" alt="vue">
   </a>
   <a href="https://github.com/vuejs/pinia">
     <img src="https://img.shields.io/badge/pinia-2.0.14-brightgreen.svg" alt="vue">
@@ -97,6 +97,14 @@ pnpm commit
 - CRUD列表
 
   ![crud](./screenshot/crud.png)
+
+- 国际化
+
+  ![i18n](./screenshot/i18n.png)
+
+- 多级菜单
+
+  ![nested](./screenshot/nested.png)
 
 - 自适应
 
