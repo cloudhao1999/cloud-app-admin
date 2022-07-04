@@ -19,9 +19,9 @@ const props = defineProps({
         class="border-gray-200 border-solid"
       >
         <div class="flex justify-between items-center">
-          <span class="ml-5 text-gray-500 text-lg font-bold">
+          <div class="px-5 text-gray-500 text-lg font-bold w-full">
             <slot name="title"></slot>
-          </span>
+          </div>
           <div class="mr-5">
             <slot name="actions"></slot>
           </div>

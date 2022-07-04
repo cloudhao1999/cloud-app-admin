@@ -49,7 +49,9 @@ const options = ref({
 
 <template>
   <Card>
-    <template #title>{{ t("page.common.dashboard.card.percentage") }}</template>
+    <template #title>
+      <p class="truncate">{{ t("page.common.dashboard.card.percentage") }}</p>
+    </template>
     <template #content>
       <div class="overflow-auto">
         <VChart class="chart" :autoresize="true" :option="options" />
