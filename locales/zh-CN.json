@@ -1,5 +1,10 @@
 {
   "hello": "你好，",
+  "golbal.welcome.message.hello_morning_01": "早上好",
+  "golbal.welcome.message.hello_morning_02": "上午好",
+  "golbal.welcome.message.hello_afternoon_01": "中午好",
+  "golbal.welcome.message.hello_afternoon_02": "下午好",
+  "golbal.welcome.message.hello_evening": "晚上好",
   "global_title": "喵喵App管理系统",
   "github": "Github 仓库",
   "logout": "退出登录",

@@ -1,21 +1,23 @@
 import { useBreakpoints } from "@vueuse/core";
+import { useI18n } from "vue-i18n";
 
 export function openNewTab(url: string) {
   window.open(url);
 }
 
-export function timeFix() {
+export function useTimeFix() {
+  const { t } = useI18n();
   const time = new Date();
   const hour = time.getHours();
   return hour < 9
-    ? "早上好"
+    ? t("golbal.welcome.message.hello_morning_01")
     : hour <= 11
-    ? "上午好"
+    ? t("golbal.welcome.message.hello_morning_02")
     : hour <= 13
-    ? "中午好"
+    ? t("golbal.welcome.message.hello_afternoon_01")
     : hour < 20
-    ? "下午好"
-    : "晚上好";
+    ? t("golbal.welcome.message.hello_afternoon_02")
+    : t("golbal.welcome.message.hello_evening");
 }
 
 export function useScreenPixel() {

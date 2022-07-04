@@ -1,5 +1,10 @@
 {
   "hello": "Hello,",
+  "golbal.welcome.message.hello_morning_01": "Good morning",
+  "golbal.welcome.message.hello_morning_02": "Good morning",
+  "golbal.welcome.message.hello_afternoon_01": "Good afternoon",
+  "golbal.welcome.message.hello_afternoon_02": "Good afternoon",
+  "golbal.welcome.message.hello_evening": "Good evening",
   "global_title": "Miao Miao Admin",
   "github": "Github Pages",
   "logout": "Logout",
