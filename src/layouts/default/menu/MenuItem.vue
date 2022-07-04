@@ -8,7 +8,7 @@ const { t } = useI18n();
 
 interface Props {
   subMenu: Menu[];
-  activeKey: string;
+  activeKey?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
   subMenu: () => [],
