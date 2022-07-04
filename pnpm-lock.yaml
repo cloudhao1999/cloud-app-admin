@@ -62,7 +62,7 @@ specifiers:
   vue: ^3.2.37
   vue-echarts: ^6.1.0
   vue-i18n: ^9.1.10
-  vue-router: ^4.0.16
+  vue-router: ~4.0.16
   vue-tsc: ^0.38.2
   vxe-table: ^4.2.3
   xe-utils: ^3.5.4
