@@ -2,6 +2,7 @@
 import menuService from "@/hooks/useMenu";
 import { useI18n } from "vue-i18n";
 import { Menu } from "#/menu";
+import { useScreenPixel } from "@/utils/web";
 
 const { t } = useI18n();
 
@@ -19,6 +20,14 @@ const getActiveKey = (menu: Menu, cmenu: Menu) => {
     ? menu.title + "-" + cmenu.title
     : props.activeKey + "-" + cmenu.title;
 };
+
+function handleMenuClick(cmenu: Menu) {
+  const { sm, md } = useScreenPixel();
+  if (sm.value || md.value) {
+    menuService.toggleState();
+  }
+  menuService.linkPage(cmenu);
+}
 </script>
 
 <template>
@@ -38,7 +47,7 @@ const getActiveKey = (menu: Menu, cmenu: Menu) => {
         v-else
         :key="key"
         :index="getActiveKey(menu, cmenu)"
-        @click="menuService.linkPage(cmenu)"
+        @click="handleMenuClick(cmenu)"
         >{{ t(cmenu?.title!) }}</el-menu-item
       >
     </template>
