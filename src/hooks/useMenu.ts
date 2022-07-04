@@ -58,6 +58,8 @@ class Menu {
       routerMap.set(c.route!, title);
       if (c.children) {
         this.getNestedMenuByRoute(c, routerMap, title);
+      } else {
+        title = "";
       }
     });
   }
