@@ -62,5 +62,18 @@
   "page.common.dashboard.column.leaderboard.tag": "Tag",
   "page.common.dashboard.column.leaderboard.compared": "Compared",
   "page.common.nested.text.level1": "Level 1",
-  "page.common.nested.text.level2": "level 2"
+  "page.common.nested.text.level2": "level 2",
+  "page.common.login.form.title": "Login",
+  "page.common.login.form.submit.login": "Login",
+  "page.common.login.form.placeholder.email": "Please Input Account or Email",
+  "page.common.login.form.placeholder.password": "Please Input Password",
+  "page.common.login.form.schema.email": "Please Input Account or Email",
+  "page.common.login.form.schema.label.email": "Account or Email",
+  "page.common.login.form.schema.label.password": "Password",
+  "page.common.login.form.schema.password": "The password must be at least three characters long",
+  "page.common.login.form.checkbox.remember": "Remember Me",
+  "page.common.login.form.link.forget": "Forget Password",
+  "page.common.login.form.link.OAuth": "OAuth Login",
+  "page.common.login.form.link.btn.qq": "QQ",
+  "page.common.login.form.link.btn.wechat": "WeChat"
 }

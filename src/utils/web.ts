@@ -44,3 +44,11 @@ export function useScreenPixel() {
     xxxl
   };
 }
+
+/**
+ * 获取浏览器存储的语言信息
+ * @returns locale from localStorage
+ */
+export const getLocaleFromStroage = () => {
+  return localStorage.getItem("locale") || "zh-CN";
+};

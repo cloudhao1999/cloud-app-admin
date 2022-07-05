@@ -5,19 +5,27 @@ import { useMessage } from "@/hooks/useMessage";
 import { userStore } from "@/store/user";
 import { useRouter } from "vue-router";
 import { useTimeFix } from "@/utils/web";
+import { useI18n } from "vue-i18n";
+import { useLoginPlaceholder } from "./module/login";
 
 const router = useRouter();
 const userState = userStore();
 const time = useTimeFix();
+const { t } = useI18n();
 const { yup, useForm, useFields } = v;
+const { passwordInputText, mailInputText } = useLoginPlaceholder();
 
 const schema = {
   account: yup
     .string()
     .required()
-    .matches(/^\d{11}|.+@.+$/, "请输入邮箱或手机号")
-    .label("帐号"),
-  password: yup.string().required().min(3, "密码不能少于3位").label("密码")
+    .matches(/^\d{11}|.+@.+$/, t("page.common.login.form.schema.email"))
+    .label(t("page.common.login.form.schema.label.email")),
+  password: yup
+    .string()
+    .required()
+    .min(3, t("page.common.login.form.schema.password"))
+    .label(t("page.common.login.form.schema.label.password"))
 };
 
 const { handleSubmit, errors, values } = useForm({
@@ -61,14 +69,14 @@ const onSubmit = handleSubmit(async (values: any) => {
         ></div>
         <div class="relative w-full rounded-3xl px-6 py-4 bg-gray-100 shadow-md">
           <label for="" class="block mt-3 text-2xl text-gray-700 text-center font-semibold">
-            登录
+            {{ t("page.common.login.form.title") }}
           </label>
           <form class="mt-10" @submit.prevent="onSubmit">
             <div class="relative">
               <input
                 v-model="values.account"
                 type="email"
-                placeholder="请输入账号或邮箱"
+                :placeholder="mailInputText"
                 class="mt-1 pl-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
               />
               <VeeValidateError :error="errors.account" />
@@ -78,7 +86,7 @@ const onSubmit = handleSubmit(async (values: any) => {
               <input
                 v-model="values.password"
                 type="password"
-                placeholder="请输入密码"
+                :placeholder="passwordInputText"
                 class="mt-1 pl-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
               />
               <VeeValidateError :error="errors.password" />
@@ -92,12 +100,14 @@ const onSubmit = handleSubmit(async (values: any) => {
                   class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   name="remember"
                 />
-                <span class="ml-2 text-sm text-gray-600"> 记住我 </span>
+                <span class="ml-2 text-sm text-gray-600">
+                  {{ t("page.common.login.form.checkbox.remember") }}
+                </span>
               </label>
 
               <div class="w-full text-right">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="#">
-                  忘记密码
+                  {{ t("page.common.login.form.link.forget") }}
                 </a>
               </div>
             </div>
@@ -106,13 +116,15 @@ const onSubmit = handleSubmit(async (values: any) => {
               <button
                 class="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105"
               >
-                登录
+                {{ t("page.common.login.form.submit.login") }}
               </button>
             </div>
 
             <div class="flex mt-7 items-center text-center">
               <hr class="border-gray-300 border-1 w-full rounded-md" />
-              <label class="block font-medium text-sm text-gray-600 w-full"> 第三方登录 </label>
+              <label class="block font-medium text-sm text-gray-600 w-full">
+                {{ t("page.common.login.form.link.OAuth") }}
+              </label>
               <hr class="border-gray-300 border-1 w-full rounded-md" />
             </div>
 
@@ -121,13 +133,13 @@ const onSubmit = handleSubmit(async (values: any) => {
                 class="mr-5 flex justify-center items-center bg-blue-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105"
               >
                 <i-mdi-qqchat style="font-size: 1em; color: #fff" />
-                <span class="ml-1">QQ</span>
+                <span class="ml-1">{{ t("page.common.login.form.link.btn.qq") }}</span>
               </div>
               <div
                 class="flex justify-center items-center bg-green-600 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105"
               >
                 <i-mdi-wechat style="font-size: 1.2em; color: #fff" />
-                <span class="ml-1">微信</span>
+                <span class="ml-1">{{ t("page.common.login.form.link.btn.wechat") }}</span>
               </div>
             </div>
           </form>

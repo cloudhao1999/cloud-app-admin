@@ -62,6 +62,19 @@
   "page.common.dashboard.column.leaderboard.tag": "类别",
   "page.common.dashboard.column.leaderboard.compared": "同比",
   "page.common.nested.text.level1": "我是第一层路由",
-  "page.common.nested.text.level2": "我是第二层路由"
+  "page.common.nested.text.level2": "我是第二层路由",
+  "page.common.login.form.title": "登录",
+  "page.common.login.form.submit.login": "登录",
+  "page.common.login.form.placeholder.email": "请输入账号或邮箱",
+  "page.common.login.form.placeholder.password": "请输入密码",
+  "page.common.login.form.schema.email": "请输入邮箱或手机号",
+  "page.common.login.form.schema.label.email": "邮箱或手机号",
+  "page.common.login.form.schema.label.password": "密码",
+  "page.common.login.form.schema.password": "密码不能少于3位",
+  "page.common.login.form.checkbox.remember": "记住我",
+  "page.common.login.form.link.forget": "忘记密码",
+  "page.common.login.form.link.OAuth": "第三方登录",
+  "page.common.login.form.link.btn.qq": "QQ",
+  "page.common.login.form.link.btn.wechat": "微信"
 
 }
