@@ -23,12 +23,12 @@ export const radarOptions = {
   radar: [
     {
       indicator: [
-        { text: "智力", max: 150 },
-        { text: "体魄", max: 150 },
-        { text: "性格", max: 150 },
-        { text: "外貌", max: 150 },
-        { text: "技能", max: 150 },
-        { text: "寿命", max: 150 }
+        { name: "智力", max: 150 },
+        { name: "体魄", max: 150 },
+        { name: "性格", max: 150 },
+        { name: "外貌", max: 150 },
+        { name: "技能", max: 150 },
+        { name: "寿命", max: 150 }
       ],
       center: ["50%", "45%"],
       radius: 80,
