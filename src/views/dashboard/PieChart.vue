@@ -1,16 +1,14 @@
 <script setup lang="ts">
+import { useElementSize, watchDebounced } from "@vueuse/core";
 import { useI18n } from "vue-i18n";
+import { normalOptions, tinyOptions } from "./modules/pie";
 
 const { t } = useI18n();
+const pie = ref(null);
+const { width } = useElementSize(pie);
+
 const options = ref({
-  legend: {
-    orient: "vertical",
-    left: "15%",
-    top: "center",
-    textStyle: {
-      color: "#8f8f8f"
-    }
-  },
+  legend: normalOptions.legend,
   tooltip: {
     trigger: "item",
     formatter: "{b} : {c} ({d}%)"
@@ -20,7 +18,7 @@ const options = ref({
       type: "pie",
       radius: [10, 100],
       roseType: "area",
-      center: ["60%", "50%"],
+      center: normalOptions.center,
       itemStyle: {
         borderRadius: 8
       },
@@ -45,6 +43,23 @@ const options = ref({
     }
   ]
 });
+
+watchDebounced(
+  () => width.value,
+  (width) => {
+    if (width < 250) {
+      options.value.legend = tinyOptions.legend;
+      options.value.series[0].center = tinyOptions.center;
+    } else {
+      options.value.legend = normalOptions.legend;
+      options.value.series[0].center = normalOptions.center;
+    }
+  },
+  {
+    debounce: 200,
+    maxWait: 500
+  }
+);
 </script>
 
 <template>
@@ -54,7 +69,7 @@ const options = ref({
     </template>
     <template #content>
       <div class="overflow-auto">
-        <VChart class="chart" :autoresize="true" :option="options" />
+        <VChart ref="pie" class="chart" :autoresize="true" :option="options" />
       </div>
     </template>
   </Card>

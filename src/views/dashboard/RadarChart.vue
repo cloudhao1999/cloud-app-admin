@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import * as echarts from "echarts";
 import { useI18n } from "vue-i18n";
+import { useElementSize } from "@vueuse/core";
+import { normalOptions, tinyOptions } from "./modules/radar";
+import { watchDebounced } from "@vueuse/core";
 
 const { t } = useI18n();
+const radar = ref(null);
+const { width } = useElementSize(radar);
+
 const options = ref({
   color: ["#56A3F1", "#FF917C"],
   radar: [
@@ -17,12 +23,7 @@ const options = ref({
       ],
       center: ["50%", "45%"],
       radius: 80,
-      axisName: {
-        color: "#fff",
-        backgroundColor: "#59abc2",
-        borderRadius: 3,
-        padding: [3, 5]
-      }
+      axisName: normalOptions.axisName
     }
   ],
   series: [
@@ -64,13 +65,28 @@ const options = ref({
     }
   ]
 });
+
+watchDebounced(
+  () => width.value,
+  (width) => {
+    if (width < 250) {
+      options.value.radar[0].axisName = tinyOptions.axisName;
+    } else {
+      options.value.radar[0].axisName = normalOptions.axisName;
+    }
+  },
+  {
+    debounce: 200,
+    maxWait: 500
+  }
+);
 </script>
 
 <template>
   <Card>
     <template #title>{{ t("page.common.dashboard.card.pixie") }}</template>
     <template #content>
-      <VChart class="chart" :autoresize="true" :option="options" />
+      <VChart ref="radar" class="chart" :autoresize="true" :option="options" />
     </template>
   </Card>
 </template>

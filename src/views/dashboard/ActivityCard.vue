@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
-import { setupDashobardAttributes } from "./modules/dashboard";
+import { setupDashobardAttributes } from "./modules/activity";
 
 const { t } = useI18n();
 
