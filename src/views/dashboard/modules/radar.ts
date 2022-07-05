@@ -26,9 +26,9 @@ export const radarOptions = {
         { text: "智力", max: 150 },
         { text: "体魄", max: 150 },
         { text: "性格", max: 150 },
-        { text: "外貌", max: 120 },
-        { text: "技能", max: 108 },
-        { text: "寿命", max: 72 }
+        { text: "外貌", max: 150 },
+        { text: "技能", max: 150 },
+        { text: "寿命", max: 150 }
       ],
       center: ["50%", "45%"],
       radius: 80,
