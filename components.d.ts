@@ -3,6 +3,8 @@
 // Read more: https://github.com/vuejs/core/pull/3399
 import "@vue/runtime-core";
 
+export {};
+
 declare module "@vue/runtime-core" {
   export interface GlobalComponents {
     Card: typeof import("./src/components/Card.vue")["default"];
@@ -50,7 +52,6 @@ declare module "@vue/runtime-core" {
     IMdiWeatherNight: typeof import("~icons/mdi/weather-night")["default"];
     IMdiWechat: typeof import("~icons/mdi/wechat")["default"];
     IMdiWhiteBalanceSunny: typeof import("~icons/mdi/white-balance-sunny")["default"];
-    Loading: typeof import("element-plus/es")["ElLoadingDirective"];
     Panel: typeof import("./src/components/Panel.vue")["default"];
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
@@ -58,6 +59,8 @@ declare module "@vue/runtime-core" {
     VeeValidateError: typeof import("./src/components/VeeValidateError.vue")["default"];
     WangEditor: typeof import("./src/components/WangEditor.vue")["default"];
   }
-}
 
-export {};
+  export interface ComponentCustomProperties {
+    vLoading: typeof import("element-plus/es")["ElLoadingDirective"];
+  }
+}
