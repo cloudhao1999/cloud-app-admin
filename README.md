@@ -29,6 +29,7 @@ cloud-app-admin 使用了最新的`vue3.2+` `vite2` `Element-Plus` `TypeScript` 
 ## 已实现功能
 
 - [x] 路由集成 🧭
+- [x] 基本页面权限集成 🔒
 - [x] 状态管理集成（Pinia）🍍
 - [x] Hooks集成（VueUse）🪝
 - [x] ElementPlus集成 🖌️
