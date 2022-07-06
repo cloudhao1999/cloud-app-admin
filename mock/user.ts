@@ -13,7 +13,7 @@ export default [
           name: "股东小陈",
           age: 18,
           avatar: "../../src/assets/img/avatar.jpg",
-          permissions: ["article_edit", "markdown_editor", "base_editor"]
+          permissions: ["article_edit", "editor"]
         }
       };
     }

@@ -3,6 +3,7 @@ import { getToken } from "@/utils/auth";
 import redirectService from "@/hooks/useRedirect";
 import { RouteLocationNormalized, Router } from "vue-router";
 import NProgress from "@/utils/progress";
+import autoload from "./autoload";
 
 class Guard {
   constructor(private router: Router) {}
@@ -20,8 +21,9 @@ class Guard {
       NProgress.done();
       return { name: "LoginPage" };
     }
-    if (this.token()) {
+    if (this.token() && userState.isEmpty) {
       await userState.getUserInfo();
+      autoload(this.router);
     }
     if (to.meta.guest && this.token()) return from;
   }

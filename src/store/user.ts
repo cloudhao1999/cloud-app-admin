@@ -15,6 +15,9 @@ export const userStore = defineStore("user", {
     },
     avatar: (state) => {
       return state.info?.avatar;
+    },
+    isEmpty: (state) => {
+      return Object.keys(state.info!).length === 0;
     }
   },
   actions: {
