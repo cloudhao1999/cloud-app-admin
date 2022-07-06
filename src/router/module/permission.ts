@@ -4,7 +4,7 @@ export default {
   name: "permission",
   path: "/permission",
   component: () => import("@/layouts/common-page.vue"),
-  meta: { auth: true, menu: { title: "router.permission", icon: "EditPen" } },
+  meta: { auth: true, menu: { title: "router.permission", icon: "Lock" } },
   children: [
     {
       name: "edit",
