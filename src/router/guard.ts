@@ -19,7 +19,6 @@ class Guard {
 
     if (to.meta.auth && !this.token()) {
       redirectService.addRedirect(to.name as unknown as string);
-      NProgress.done();
       return { name: "LoginPage" };
     }
 
@@ -31,7 +30,6 @@ class Guard {
     if (userState.permission) {
       const permissions = to.meta.permissions;
       if (permissions && !permissions.includes(userState.permission)) {
-        NProgress.done();
         return { name: "404" };
       }
     }
