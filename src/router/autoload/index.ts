@@ -11,14 +11,16 @@ let routes: RouteRecordRaw[] = autoloadModuleRoutes();
  */
 function filterNestedChildren(children: RouteRecordRaw[]) {
   const user = userStore();
-  if (user.info?.permissions === undefined) return children;
+  if (user.info?.permission === undefined) return children;
 
   return children.filter((r) => {
-    const permission = r.meta?.permission;
+    const permissions = r.meta?.permissions;
+
     if (r.children) {
       r.children = filterNestedChildren(r.children);
     }
-    return permission ? user.info?.permissions?.includes(permission) : true;
+
+    return permissions ? permissions?.includes(user.info!.permission) : true;
   });
 }
 

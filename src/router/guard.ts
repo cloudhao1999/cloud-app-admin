@@ -16,14 +16,24 @@ class Guard {
   private async beforeEach(to: RouteLocationNormalized, from: RouteLocationNormalized) {
     const userState = userStore();
     NProgress.start();
+
     if (to.meta.auth && !this.token()) {
       redirectService.addRedirect(to.name as unknown as string);
       NProgress.done();
       return { name: "LoginPage" };
     }
+
     if (this.token() && userState.isEmpty) {
       await userState.getUserInfo();
       autoload(this.router);
+    }
+
+    if (userState.permission) {
+      const permissions = to.meta.permissions;
+      if (permissions && !permissions.includes(userState.permission)) {
+        NProgress.done();
+        return { name: "404" };
+      }
     }
     if (to.meta.guest && this.token()) return from;
   }

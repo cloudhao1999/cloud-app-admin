@@ -10,13 +10,13 @@ export default {
       name: "article",
       path: "article",
       component: () => import("@/views/design/ArticlePage.vue"),
-      meta: { menu: { title: "router.article" }, permission: "article_edit" }
+      meta: { menu: { title: "router.article" } }
     },
     {
       name: "editor",
       path: "editor",
       component: () => import("@/views/design/EditorPage.vue"),
-      meta: { menu: { title: "router.editor" }, permission: "editor" }
+      meta: { menu: { title: "router.editor" } }
     }
   ]
 } as RouteRecordRaw;

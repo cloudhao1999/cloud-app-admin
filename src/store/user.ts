@@ -1,4 +1,5 @@
-import { fetchUserInfo, ILoginForm, userLogin } from "@/api/user";
+import { fetchAdminInfo, fetchEditorInfo, ILoginForm, userLogin } from "@/api/user";
+import permissionService from "@/hooks/usePermission";
 import { UserInfoModel } from "@/model/user";
 import { setToken } from "@/utils/auth";
 import { defineStore } from "pinia";
@@ -18,11 +19,20 @@ export const userStore = defineStore("user", {
     },
     isEmpty: (state) => {
       return Object.keys(state.info!).length === 0;
+    },
+    permission: (state) => {
+      return state.info?.permission;
     }
   },
   actions: {
     async getUserInfo() {
-      const { data } = await fetchUserInfo();
+      const permissions = permissionService.defaultPermission;
+      let data;
+      if (permissions.value === "admin") {
+        ({ data } = await fetchAdminInfo());
+      } else {
+        ({ data } = await fetchEditorInfo());
+      }
       if (data) {
         this.$state.info = data;
       }

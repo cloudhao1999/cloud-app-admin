@@ -5,6 +5,10 @@ export function openNewTab(url: string) {
   window.open(url);
 }
 
+export function refreshWindow() {
+  window.location.reload();
+}
+
 export function useTimeFix() {
   const { t } = useI18n();
   const time = new Date();
