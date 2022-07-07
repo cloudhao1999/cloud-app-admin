@@ -5,6 +5,8 @@
   "golbal.welcome.message.hello_afternoon_01": "Good afternoon",
   "golbal.welcome.message.hello_afternoon_02": "Good afternoon",
   "golbal.welcome.message.hello_evening": "Good evening",
+  "golbal.logout.message.confirm": "Do you confirm to exit the system?",
+  "golbal.logout.message.success": "Logout successfully",
   "global_title": "Miao Miao Admin",
   "github": "Github Pages",
   "logout": "Logout",

@@ -16,10 +16,10 @@ const { t } = useI18n();
 const formatted = useDateFormat(useNow(), "YYYY-MM-DD HH:mm");
 
 function toLogin() {
-  useDialog("是否确认退出系统?", () => {
+  useDialog(t("golbal.logout.message.confirm"), () => {
     removeToken(() => {
       router.replace("/login");
-      useMessage("success", "退出成功");
+      useMessage("success", t("golbal.logout.message.success"));
     });
   });
 }
