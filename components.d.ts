@@ -34,6 +34,7 @@ declare module "@vue/runtime-core" {
     ElRow: typeof import("element-plus/es")["ElRow"];
     ElSpace: typeof import("element-plus/es")["ElSpace"];
     ElSubMenu: typeof import("element-plus/es")["ElSubMenu"];
+    ElSwitch: typeof import("element-plus/es")["ElSwitch"];
     ElTable: typeof import("element-plus/es")["ElTable"];
     ElTableColumn: typeof import("element-plus/es")["ElTableColumn"];
     ElTag: typeof import("element-plus/es")["ElTag"];
@@ -58,7 +59,6 @@ declare module "@vue/runtime-core" {
     VeeValidateError: typeof import("./src/components/VeeValidateError.vue")["default"];
     WangEditor: typeof import("./src/components/WangEditor.vue")["default"];
   }
-
   export interface ComponentCustomProperties {
     vLoading: typeof import("element-plus/es")["ElLoadingDirective"];
   }
