@@ -61,7 +61,7 @@ const {
         stripe
         style="width: 100%"
       >
-        <template #actions="scope">
+        <template #actions="scope: any">
           <el-button size="small" @click="handleEdit(scope.row)">{{
             t("page.common.btn.edit")
           }}</el-button>

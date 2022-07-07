@@ -59,6 +59,7 @@ declare module "@vue/runtime-core" {
     VeeValidateError: typeof import("./src/components/VeeValidateError.vue")["default"];
     WangEditor: typeof import("./src/components/WangEditor.vue")["default"];
   }
+
   export interface ComponentCustomProperties {
     vLoading: typeof import("element-plus/es")["ElLoadingDirective"];
   }
