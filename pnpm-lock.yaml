@@ -9,7 +9,6 @@ specifiers:
   '@types/mockjs': ^1.0.6
   '@types/nprogress': ^0.2.0
   '@types/qs': ^6.9.7
-  '@types/tailwindcss': ^3.0.11
   '@typescript-eslint/eslint-plugin': ^5.30.5
   '@typescript-eslint/parser': ^5.30.5
   '@vee-validate/i18n': ^4.5.11
@@ -72,7 +71,6 @@ dependencies:
   '@element-plus/icons-vue': 2.0.6_vue@3.2.37
   '@types/js-cookie': 3.0.2
   '@types/qs': 6.9.7
-  '@types/tailwindcss': 3.0.11
   '@typescript-eslint/eslint-plugin': 5.30.5_6zdoc3rn4mpiddqwhppni2mnnm
   '@vee-validate/i18n': 4.5.11
   '@vee-validate/rules': 4.5.11
@@ -872,10 +870,6 @@ packages:
     dependencies:
       '@types/node': 17.0.34
     dev: true
-
-  /@types/tailwindcss/3.0.11:
-    resolution: {integrity: sha512-PR+BOIrI+rxteHwFvkfIOty+PDJwTG4ute3alxSSXpF/xKpryO1room265m46Auyae0VwqUYs3PuVEOF9Oil3w==}
-    dev: false
 
   /@types/web-bluetooth/0.0.14:
     resolution: {integrity: sha512-5d2RhCard1nQUC3aHcq/gHzWYO6K0WJmAbjO7mQJgCQKtZpgXxv1rOM6O/dBDhDYYVutk1sciOgNSe+5YyfM8A==}

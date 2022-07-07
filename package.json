@@ -17,7 +17,6 @@
     "@element-plus/icons-vue": "^2.0.6",
     "@types/js-cookie": "^3.0.2",
     "@types/qs": "^6.9.7",
-    "@types/tailwindcss": "^3.0.11",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@vee-validate/i18n": "^4.5.11",
     "@vee-validate/rules": "^4.5.11",
