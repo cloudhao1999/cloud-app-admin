@@ -1,5 +1,6 @@
 html.dark {
   --el-popover-bg-color: #2b2a2a;
+  --el-bg-color-overlay: #2e3032;
 
   --w-e-textarea-bg-color: #202120;
   --w-e-textarea-color: #fff;
