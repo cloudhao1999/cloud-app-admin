@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
         :min-width="column.minWidth"
       >
         <template v-if="column.scoped" #default="scope">
-          <slot :name="column.scoped" v-bind="scope"></slot>
+          <slot :name="column.scoped" :scope="scope"></slot>
         </template>
       </el-table-column>
     </el-table>

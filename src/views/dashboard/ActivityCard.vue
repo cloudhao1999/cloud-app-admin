@@ -20,12 +20,12 @@ const { activityColumns, activityTableData } = setupDashobardAttributes();
           stripe
           style="width: 100%"
         >
-          <template #category="scope: any">
+          <template #category="{ scope }">
             <span class="p-1 rounded-md bg-gray-500 text-white text-sm">{{
               scope.row.category
             }}</span>
           </template>
-          <template #sort="scope: any">
+          <template #sort="{ scope }">
             <div class="flex">
               <i-mdi-trending-up
                 v-if="scope.row.sortUnit === 'up'"
