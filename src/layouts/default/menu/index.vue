@@ -17,7 +17,7 @@ const isCollapse = computed(() => {
 </script>
 
 <template>
-  <el-aside class="admin-menu bg-dark" :class="{ close: menuService.close.value }">
+  <el-aside class="admin-menu border-base bg-dark" :class="{ close: menuService.close.value }">
     <div class="flex justify-center">
       <Banner />
     </div>
@@ -42,7 +42,7 @@ const isCollapse = computed(() => {
   border-right: none;
 }
 .admin-menu {
-  @apply w-[250px] duration-500 dark:bg-black min-h-screen h-full border-r border-gray-200 border-solid z-50;
+  @apply w-[250px] duration-500 dark:bg-black min-h-screen h-full border-r border-solid z-50;
   &.close {
     @apply w-[70px] duration-500;
   }
@@ -50,7 +50,7 @@ const isCollapse = computed(() => {
 
 @media screen and(max-width:766px) {
   .admin-menu {
-    @apply w-[250px] duration-500 absolute top-0 left-0 min-h-screen h-full border-r border-gray-200 border-solid;
+    @apply w-[250px] duration-500 absolute top-0 left-0 min-h-screen h-full border-r border-solid;
     &.close {
       @apply left-[-250px] duration-500;
     }

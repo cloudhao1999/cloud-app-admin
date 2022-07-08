@@ -1,3 +1,10 @@
 html.sky {
-  --el-menu-bg-color: #dbeafe;
+  --el-menu-bg-color: #e0f2fe;
+  --el-fill-color-blank: #f0f9ff;
+  --el-bg-color: #e0f2fe;
+  --el-fill-color-lighter: #e0f2fe;
+  --el-color-info-light-9: #c7e5f9;
+  --el-color-info-light-8: #fff;
+  --el-color-primary-light-8: #fff;
+  --el-color-info: #fff;
 }

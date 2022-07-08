@@ -10,7 +10,7 @@ import Translate from "../translate/index.vue";
 
 <template>
   <el-header
-    class="border-b border-gray-200 border-solid flex justify-between"
+    class="border-b border-base border-solid flex justify-between"
     style="text-align: right; font-size: 12px"
   >
     <div class="flex align-center items-center">

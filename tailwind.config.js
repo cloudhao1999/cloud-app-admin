@@ -17,6 +17,12 @@ module.exports = {
         muted: "var(--color-text-muted)",
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)"
+      },
+      borderColor: {
+        base: "var(--color-border-base)"
+      },
+      shadowColor: {
+        base: "var(--color-shadow-base)"
       }
     }
   },

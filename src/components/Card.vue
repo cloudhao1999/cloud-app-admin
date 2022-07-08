@@ -13,11 +13,8 @@ const props = defineProps({
 
 <template>
   <div class="p-2 w-full">
-    <div class="shadow-lg shadow-dark-200 card-box">
-      <div
-        :class="props.empty ? '' : 'border-b h-[60px] pt-5'"
-        class="border-gray-200 border-solid"
-      >
+    <div class="shadow-lg shadow-base card-box">
+      <div :class="props.empty ? '' : 'border-b h-[60px] pt-5'" class="border-base border-solid">
         <div class="flex justify-between items-center">
           <div class="px-5 text-gray-500 text-lg font-bold w-full">
             <slot name="title"></slot>
@@ -41,6 +38,6 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .card-box {
-  @apply h-[330px] rounded-xl border  dark:border-solid;
+  @apply h-[330px] rounded-xl border border-white  border-solid;
 }
 </style>

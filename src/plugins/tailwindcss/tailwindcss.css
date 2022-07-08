@@ -11,8 +11,10 @@
     --color-off-base: theme('colors.gray.50');
     --color-text-muted: theme('colors.gray.600');
     --color-text-muted-hover: theme('colors.gray.500');
+    --color-border-base: theme('colors.white');
     --color-primary: theme('colors.blue.800');
     --color-secondary:theme('colors.blue.200');
+    --color-shadow-base: theme('colors.gray.200');
 
     /* 一些常用的tailwind里没有的主题颜色 */
     --color-dark-base: #141414;
@@ -20,6 +22,7 @@
 
   .light {
     --color-dark: theme('colors.white');
+    --color-border-base: theme('colors.gray.200');
   }
 
   .dark {
@@ -34,12 +37,13 @@
 
   .sky {
     --color-base: theme('colors.sky.100');
-    --color-dark: theme('colors.blue.100');
-    --color-text-base: theme('colors.gray.800');
+    --color-dark: theme('colors.sky.100');
+    --color-text-base: theme('colors.gray.600');
     --color-off-base: theme('colors.sky.200');
     --color-text-muted:theme('colors.gray.600');
     --color-text-muted-hover: theme('colors.sky.300');
     --color-primary: theme('colors.amber.700');
     --color-secondary: theme('colors.amber.400');
+    --color-shadow-base: theme('colors.white');
   }
 }
