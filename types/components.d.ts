@@ -7,9 +7,9 @@ export {};
 
 declare module "@vue/runtime-core" {
   export interface GlobalComponents {
-    Card: typeof import("./src/components/Card.vue")["default"];
-    CForm: typeof import("./src/components/CForm.vue")["default"];
-    CTable: typeof import("./src/components/CTable.vue")["default"];
+    Card: typeof import("./../src/components/Card.vue")["default"];
+    CForm: typeof import("./../src/components/CForm.vue")["default"];
+    CTable: typeof import("./../src/components/CTable.vue")["default"];
     ElAside: typeof import("element-plus/es")["ElAside"];
     ElAvatar: typeof import("element-plus/es")["ElAvatar"];
     ElBreadcrumb: typeof import("element-plus/es")["ElBreadcrumb"];
@@ -17,7 +17,6 @@ declare module "@vue/runtime-core" {
     ElButton: typeof import("element-plus/es")["ElButton"];
     ElCard: typeof import("element-plus/es")["ElCard"];
     ElCol: typeof import("element-plus/es")["ElCol"];
-    ElColorPicker: typeof import("element-plus/es")["ElColorPicker"];
     ElConfigProvider: typeof import("element-plus/es")["ElConfigProvider"];
     ElContainer: typeof import("element-plus/es")["ElContainer"];
     ElDialog: typeof import("element-plus/es")["ElDialog"];
@@ -34,30 +33,27 @@ declare module "@vue/runtime-core" {
     ElRow: typeof import("element-plus/es")["ElRow"];
     ElSpace: typeof import("element-plus/es")["ElSpace"];
     ElSubMenu: typeof import("element-plus/es")["ElSubMenu"];
-    ElSwitch: typeof import("element-plus/es")["ElSwitch"];
     ElTable: typeof import("element-plus/es")["ElTable"];
     ElTableColumn: typeof import("element-plus/es")["ElTableColumn"];
     ElTag: typeof import("element-plus/es")["ElTag"];
     ElTimeline: typeof import("element-plus/es")["ElTimeline"];
     ElTimelineItem: typeof import("element-plus/es")["ElTimelineItem"];
-    EmptyBlock: typeof import("./src/components/EmptyBlock.vue")["default"];
+    EmptyBlock: typeof import("./../src/components/EmptyBlock.vue")["default"];
     IMdiFormatIndentDecrease: typeof import("~icons/mdi/format-indent-decrease")["default"];
     IMdiFullscreen: typeof import("~icons/mdi/fullscreen")["default"];
     IMdiFullscreenExit: typeof import("~icons/mdi/fullscreen-exit")["default"];
     IMdiGoogleTranslate: typeof import("~icons/mdi/google-translate")["default"];
-    IMdiQqchat: typeof import("~icons/mdi/qqchat")["default"];
     IMdiRefresh: typeof import("~icons/mdi/refresh")["default"];
     IMdiTrendingDown: typeof import("~icons/mdi/trending-down")["default"];
     IMdiTrendingUp: typeof import("~icons/mdi/trending-up")["default"];
     IMdiWeatherNight: typeof import("~icons/mdi/weather-night")["default"];
-    IMdiWechat: typeof import("~icons/mdi/wechat")["default"];
     IMdiWhiteBalanceSunny: typeof import("~icons/mdi/white-balance-sunny")["default"];
-    Panel: typeof import("./src/components/Panel.vue")["default"];
+    Panel: typeof import("./../src/components/Panel.vue")["default"];
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
-    SearchFilter: typeof import("./src/components/SearchFilter.vue")["default"];
-    VeeValidateError: typeof import("./src/components/VeeValidateError.vue")["default"];
-    WangEditor: typeof import("./src/components/WangEditor.vue")["default"];
+    SearchFilter: typeof import("./../src/components/SearchFilter.vue")["default"];
+    VeeValidateError: typeof import("./../src/components/VeeValidateError.vue")["default"];
+    WangEditor: typeof import("./../src/components/WangEditor.vue")["default"];
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import("element-plus/es")["ElLoadingDirective"];
