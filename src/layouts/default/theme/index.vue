@@ -1,17 +1,7 @@
 <script setup lang="ts">
-import { useColorMode, useCycleList } from "@vueuse/core";
+import { useTheme } from "@/hooks/useTheme";
 
-const mode = useColorMode({
-  emitAuto: true,
-  modes: {
-    light: "light",
-    dark: "dark",
-    sky: "sky"
-  }
-});
-const { next, state } = useCycleList(["light", "dark", "sky"], {
-  initialValue: mode
-});
+const { next, state } = useTheme();
 </script>
 
 <template>

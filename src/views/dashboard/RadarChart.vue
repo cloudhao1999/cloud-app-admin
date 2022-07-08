@@ -4,18 +4,20 @@ import { useElementSize } from "@vueuse/core";
 import { normalOptions, radarOptions, tinyOptions } from "./modules/radar";
 import { watchDebounced } from "@vueuse/core";
 import { EchartEnum } from "@/enum/echartEnum";
+import { useTheme } from "@/hooks/useTheme";
 
 const { t } = useI18n();
 const radar = ref(null);
 const { width } = useElementSize(radar);
 
 const options = ref(radarOptions);
+const { state } = toRefs(useTheme());
 
 watchDebounced(
   () => width.value,
   (width) => {
     if (width < EchartEnum.ECHART_MIN_WIDTH) {
-      options.value.radar[0].axisName = tinyOptions.axisName;
+      options.value.radar[0].axisName = tinyOptions.getOptions().axisName as any;
     } else {
       options.value.radar[0].axisName = normalOptions.axisName;
     }
@@ -23,6 +25,19 @@ watchDebounced(
   {
     debounce: 200,
     maxWait: 500
+  }
+);
+
+watch(
+  () => state.value,
+  () => {
+    if (width.value < EchartEnum.ECHART_MIN_WIDTH) {
+      nextTick(() => {
+        options.value.radar[0].axisName = tinyOptions.getOptions().axisName;
+      });
+    } else {
+      options.value.radar[0].axisName = normalOptions.axisName;
+    }
   }
 );
 </script>

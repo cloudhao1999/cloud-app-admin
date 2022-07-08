@@ -9,12 +9,20 @@ export const normalOptions = {
   }
 };
 
+const fetchCurrentBaseColor = () => {
+  return getComputedStyle(document.querySelector(":root")!).getPropertyValue("--color-base");
+};
+
 export const tinyOptions = {
-  axisName: {
-    color: "#fff",
-    backgroundColor: "#fff",
-    borderRadius: 0,
-    padding: [0, 0]
+  getOptions: () => {
+    return {
+      axisName: {
+        color: fetchCurrentBaseColor(),
+        backgroundColor: fetchCurrentBaseColor(),
+        borderRadius: 0,
+        padding: [0, 0]
+      }
+    };
   }
 };
 
