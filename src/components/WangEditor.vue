@@ -61,9 +61,9 @@ const editorConfig: Partial<IEditorConfig> = {
 </script>
 
 <template>
-  <div style="border: 1px solid var(--el-border-color)">
+  <div style="border: 1px solid var(--color-border-base)">
     <Toolbar
-      style="border-bottom: 1px solid var(--el-border-color)"
+      style="border-bottom: 1px solid var(--color-border-base)"
       :editor="editorRef"
       :default-config="toolbarConfig"
       :mode="mode"
