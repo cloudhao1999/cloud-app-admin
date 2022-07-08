@@ -52,7 +52,7 @@ declare module "@vue/runtime-core" {
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
     SearchFilter: typeof import("./../src/components/SearchFilter.vue")["default"];
-    VeeValidateError: typeof import("./../src/components/VeeValidateError.vue")["default"];
+    VeeValidateError: typeof import("./../src/components/veeValidateError.vue")["default"];
     WangEditor: typeof import("./../src/components/WangEditor.vue")["default"];
   }
   export interface ComponentCustomProperties {
