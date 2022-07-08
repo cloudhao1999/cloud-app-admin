@@ -15,7 +15,7 @@ const { next, state } = useCycleList(["light", "dark", "sky"], {
 
 <template>
   <i-mdi-white-balance-sunny
-    v-show="state === 'light'"
+    v-show="state === 'light' || state === 'auto' || state === ''"
     class="dark-mode text-gray-500"
     style="font-size: 1.6em"
     @click="() => next()"
