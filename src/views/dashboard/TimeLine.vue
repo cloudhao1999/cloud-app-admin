@@ -124,11 +124,15 @@ onMounted(async () => {
             :timestamp="activity.timestamp"
             placement="top"
           >
-            <el-card>
-              <p v-for="(c, i) in activity.content" :key="i" class="leading-5">
-                {{ i + 1 + "、 " + c }}
-              </p>
-            </el-card>
+            <Card empty auto-height>
+              <template #content>
+                <div class="p-3">
+                  <p v-for="(c, i) in activity.content" :key="i" class="leading-5">
+                    {{ i + 1 + "、 " + c }}
+                  </p>
+                </div>
+              </template>
+            </Card>
           </el-timeline-item>
         </el-timeline>
       </div>

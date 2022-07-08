@@ -6,7 +6,7 @@ import setupPlugins from "./vite/plugins";
 import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig(({ command, mode }) => {
-  const isBuild = command === "build";
+  const isBuild: boolean = command === "build";
   const env = parseEnv(loadEnv(mode, process.cwd()));
 
   return {

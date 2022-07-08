@@ -12,7 +12,7 @@
     --color-text-muted: theme('colors.gray.600');
     --color-text-muted-hover: theme('colors.gray.500');
     --color-border-base: theme('colors.white');
-    --color-primary: theme('colors.blue.800');
+    --color-primary: theme('colors.black');
     --color-secondary:theme('colors.blue.200');
     --color-shadow-base: theme('colors.gray.200');
 

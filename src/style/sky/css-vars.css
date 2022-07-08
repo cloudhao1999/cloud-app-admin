@@ -7,4 +7,24 @@ html.sky {
   --el-color-info-light-8: #fff;
   --el-color-primary-light-8: #fff;
   --el-color-info: #fff;
+  --el-border-color: #fff;
+
+  --w-e-textarea-bg-color: #e0f2fe;
+  --w-e-textarea-color: #fff;
+  --w-e-textarea-border-color: #ffffff;
+  --w-e-textarea-slight-border-color: #ffffff;
+  --w-e-textarea-slight-color: #ffffff;
+  --w-e-textarea-slight-bg-color: #f5f2f0;
+  --w-e-textarea-selected-border-color: #ffffff;
+  --w-e-textarea-handler-bg-color: #ffffff;
+
+  --w-e-toolbar-color: #ffffff;
+  --w-e-toolbar-bg-color: #cbe5f8;
+  --w-e-toolbar-active-color: #e0f2fe;
+  --w-e-toolbar-active-bg-color: #cdeaf5;
+  --w-e-toolbar-disabled-color: #ffffff;
+  --w-e-toolbar-border-color: #ffffff;
+
+  --w-e-modal-button-bg-color: #ffffff;
+  --w-e-modal-button-border-color: #ffffff;
 }
