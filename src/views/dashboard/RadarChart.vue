@@ -17,7 +17,7 @@ watchDebounced(
   () => width.value,
   (width) => {
     if (width < EchartEnum.ECHART_MIN_WIDTH) {
-      options.value.radar[0].axisName = tinyOptions.getOptions().axisName as any;
+      options.value.radar[0].axisName = tinyOptions.getOptions().axisName;
     } else {
       options.value.radar[0].axisName = normalOptions.axisName;
     }
