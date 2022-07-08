@@ -1,7 +1,6 @@
 import { useColorMode, useCycleList } from "@vueuse/core";
 
 const mode = useColorMode({
-  emitAuto: true,
   modes: {
     light: "light",
     dark: "dark",
