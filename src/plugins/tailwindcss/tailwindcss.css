@@ -2,19 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   :root {
     --color-base: theme('colors.white');
+    --color-dark: theme('colors.white');
     --color-text-base: theme('colors.black');
     --color-off-base: theme('colors.gray.50');
     --color-text-muted: theme('colors.gray.600');
     --color-text-muted-hover: theme('colors.gray.500');
     --color-primary: theme('colors.blue.800');
     --color-secondary:theme('colors.blue.200');
+
+    /* 一些常用的tailwind里没有的主题颜色 */
+    --color-dark-base: #141414;
+  }
+
+  .light {
+    --color-dark: theme('colors.white');
   }
 
   .dark {
-    --color-base: theme('colors.gray.900');
+    --color-base: var(--color-dark-base);
     --color-text-base: theme('colors.gray.100');
     --color-off-base: theme('colors.gray.800');
     --color-text-muted:theme('colors.gray.300');

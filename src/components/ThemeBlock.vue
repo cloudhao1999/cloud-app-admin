@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="dark sky"></div>
+  <div class="light dark sky"></div>
 </template>
 
 <style scoped></style>

@@ -8,7 +8,7 @@ const mode = useColorMode({
     sky: "sky"
   }
 });
-const { next, state } = useCycleList(["dark", "light", "sky"], {
+const { next, state } = useCycleList(["light", "dark", "sky"], {
   initialValue: mode
 });
 </script>
