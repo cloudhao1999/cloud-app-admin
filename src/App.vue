@@ -11,7 +11,7 @@ const locale = computed(() => {
 </script>
 <template>
   <el-config-provider :locale="locale">
-    <div class="h-full">
+    <div class="h-full bg-base">
       <router-view></router-view>
     </div>
   </el-config-provider>

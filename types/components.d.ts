@@ -33,12 +33,14 @@ declare module "@vue/runtime-core" {
     ElRow: typeof import("element-plus/es")["ElRow"];
     ElSpace: typeof import("element-plus/es")["ElSpace"];
     ElSubMenu: typeof import("element-plus/es")["ElSubMenu"];
+    ElSwitch: typeof import("element-plus/es")["ElSwitch"];
     ElTable: typeof import("element-plus/es")["ElTable"];
     ElTableColumn: typeof import("element-plus/es")["ElTableColumn"];
     ElTag: typeof import("element-plus/es")["ElTag"];
     ElTimeline: typeof import("element-plus/es")["ElTimeline"];
     ElTimelineItem: typeof import("element-plus/es")["ElTimelineItem"];
     EmptyBlock: typeof import("./../src/components/EmptyBlock.vue")["default"];
+    IMdiAppleIcloud: typeof import("~icons/mdi/apple-icloud")["default"];
     IMdiFormatIndentDecrease: typeof import("~icons/mdi/format-indent-decrease")["default"];
     IMdiFullscreen: typeof import("~icons/mdi/fullscreen")["default"];
     IMdiFullscreenExit: typeof import("~icons/mdi/fullscreen-exit")["default"];
@@ -52,6 +54,7 @@ declare module "@vue/runtime-core" {
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
     SearchFilter: typeof import("./../src/components/SearchFilter.vue")["default"];
+    ThemeBlock: typeof import("./../src/components/ThemeBlock.vue")["default"];
     VeeValidateError: typeof import("./../src/components/veeValidateError.vue")["default"];
     WangEditor: typeof import("./../src/components/WangEditor.vue")["default"];
   }

@@ -1,22 +1,36 @@
 <script setup lang="ts">
-import { useDark, useToggle } from "@vueuse/core";
+import { useColorMode, useCycleList } from "@vueuse/core";
 
-const isDark = useDark();
-const toggleDark = useToggle(isDark);
+const mode = useColorMode({
+  emitAuto: true,
+  modes: {
+    dark: "dark",
+    sky: "sky"
+  }
+});
+const { next, state } = useCycleList(["dark", "light", "sky"], {
+  initialValue: mode
+});
 </script>
 
 <template>
   <i-mdi-white-balance-sunny
-    v-show="!isDark"
+    v-show="state === 'light'"
     class="dark-mode text-gray-500"
     style="font-size: 1.6em"
-    @click="() => toggleDark()"
+    @click="() => next()"
   />
   <i-mdi-weather-night
-    v-show="isDark"
+    v-show="state === 'dark'"
     class="dark-mode"
     style="font-size: 1.6em"
-    @click="() => toggleDark()"
+    @click="() => next()"
+  />
+  <i-mdi-apple-icloud
+    v-show="state === 'sky'"
+    class="dark-mode text-gray-600"
+    style="font-size: 1.6em"
+    @click="() => next()"
   />
 </template>
 

@@ -17,7 +17,7 @@ const isCollapse = computed(() => {
 </script>
 
 <template>
-  <el-aside class="admin-menu" :class="{ close: menuService.close.value }">
+  <el-aside class="admin-menu bg-dark" :class="{ close: menuService.close.value }">
     <div class="flex justify-center">
       <Banner />
     </div>
@@ -37,13 +37,12 @@ const isCollapse = computed(() => {
 <style lang="scss" scoped>
 .el-aside {
   color: var(--el-text-color-primary);
-  @apply bg-white;
 }
 .el-menu {
   border-right: none;
 }
 .admin-menu {
-  @apply w-[250px] duration-500 dark:bg-black bg-white min-h-screen h-full border-r border-gray-200 border-solid z-50;
+  @apply w-[250px] duration-500 dark:bg-black min-h-screen h-full border-r border-gray-200 border-solid z-50;
   &.close {
     @apply w-[70px] duration-500;
   }
