@@ -28,7 +28,7 @@ export default [
         code: 200,
         message: "请示成功",
         status: "success",
-        total: 20,
+        total: 3,
         data: [
           {
             label: "历史",
