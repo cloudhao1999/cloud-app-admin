@@ -11,7 +11,7 @@ const radar = ref(null);
 const { width } = useElementSize(radar);
 
 const options = ref(radarOptions);
-const { state } = toRefs(useTheme());
+const { state } = useTheme();
 
 watchDebounced(
   () => width.value,
