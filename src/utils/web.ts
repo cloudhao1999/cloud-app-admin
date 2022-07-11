@@ -9,6 +9,10 @@ export function refreshWindow() {
   window.location.reload();
 }
 
+export const fetchRootComputedStyle = (property: string) => {
+  return getComputedStyle(document.querySelector(":root")!).getPropertyValue(property);
+};
+
 export function useTimeFix() {
   const { t } = useI18n();
   const time = new Date();

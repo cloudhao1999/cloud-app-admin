@@ -1,3 +1,4 @@
+import { fetchRootComputedStyle } from "@/utils/web";
 import * as echarts from "echarts";
 
 export const normalOptions = {
@@ -9,16 +10,12 @@ export const normalOptions = {
   }
 };
 
-const fetchCurrentBaseColor = () => {
-  return getComputedStyle(document.querySelector(":root")!).getPropertyValue("--color-base");
-};
-
 export const tinyOptions = {
   getOptions: () => {
     return {
       axisName: {
-        color: fetchCurrentBaseColor(),
-        backgroundColor: fetchCurrentBaseColor(),
+        color: fetchRootComputedStyle("--color-base"),
+        backgroundColor: fetchRootComputedStyle("--color-base"),
         borderRadius: 0,
         padding: [0, 0]
       }
