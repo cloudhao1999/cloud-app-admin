@@ -15,7 +15,8 @@ const url: Partial<UrlListType> = {
 
 const initialValues = {
   title: "",
-  content: ""
+  content: "",
+  type: ""
 };
 
 const { articleFilterOptions, articleColumns } = setupArticleAttributes();

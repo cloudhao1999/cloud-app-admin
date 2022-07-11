@@ -7,6 +7,7 @@ export {};
 
 declare module "@vue/runtime-core" {
   export interface GlobalComponents {
+    AsyncSelect: typeof import("./../src/components/AsyncSelect.vue")["default"];
     Card: typeof import("./../src/components/Card.vue")["default"];
     CForm: typeof import("./../src/components/CForm.vue")["default"];
     CTable: typeof import("./../src/components/CTable.vue")["default"];
@@ -29,9 +30,11 @@ declare module "@vue/runtime-core" {
     ElIcon: typeof import("element-plus/es")["ElIcon"];
     ElMain: typeof import("element-plus/es")["ElMain"];
     ElMenuItem: typeof import("element-plus/es")["ElMenuItem"];
+    ElOption: typeof import("element-plus/es")["ElOption"];
     ElPagination: typeof import("element-plus/es")["ElPagination"];
     ElPopconfirm: typeof import("element-plus/es")["ElPopconfirm"];
     ElRow: typeof import("element-plus/es")["ElRow"];
+    ElSelect: typeof import("element-plus/es")["ElSelect"];
     ElSpace: typeof import("element-plus/es")["ElSpace"];
     ElSubMenu: typeof import("element-plus/es")["ElSubMenu"];
     ElSwitch: typeof import("element-plus/es")["ElSwitch"];

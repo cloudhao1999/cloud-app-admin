@@ -24,6 +24,19 @@ export const setupArticleAttributes = () => {
           placeholder: t("page.common.design.article.search.content_placeholder"),
           maxLength: "24"
         }
+      },
+      {
+        label: t("page.common.design.article.search.type"),
+        name: "type",
+        tagName: "async-select",
+        props: {
+          placeholder: t("page.common.design.article.search.type_placeholder"),
+          url: "/article/type",
+          size: "default",
+          style: {
+            width: "100%"
+          }
+        }
       }
     ];
   });

@@ -9,7 +9,7 @@ const types: Record<string, string> = {
   datePicker: "el-date-picker"
 };
 
-const inputTypes = ["el-input", "el-input-number"];
+const inputTypes = ["el-input", "el-input-number", "async-select"];
 
 const props = defineProps({
   options: {

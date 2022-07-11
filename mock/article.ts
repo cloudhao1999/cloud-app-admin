@@ -21,6 +21,32 @@ export default [
     }
   },
   {
+    url: "/api/article/type",
+    method: "get",
+    response: () => {
+      return {
+        code: 200,
+        message: "请示成功",
+        status: "success",
+        total: 20,
+        data: [
+          {
+            label: "历史",
+            value: "history"
+          },
+          {
+            label: "文学",
+            value: "literature"
+          },
+          {
+            label: "科技",
+            value: "technology"
+          }
+        ]
+      };
+    }
+  },
+  {
     url: "/api/deleteArticle",
     method: "post",
     response: () => {
