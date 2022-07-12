@@ -1,5 +1,6 @@
 import { fetchRouteInfo } from "@/api/routes";
 import { userStore } from "@/store/user";
+import { getToken } from "@/utils/auth";
 import { Router, RouteRecordRaw } from "vue-router";
 import autoloadModuleRoutes from "./module";
 
@@ -55,7 +56,9 @@ async function fetchRemoteRoute() {
  * @param router 路由实例
  * @param remoteFlag 是否从远程获取路由
  */
-async function autoload(router: Router, remoteFlag = false) {
+async function autoload(router: Router) {
+  const remoteFlag = !!getToken();
+
   if (remoteFlag) {
     const remoteRoutes = await fetchRemoteRoute();
     routes = [...routes, ...remoteRoutes];

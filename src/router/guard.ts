@@ -22,9 +22,13 @@ class Guard {
       return { name: "LoginPage" };
     }
 
+    if (from.name === "LoginPage") {
+      await autoload(this.router);
+    }
+
     if (this.token() && userState.isEmpty) {
       await userState.getUserInfo();
-      autoload(this.router, true);
+      await autoload(this.router);
     }
 
     if (userState.permission) {
