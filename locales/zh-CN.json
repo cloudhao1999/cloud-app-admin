@@ -14,6 +14,8 @@
   "router.dashboard": "工作台",
   "router.design": "创意设计",
   "router.article": "文章列表",
+  "router.article_remote": "文章列表（远程）",
+  "router.remote": "远程路由",
   "router.editor": "富文本编辑器",
   "router.error": "错误页面",
   "router.404": "404页面",

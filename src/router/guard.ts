@@ -24,7 +24,7 @@ class Guard {
 
     if (this.token() && userState.isEmpty) {
       await userState.getUserInfo();
-      autoload(this.router);
+      autoload(this.router, true);
     }
 
     if (userState.permission) {

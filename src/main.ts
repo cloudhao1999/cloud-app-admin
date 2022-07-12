@@ -10,6 +10,6 @@ const app = createApp(App);
 
 setupPlugins(app);
 setupRegisterGlobComp(app);
-setupRouter(app);
+await setupRouter(app);
 
 app.mount("#app");

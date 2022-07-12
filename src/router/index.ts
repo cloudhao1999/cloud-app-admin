@@ -10,7 +10,7 @@ const router = createRouter({
 });
 
 export async function setupRouter(app: App) {
-  autoload(router);
+  await autoload(router, true);
   guard(router);
   app.use(router);
 }

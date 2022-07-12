@@ -5,6 +5,7 @@ import { http } from "@/utils/http";
 enum API {
   FETCH_USER_INFO = "/user/admin",
   FETCH_EDITOR_INFO = "/user/editor",
+  FETCH_ROUTER_INFO = "/user/route",
   USER_LOGIN = "/login"
 }
 
