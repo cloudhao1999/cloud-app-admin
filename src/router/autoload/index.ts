@@ -1,4 +1,4 @@
-import { fetchRouteInfo } from "@/api/routes";
+import { fetchRouteInfo } from "@/api/route";
 import { userStore } from "@/store/user";
 import { getToken } from "@/utils/auth";
 import { Router, RouteRecordRaw } from "vue-router";
