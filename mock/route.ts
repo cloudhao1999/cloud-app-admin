@@ -18,7 +18,7 @@ export default [
               {
                 name: "article_remote",
                 path: "article_remote",
-                component: "ArticlePage",
+                component: "/design/ArticlePage.vue",
                 meta: { menu: { title: "router.article_remote" } }
               }
             ]
