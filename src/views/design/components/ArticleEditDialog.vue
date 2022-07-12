@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useMessage } from "@/hooks/useMessage";
 import { ArticleModel } from "@/model/article";
-import { useWindowSize } from "@vueuse/core";
+import { useScreenPixel } from "@/utils/web";
 import { FormInstance } from "element-plus";
 import { useI18n } from "vue-i18n";
 
@@ -11,11 +11,11 @@ const emit = defineEmits(["close"]);
 const visible = ref(false);
 const ruleFormRef = ref<FormInstance>();
 const title = ref("");
-const { width } = useWindowSize();
+const { gtMd } = useScreenPixel();
 const model = ref<Partial<ArticleModel>>({});
 
 const dialogWidth = computed(() => {
-  return width.value > 768 ? "50%" : "80%";
+  return gtMd.value ? "50%" : "80%";
 });
 
 function edit(record: ArticleModel) {
