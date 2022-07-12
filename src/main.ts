@@ -8,8 +8,15 @@ import App from "./App.vue";
 
 const app = createApp(App);
 
-setupPlugins(app);
-setupRegisterGlobComp(app);
-await setupRouter(app);
+/**
+ * 初始化事件
+ */
+async function setupSynchronized() {
+  setupPlugins(app);
+  setupRegisterGlobComp(app);
+  await setupRouter(app);
+}
 
-app.mount("#app");
+setupSynchronized().then(() => {
+  app.mount("#app");
+});
