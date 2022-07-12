@@ -91,7 +91,6 @@ async function fetchRemoteRoute() {
 /**
  * 路由自动装配
  * @param router 路由实例
- * @param remoteFlag 是否从远程获取路由
  */
 async function autoload(router: Router) {
   const remoteFlag = !!getToken();
