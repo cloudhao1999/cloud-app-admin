@@ -22,8 +22,8 @@ const getActiveKey = (menu: Menu, cmenu: Menu) => {
 };
 
 function handleMenuClick(cmenu: Menu) {
-  const { sm, md } = useScreenPixel();
-  if (sm.value || md.value) {
+  const { sm, cmd } = useScreenPixel();
+  if (sm.value || cmd.value) {
     menuService.toggleState();
   }
   menuService.linkPage(cmenu);
