@@ -65,3 +65,11 @@ export function useScreenPixel() {
 export const getLocaleFromStroage = () => {
   return localStorage.getItem("locale") || "zh-CN";
 };
+
+/**
+ * 获取浏览器存储的主题信息
+ * @returns color-scheme from localStorage
+ */
+export const getColorSchemeFromStroage = () => {
+  return localStorage.getItem("vueuse-color-scheme") || "auto";
+};
