@@ -12,13 +12,13 @@ export default [
           {
             name: "remote",
             path: "/remote",
-            component: "layouts/common-page",
+            component: "common-page",
             meta: { auth: true, menu: { title: "router.remote", icon: "Cloudy" } },
             children: [
               {
                 name: "article_remote",
                 path: "article_remote",
-                component: "views/design/ArticlePage",
+                component: "ArticlePage",
                 meta: { menu: { title: "router.article_remote" } }
               }
             ]

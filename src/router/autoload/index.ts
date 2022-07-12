@@ -6,6 +6,12 @@ import autoloadModuleRoutes from "./module";
 
 let routes: RouteRecordRaw[] = autoloadModuleRoutes();
 
+const LayoutMap = new Map<string, () => Promise<typeof import("*.vue")>>();
+LayoutMap.set("common-page", () => import("@/layouts/common-page.vue"));
+
+const PageViewMap = new Map<string, () => Promise<typeof import("*.vue")>>();
+PageViewMap.set("ArticlePage", () => import("@/views/design/ArticlePage.vue"));
+
 /**
  * 收集嵌套路由元信息并组装
  * @param children 嵌套的子路由
@@ -36,8 +42,13 @@ function filterRemoteRoute(route: RouteRecordRaw[]): RouteRecordRaw[] {
     if (r.children) {
       r.children = filterRemoteRoute(r.children);
     }
-    const path = `../../${r.component}.vue`;
-    r.component = () => import(/* @vite-ignore */ path.toString());
+    const path = `${r.component}`;
+    if (LayoutMap.has(path)) {
+      r.component = LayoutMap.get(path);
+    }
+    if (PageViewMap.has(path)) {
+      r.component = PageViewMap.get(path);
+    }
     return r;
   });
 }
