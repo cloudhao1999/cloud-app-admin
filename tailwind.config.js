@@ -23,6 +23,9 @@ module.exports = {
       },
       shadowColor: {
         base: "var(--color-shadow-base)"
+      },
+      minWidth: {
+        mobile: "350px"
       }
     }
   },
