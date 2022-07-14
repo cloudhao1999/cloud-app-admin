@@ -43,7 +43,7 @@ function matchDynamicComponent(
 ) {
   const keys = Object.keys(dynamicViewsModules);
   return keys.filter((key) => {
-    const k = key.replace("../../views", "");
+    const k = key.replace("/src/views", "");
     const startIndex = 0;
     const lastIndex = k.length;
     return k.substring(startIndex, lastIndex) === `${r.component}`;
@@ -57,7 +57,6 @@ function matchDynamicComponent(
  */
 function filterRemoteRoute(route: RouteRecordRaw[]): RouteRecordRaw[] {
   dynamicViewsModules = dynamicViewsModules || import.meta.glob("@/views/**/*.{vue,tsx}");
-
   return route.map((r) => {
     if (r.children) {
       r.children = filterRemoteRoute(r.children);
