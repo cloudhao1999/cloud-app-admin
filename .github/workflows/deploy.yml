@@ -9,7 +9,7 @@ jobs:
         with:
           node-version: '16'
       - name: Install dependencies
-        run: npm install
+        run: npm install --force
       - name: Build
         run: npm run build
       - name: Deploy pages
