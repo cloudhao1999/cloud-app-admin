@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/badge/vue-3.2.37-brightgreen.svg" alt="vue">
   </a>
   <a href="https://github.com/vitejs/vite">
-    <img src="https://img.shields.io/badge/vite-2.9.14-brightgreen.svg" alt="vite">
+    <img src="https://img.shields.io/badge/vite-3.0.0-brightgreen.svg" alt="vite">
   </a>
   <a href="https://github.com/vuejs/pinia">
     <img src="https://img.shields.io/badge/pinia-2.0.16-brightgreen.svg" alt="pinia">
@@ -20,7 +20,7 @@
 
 ## 简介
 
-cloud-app-admin 使用了最新的`vue3.2+` `vite2` `Element-Plus` `TypeScript` `Tailwind CSS`等主流技术开发，希望能和大家一起学习最新前端技术。
+cloud-app-admin 使用了最新的`vue3.2+` `vite3` `Element-Plus` `TypeScript` `Tailwind CSS`等主流技术开发，希望能和大家一起学习最新前端技术。
 
 ## 在线体验
 
