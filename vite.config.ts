@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv } from "vite";
 import alias from "./vite/alias";
 
-import { parseEnv } from "./vite/util";
+import { parseEnv, sanitizeFileName } from "./vite/util";
 import setupPlugins from "./vite/plugins";
 import { visualizer } from "rollup-plugin-visualizer";
 
@@ -25,7 +25,8 @@ export default defineConfig(({ command, mode }) => {
             if (id.includes("node_modules")) {
               return id.split("/node_modules/").pop()?.split("/")[0];
             }
-          }
+          },
+          sanitizeFileName
         }
       }
     },
