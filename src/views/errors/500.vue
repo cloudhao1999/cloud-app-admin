@@ -182,7 +182,7 @@ function goHome() {
 </template>
 
 <style lang="scss" scoped>
-@media screen and(max-width:768px) {
+@media screen and (max-width: 768px) {
   svg {
     width: 90%;
   }

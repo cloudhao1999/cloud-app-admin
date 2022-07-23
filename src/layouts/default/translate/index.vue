@@ -22,7 +22,7 @@ const toggleLocales = () => {
   @apply cursor-pointer text-gray-500 mx-1 hover:text-gray-800 duration-500;
 }
 
-@media screen and(max-width:768px) {
+@media screen and (max-width: 768px) {
   .fullscreen {
     display: none;
   }

@@ -185,7 +185,7 @@ const hStyle = computed(() => (route.name === "404" ? "h-full" : "h-screen"));
 </template>
 
 <style lang="scss" scoped>
-@media screen and(max-width:768px) {
+@media screen and (max-width: 768px) {
   svg {
     width: 90%;
   }
