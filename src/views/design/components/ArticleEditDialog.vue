@@ -1,18 +1,25 @@
 <script lang="ts" setup>
 import { useMessage } from "@/hooks/useMessage";
+import { SimpleListType, useSimpleList } from "@/hooks/useSimpleList";
 import { ArticleModel } from "@/model/article";
 import { useScreenPixel } from "@/utils/web";
 import { FormInstance } from "element-plus";
 import { useI18n } from "vue-i18n";
+import { articleUrl } from "../modules/design";
 
 const { t } = useI18n();
 const emit = defineEmits(["close"]);
+
+const { handleEdit, handleAdd } = useSimpleList<ArticleModel>(articleUrl) as SimpleListType;
 
 const visible = ref(false);
 const ruleFormRef = ref<FormInstance>();
 const title = ref("");
 const { gtMd } = useScreenPixel();
 const model = ref<Partial<ArticleModel>>({});
+const isEdit = computed<boolean>(() => {
+  return model.value.id !== undefined;
+});
 
 const dialogWidth = computed(() => {
   return gtMd.value ? "50%" : "80%";
@@ -32,9 +39,19 @@ async function submitForm(formEl: FormInstance | undefined) {
   if (!formEl) return;
   await formEl.validate((valid) => {
     if (valid) {
-      useMessage("success", t("page.common.notice.submit_success"));
-      emit("close");
-      visible.value = false;
+      if (isEdit.value) {
+        handleEdit(model.value).then(() => {
+          useMessage("success", t("page.common.notice.edit_success"));
+          emit("close");
+          visible.value = false;
+        });
+      } else {
+        handleAdd(model.value).then(() => {
+          useMessage("success", t("page.common.notice.add_success"));
+          emit("close");
+          visible.value = false;
+        });
+      }
     }
   });
 }

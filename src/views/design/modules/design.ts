@@ -1,6 +1,15 @@
 import { CTableColumn } from "#/table";
 import { ArticleModel } from "@/model/article";
+import { UrlListType } from "@/utils/list/listFactory";
 import { useI18n } from "vue-i18n";
+
+export const articleUrl: Partial<UrlListType> = {
+  list: "/article",
+  delete: "/deleteArticle",
+  batchDelete: "/batchDeleteArticle",
+  edit: "/editArticle",
+  add: "/addArticle"
+};
 
 export const setupArticleAttributes = () => {
   const { t } = useI18n();

@@ -1,17 +1,11 @@
 <script setup lang="ts">
-import { UrlListType } from "@/utils/list/listFactory";
 import { SimpleListType, useSimpleList } from "@/hooks/useSimpleList";
 import ArticleEditDialog from "./components/ArticleEditDialog.vue";
 import { ArticleModel } from "@/model/article";
-import { setupArticleAttributes } from "./modules/design";
+import { setupArticleAttributes, articleUrl } from "./modules/design";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
-
-const url: Partial<UrlListType> = {
-  list: "/article",
-  delete: "/deleteArticle"
-};
 
 const initialValues = {
   title: "",
@@ -34,11 +28,12 @@ const {
   loadData,
   handleSizeChange,
   handleCurrentChange,
-  handleEdit,
+  handleOpenAddDialog,
+  handleOpenEditDialog,
   handleDelete,
   handleSearch,
   handleReset
-} = useSimpleList<ArticleModel>(url) as SimpleListType;
+} = useSimpleList<ArticleModel>(articleUrl) as SimpleListType;
 </script>
 
 <template>
@@ -51,7 +46,13 @@ const {
           :show-reset="true"
           @reset="handleReset"
           @search="handleSearch"
-        />
+        >
+          <template #extraButtons>
+            <el-button type="primary" icon="plus" @click="handleOpenAddDialog">
+              <span>{{ t("page.common.btn.add") }}</span>
+            </el-button>
+          </template>
+        </search-filter>
       </div>
       <c-table
         v-loading="loading"
@@ -63,7 +64,7 @@ const {
         style="width: 100%"
       >
         <template #actions="{ scope }">
-          <el-button size="small" @click="handleEdit(scope.row)">{{
+          <el-button size="small" @click="handleOpenEditDialog(scope.row)">{{
             t("page.common.btn.edit")
           }}</el-button>
           <el-popconfirm

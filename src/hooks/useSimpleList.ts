@@ -45,7 +45,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     }
   };
 
-  const handleAdd = () => {
+  const handleOpenAddDialog = () => {
     modalFormRef.value.edit({});
     modalFormRef.value.title = t("page.common.title.add");
   };
@@ -60,11 +60,64 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     loadData(true);
   };
 
-  const handleEdit = <T>(record: T, title = t("page.common.title.edit")) => {
+  const handleOpenEditDialog = <T>(record: T, title = t("page.common.title.edit")) => {
     modalFormRef.value.edit(record);
     modalFormRef.value.title = title;
   };
 
+  /**
+   * 新增表单提交
+   * @param params 表单内容
+   * @returns 响应信息
+   */
+  const handleAdd = async (params: T) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        if (!url.add) {
+          useMessage("error", t("page.common.notice.set_url_add"));
+          return;
+        }
+        const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.add, {
+          params
+        });
+        if (res.code === 200 && res.data.count > 0) {
+          resolve(res);
+        }
+      } catch (err) {
+        reject(err);
+      }
+    });
+  };
+
+  /**
+   * 编辑表单提交
+   * @param params 表单内容
+   * @returns 响应信息
+   */
+  const handleEdit = async (params: T) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        if (!url.edit) {
+          useMessage("error", t("page.common.notice.set_url_edit"));
+          return;
+        }
+        const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.edit, {
+          params
+        });
+        if (res.code === 200 && res.data.count > 0) {
+          resolve(res);
+        }
+      } catch (err) {
+        reject(err);
+      }
+    });
+  };
+
+  /**
+   * 删除单个数据
+   * @param id id
+   * @returns 响应信息
+   */
   const handleDelete = async (id: number) => {
     if (!url.delete) {
       useMessage("error", t("page.common.notice.set_url_delete"));
@@ -79,12 +132,39 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     }
   };
 
-  const handleAddDrawer = () => {
+  /**
+   * 批量删除
+   * @param ids id数组
+   * @returns 响应内容
+   */
+  const handleBatchDelete = async (ids: number[]) => {
+    if (!url.batchDelete) {
+      useMessage("error", t("page.common.notice.set_url_batchDelete"));
+      return;
+    }
+    const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.batchDelete, {
+      params: { ids }
+    });
+    if (res.code === 200 && res.data.count > 0) {
+      useMessage("success", t("page.common.notice.batchDelete_success"));
+      loadData(true);
+    }
+  };
+
+  /**
+   * 打开新增弹窗
+   */
+  const handleOpenAddDialogDrawer = () => {
     drawerFormRef.value.add();
     drawerFormRef.value.title = t("page.common.title.add");
   };
 
-  const handleEditDrawer = <T>(record: T, title = t("page.common.title.edit")) => {
+  /**
+   * 打开编辑弹窗
+   * @param record 表单内容
+   * @param title 标题
+   */
+  const handleOpenEditDialogDrawer = <T>(record: T, title = t("page.common.title.edit")) => {
     drawerFormRef.value.edit(record);
     drawerFormRef.value.title = title;
   };
@@ -105,13 +185,16 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
 
   return {
     loadData,
+    handleOpenAddDialog,
+    handleOpenEditDialog,
+    handleReset,
     handleAdd,
     handleEdit,
-    handleReset,
     handleDelete,
+    handleBatchDelete,
     handleSearch,
-    handleAddDrawer,
-    handleEditDrawer,
+    handleOpenAddDialogDrawer,
+    handleOpenEditDialogDrawer,
     handleSizeChange,
     handleCurrentChange,
     dataSource,

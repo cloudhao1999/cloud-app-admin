@@ -1,6 +1,7 @@
 export type UrlListType = {
   list: string;
   delete: string;
+  batchDelete: string;
   edit: string;
   add: string;
 };

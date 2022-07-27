@@ -59,5 +59,33 @@ export default [
         }
       };
     }
+  },
+  {
+    url: "/api/editArticle",
+    method: "post",
+    response: () => {
+      return {
+        code: 200,
+        message: "编辑成功",
+        status: "success",
+        data: {
+          count: 1
+        }
+      };
+    }
+  },
+  {
+    url: "/api/addArticle",
+    method: "post",
+    response: () => {
+      return {
+        code: 200,
+        message: "添加成功",
+        status: "success",
+        data: {
+          count: 1
+        }
+      };
+    }
   }
 ] as MockMethod[];
