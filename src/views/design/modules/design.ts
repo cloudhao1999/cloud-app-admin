@@ -53,6 +53,10 @@ export const setupArticleAttributes = () => {
   const articleColumns = computed<CTableColumn<ArticleModel>[]>(() => {
     return [
       {
+        type: "selection",
+        width: "55"
+      },
+      {
         prop: "id",
         label: t("page.common.design.article.column.id"),
         width: "80"

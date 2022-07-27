@@ -14,7 +14,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
   const factory = new ListFactory<T, U>(url);
   const { t } = useI18n();
 
-  const { dataSource, ipagination, loading, queryParam, modalFormRef, drawerFormRef } = toRefs(
+  const { dataSource, ipagination, loading, queryParam, ids, modalFormRef, drawerFormRef } = toRefs(
     reactive(factory)
   );
 
@@ -134,16 +134,19 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
 
   /**
    * 批量删除
-   * @param ids id数组
    * @returns 响应内容
    */
-  const handleBatchDelete = async (ids: number[]) => {
+  const handleBatchDelete = async () => {
     if (!url.batchDelete) {
       useMessage("error", t("page.common.notice.set_url_batchDelete"));
       return;
     }
+    if (ids.value.length === 0) {
+      useMessage("error", t("page.common.notice.empty_delete_data"));
+      return;
+    }
     const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.batchDelete, {
-      params: { ids }
+      params: { ids: ids.value.join(",") }
     });
     if (res.code === 200 && res.data.count > 0) {
       useMessage("success", t("page.common.notice.batchDelete_success"));
@@ -179,6 +182,10 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     loadData();
   };
 
+  const handleSelectionChange = (val: T[]) => {
+    ids.value = unref(val).map((item: any) => item.id);
+  };
+
   onMounted(async () => {
     await loadData(true);
   });
@@ -197,6 +204,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     handleOpenEditDialogDrawer,
     handleSizeChange,
     handleCurrentChange,
+    handleSelectionChange,
     dataSource,
     ipagination,
     modalFormRef,

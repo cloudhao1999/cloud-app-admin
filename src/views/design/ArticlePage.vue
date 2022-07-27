@@ -28,9 +28,11 @@ const {
   loadData,
   handleSizeChange,
   handleCurrentChange,
+  handleSelectionChange,
   handleOpenAddDialog,
   handleOpenEditDialog,
   handleDelete,
+  handleBatchDelete,
   handleSearch,
   handleReset
 } = useSimpleList<ArticleModel>(articleUrl) as SimpleListType;
@@ -48,9 +50,15 @@ const {
           @search="handleSearch"
         >
           <template #extraButtons>
-            <el-button type="primary" icon="plus" @click="handleOpenAddDialog">
-              <span>{{ t("page.common.btn.add") }}</span>
-            </el-button>
+            <el-button type="primary" icon="plus" circle @click="handleOpenAddDialog" />
+            <el-popconfirm
+              :title="t('page.common.btn.batchDelete_popover')"
+              @confirm="handleBatchDelete()"
+            >
+              <template #reference>
+                <el-button type="danger" icon="delete" circle />
+              </template>
+            </el-popconfirm>
           </template>
         </search-filter>
       </div>
@@ -62,6 +70,7 @@ const {
         header-align="right"
         stripe
         style="width: 100%"
+        @selection-change="handleSelectionChange"
       >
         <template #actions="{ scope }">
           <el-button size="small" @click="handleOpenEditDialog(scope.row)">{{

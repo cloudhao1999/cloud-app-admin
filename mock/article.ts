@@ -61,6 +61,20 @@ export default [
     }
   },
   {
+    url: "/api/batchDeleteArticle",
+    method: "post",
+    response: () => {
+      return {
+        code: 200,
+        message: "批量删除成功",
+        status: "success",
+        data: {
+          count: 1
+        }
+      };
+    }
+  },
+  {
     url: "/api/editArticle",
     method: "post",
     response: () => {
