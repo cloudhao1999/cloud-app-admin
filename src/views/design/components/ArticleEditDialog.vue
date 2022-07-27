@@ -90,6 +90,18 @@ const options = computed(() => {
         type: "textarea",
         placeholder: t("page.common.design.article.form.content_placeholder")
       }
+    },
+    {
+      name: "type",
+      label: t("page.common.design.article.form.type"),
+      rules: [
+        {
+          required: true,
+          message: t("page.common.design.article.form.type_placeholder"),
+          trigger: "blur"
+        }
+      ],
+      scopedSlot: "type"
     }
   ];
 });
@@ -109,7 +121,15 @@ defineExpose({
         }}</el-button>
       </span>
     </template>
-    <c-form ref="ruleFormRef" v-model:value="model" label-width="80px" :options="options" />
+    <c-form ref="ruleFormRef" v-model:value="model" label-width="80px" :options="options">
+      <template #type>
+        <el-radio-group v-model="model.type" class="ml-4">
+          <el-radio label="history" size="large">历史</el-radio>
+          <el-radio label="literature" size="large">文学</el-radio>
+          <el-radio label="technology" size="large">科技</el-radio>
+        </el-radio-group>
+      </template>
+    </c-form>
   </el-dialog>
 </template>
 

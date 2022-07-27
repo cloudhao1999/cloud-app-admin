@@ -14,7 +14,8 @@ export default [
           return {
             id: index + 1,
             title: Random.ctitle(),
-            content: Random.cparagraph()
+            content: Random.cparagraph(),
+            type: Random.pick(["history", "literature", "technology"])
           };
         })
       };
@@ -53,6 +54,20 @@ export default [
       return {
         code: 200,
         message: "删除成功",
+        status: "success",
+        data: {
+          count: 1
+        }
+      };
+    }
+  },
+  {
+    url: "/api/batchDeleteArticle",
+    method: "post",
+    response: () => {
+      return {
+        code: 200,
+        message: "批量删除成功",
         status: "success",
         data: {
           count: 1
