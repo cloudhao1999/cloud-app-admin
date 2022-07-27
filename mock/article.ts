@@ -14,7 +14,8 @@ export default [
           return {
             id: index + 1,
             title: Random.ctitle(),
-            content: Random.cparagraph()
+            content: Random.cparagraph(),
+            type: Random.pick(["history", "literature", "technology"])
           };
         })
       };
