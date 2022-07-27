@@ -75,7 +75,6 @@ const onSubmit = handleSubmit(async (values: any) => {
             <div class="relative">
               <input
                 v-model="values.account"
-                type="email"
                 :placeholder="mailInputText"
                 class="mt-1 pl-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
               />
