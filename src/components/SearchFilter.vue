@@ -215,13 +215,13 @@ onDeactivated(() => {
             {{ t("page.common.btn.reset") }}
           </el-button>
         </el-space>
+        <slot name="extraButtons" :loading="loading" />
+        <a v-if="showExpandBtn" @click="handleToggleSearch">
+          {{ expanded ? "收起" : "展开" }}
+          <el-icon v-show="expanded"><component :is="ArrowUp" /></el-icon>
+          <el-icon v-show="!expanded"><component :is="ArrowDown" /></el-icon>
+        </a>
       </template>
-      <slot name="extraButtons" :loading="loading" />
-      <a v-if="showExpandBtn" @click="handleToggleSearch">
-        {{ expanded ? "收起" : "展开" }}
-        <el-icon v-show="expanded"><component :is="ArrowUp" /></el-icon>
-        <el-icon v-show="!expanded"><component :is="ArrowDown" /></el-icon>
-      </a>
     </c-form>
   </div>
 </template>
