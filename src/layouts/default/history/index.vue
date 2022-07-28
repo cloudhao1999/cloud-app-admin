@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import menuService from "@/hooks/useMenu";
+import tabService from "@/hooks/useTab";
 import { useI18n } from "vue-i18n";
 
 const size = ref(0);
@@ -17,13 +17,13 @@ watchEffect(() => {
   <div class="history self-start flex w-full p-1 border-b border-base border-solid">
     <el-space wrap :size="size">
       <el-tag
-        v-for="tag in menuService.history.value"
+        v-for="tag in tabService.history.value"
         :key="tag.title"
         size="large"
         :type="activeHistory === tag.route ? '' : 'info'"
         class="m-1 cursor-pointer"
         :closable="activeHistory === tag.route ? false : true"
-        @close="menuService.removeHistoryMenu(tag)"
+        @close="tabService.removeHistoryTab(tag)"
         @click="$router.push({ name: tag.route })"
       >
         {{ t(tag.title!) }}
