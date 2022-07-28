@@ -39,7 +39,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
       loading.value = true;
       const res = await http.get<U, BasicGetResult<T[]>>(url.list, params);
       dataSource.value = res.data as any;
-      ipagination.value.total = res.total!;
+      ipagination.value.total = Number(res.total!);
     } finally {
       loading.value = false;
     }
