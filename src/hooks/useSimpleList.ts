@@ -206,6 +206,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     handleCurrentChange,
     handleSelectionChange,
     dataSource,
+    ids,
     ipagination,
     modalFormRef,
     loading

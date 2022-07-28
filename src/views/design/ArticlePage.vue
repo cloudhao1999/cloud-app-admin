@@ -20,7 +20,11 @@ const searchParams = ref(initialValues);
 const filterOptions = computed(() => {
   return articleFilterOptions.value;
 });
+const isEmpty = computed(() => {
+  return ids.value.length === 0;
+});
 const {
+  ids,
   loading,
   dataSource,
   ipagination,
@@ -56,7 +60,7 @@ const {
               @confirm="handleBatchDelete()"
             >
               <template #reference>
-                <el-button type="danger" icon="delete" circle />
+                <el-button :disabled="isEmpty" type="danger" icon="delete" circle />
               </template>
             </el-popconfirm>
           </template>
