@@ -102,7 +102,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
           return;
         }
         const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.edit, {
-          params
+          data: params
         });
         if (res.code === 200 && res.data.count > 0) {
           resolve(res);

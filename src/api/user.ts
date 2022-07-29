@@ -51,7 +51,7 @@ export const userLogin = (data: ILoginForm) => {
   return new Promise<BasicGetResult<{ token: string }>>(async (resolve, reject) => {
     try {
       const res = await http.post<{}, BasicGetResult<{ token: string }>>(API.USER_LOGIN, {
-        params: data
+        data
       });
       resolve(res);
     } catch (error) {
