@@ -39,7 +39,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
       loading.value = true;
       const res = await http.get<U, BasicGetResult<T[]>>(url.list, params);
       dataSource.value = res.data as any;
-      ipagination.value.total = res.total!;
+      ipagination.value.total = Number(res.total!);
     } finally {
       loading.value = false;
     }
@@ -78,7 +78,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
           return;
         }
         const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.add, {
-          params
+          data: params
         });
         if (res.code === 200 && res.data.count > 0) {
           resolve(res);
