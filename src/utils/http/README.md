@@ -6,7 +6,7 @@
 import { http } from "/@/utils/http";
 
 // params传参
-http.request('get', '/xxx', { params: param });
+http.request('get', '/xxx', params });
 
 // url拼接传参
 http.request('get', '/xxx?message=' + msg);
