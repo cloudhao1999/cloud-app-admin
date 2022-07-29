@@ -3,8 +3,6 @@ import { useColorMode, useCycleList, usePreferredDark } from "@vueuse/core";
 
 const mode = useColorMode({
   modes: {
-    light: "light",
-    dark: "dark",
     sky: "sky"
   }
 });
@@ -15,7 +13,7 @@ if (preferredDark.value && color === "auto") {
   mode.value = "dark";
 }
 
-const { next, state } = useCycleList(["light", "dark", "sky"], {
+const { next, state } = useCycleList<any>(["light", "dark", "sky"], {
   initialValue: mode
 });
 
