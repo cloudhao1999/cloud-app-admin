@@ -6,7 +6,7 @@ import { useI18n } from "vue-i18n";
 export const articleUrl: Partial<UrlListType> = {
   list: "/article",
   delete: "/article",
-  batchDelete: "/batchDeleteArticle",
+  batchDelete: "/article",
   edit: "/editArticle",
   add: "/addArticle"
 };

@@ -62,8 +62,8 @@ export default [
     }
   },
   {
-    url: "/api/batchDeleteArticle",
-    method: "post",
+    url: "/api/article",
+    method: "delete",
     response: () => {
       return {
         code: 200,
