@@ -1,7 +1,7 @@
 import { onMounted, reactive, toRefs } from "vue";
 import { http } from "@/utils/http";
 import { useMessage } from "./useMessage";
-import { BasicGetResult } from "#/resultType";
+import { BasicResult } from "#/resultType";
 import ListFactory, { UrlListType } from "@/utils/list/listFactory";
 import { useI18n } from "vue-i18n";
 
@@ -37,7 +37,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     const params = getQueryParams();
     try {
       loading.value = true;
-      const res = await http.get<U, BasicGetResult<T[]>>(url.list, params);
+      const res = await http.get<U, BasicResult<T[]>>(url.list, params);
       dataSource.value = res.data as any;
       ipagination.value.total = Number(res.total!);
     } finally {
@@ -77,7 +77,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
           useMessage("error", t("page.common.notice.set_url_add"));
           return;
         }
-        const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.add, {
+        const res = await http.post<{}, BasicResult<{ count: number }>>(url.add, {
           data: params
         });
         if (res.code === 200 && res.data.count > 0) {
@@ -101,7 +101,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
           useMessage("error", t("page.common.notice.set_url_edit"));
           return;
         }
-        const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.edit, {
+        const res = await http.post<{}, BasicResult<{ count: number }>>(url.edit, {
           data: params
         });
         if (res.code === 200 && res.data.count > 0) {
@@ -123,9 +123,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
       useMessage("error", t("page.common.notice.set_url_delete"));
       return;
     }
-    const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.delete, {
-      params: { id }
-    });
+    const res = await http.delete<{}, BasicResult<{ count: number }>>(`${url.delete}/${id}`);
     if (res.code === 200 && res.data.count > 0) {
       useMessage("success", t("page.common.notice.delete_success"));
       loadData(true);
@@ -145,7 +143,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
       useMessage("error", t("page.common.notice.empty_delete_data"));
       return;
     }
-    const res = await http.post<{}, BasicGetResult<{ count: number }>>(url.batchDelete, {
+    const res = await http.post<{}, BasicResult<{ count: number }>>(url.batchDelete, {
       params: { ids: ids.value.join(",") }
     });
     if (res.code === 200 && res.data.count > 0) {

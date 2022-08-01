@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BasicGetResult } from "#/resultType";
+import { BasicResult } from "#/resultType";
 import { useMessage } from "@/hooks/useMessage";
 import { http } from "@/utils/http";
 import { useI18n } from "vue-i18n";
@@ -25,7 +25,7 @@ const emits = defineEmits(["update:modelValue"]);
 const dataSource = ref<OptionsType[]>([]);
 
 async function fetchDataList() {
-  const res = await http.get<{}, BasicGetResult<OptionsType[]>>(props.url);
+  const res = await http.get<{}, BasicResult<OptionsType[]>>(props.url);
   if (res && res.code === 200) {
     dataSource.value = res.data;
   }

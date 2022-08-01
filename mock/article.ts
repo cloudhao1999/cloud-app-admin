@@ -48,8 +48,8 @@ export default [
     }
   },
   {
-    url: "/api/deleteArticle",
-    method: "post",
+    url: "/api/article/:id",
+    method: "delete",
     response: () => {
       return {
         code: 200,
