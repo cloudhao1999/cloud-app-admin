@@ -90,7 +90,7 @@ export default [
     }
   },
   {
-    url: "/api/addArticle",
+    url: "/api/article",
     method: "post",
     response: () => {
       return {
