@@ -7,7 +7,7 @@ export const articleUrl: Partial<UrlListType> = {
   list: "/article",
   delete: "/article",
   batchDelete: "/article",
-  edit: "/editArticle",
+  edit: "/article",
   add: "/addArticle"
 };
 

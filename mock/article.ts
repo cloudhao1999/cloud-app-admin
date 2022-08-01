@@ -76,8 +76,8 @@ export default [
     }
   },
   {
-    url: "/api/editArticle",
-    method: "post",
+    url: "/api/article",
+    method: "put",
     response: () => {
       return {
         code: 200,

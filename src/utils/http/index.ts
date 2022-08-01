@@ -119,7 +119,7 @@ class CloudHttp {
 
   // 单独抽离的put工具函数
   public put<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P> {
-    return this.request<P>("put", url, { params }, config);
+    return this.request<P>("put", url, params, config);
   }
 
   // 单独抽离的delete工具函数
