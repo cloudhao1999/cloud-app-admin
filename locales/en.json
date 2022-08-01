@@ -12,6 +12,8 @@
   "global.history.dropdown.option.closeSelf": "Close self",
   "global.history.dropdown.option.closeLeft": "Close Left",
   "global.history.dropdown.option.closeRight": "Close Right",
+  "global.history.dropdown.option.closeOther": "Close Other",
+  "global.history.dropdown.option.closeAll": "Close All",
   "github": "Github Pages",
   "logout": "Logout",
   "router.home": "Home",

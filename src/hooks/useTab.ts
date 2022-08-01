@@ -76,6 +76,16 @@ class Tab {
     }
   }
 
+  closeOther() {
+    this.closeLeft();
+    this.closeRight();
+  }
+
+  closeAll() {
+    this.history.value = [];
+    router.push("/");
+  }
+
   private getHistoryTab() {
     const routes = [] as RouteRecordRaw[];
     router.getRoutes().map((r) => routes.push(...r.children));

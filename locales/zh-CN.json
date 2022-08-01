@@ -12,6 +12,8 @@
   "global.history.dropdown.option.closeSelf": "关闭当前",
   "global.history.dropdown.option.closeLeft": "关闭左侧",
   "global.history.dropdown.option.closeRight": "关闭右侧",
+  "global.history.dropdown.option.closeOther": "关闭其他",
+  "global.history.dropdown.option.closeAll": "关闭全部",
   "github": "Github 仓库",
   "logout": "退出登录",
   "router.home": "首页",

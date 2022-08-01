@@ -24,14 +24,24 @@ const { t } = useI18n();
             t("global.history.dropdown.option.closeSelf")
           }}</span>
         </el-dropdown-item>
-        <el-dropdown-item divided :disabled="tabService.isTop().value">
+        <el-dropdown-item icon="ArrowLeft" divided :disabled="tabService.isTop().value">
           <span @click="tabService.closeLeft">{{
             t("global.history.dropdown.option.closeLeft")
           }}</span>
         </el-dropdown-item>
-        <el-dropdown-item :disabled="tabService.isBottom().value">
+        <el-dropdown-item icon="ArrowRight" :disabled="tabService.isBottom().value">
           <span @click="tabService.closeRight">{{
             t("global.history.dropdown.option.closeRight")
+          }}</span>
+        </el-dropdown-item>
+        <el-dropdown-item icon="CircleClose" divided :disabled="oneTab">
+          <span @click="tabService.closeOther">{{
+            t("global.history.dropdown.option.closeOther")
+          }}</span>
+        </el-dropdown-item>
+        <el-dropdown-item icon="DCaret">
+          <span @click="tabService.closeAll">{{
+            t("global.history.dropdown.option.closeAll")
           }}</span>
         </el-dropdown-item>
       </el-dropdown-menu>
