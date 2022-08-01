@@ -30,6 +30,9 @@ class Tab {
     }
   }
 
+  /**
+   * 重载页面
+   */
   reload() {
     this.isRouterAlive.value = false;
     nextTick(() => {
@@ -37,6 +40,9 @@ class Tab {
     });
   }
 
+  /**
+   * 关闭当前页面
+   */
   closeSelf() {
     const menu = this.history.value.find((m) => m.route == this.route.value?.name);
     const length = this.history.value.length;
@@ -47,6 +53,10 @@ class Tab {
     }
   }
 
+  /**
+   * 索引计算
+   * @returns 当前页面在历史记录中的索引
+   */
   calcalateHistoryIndex() {
     return this.history.value.findIndex((m) => m.route == this.route.value?.name);
   }
@@ -62,6 +72,9 @@ class Tab {
     });
   }
 
+  /**
+   * 关闭左边的页面
+   */
   closeLeft() {
     if (!this.isTop().value) {
       const index = this.calcalateHistoryIndex();
@@ -69,6 +82,9 @@ class Tab {
     }
   }
 
+  /**
+   * 关闭右边的页面
+   */
   closeRight() {
     if (!this.isBottom().value) {
       const index = this.calcalateHistoryIndex();
@@ -76,11 +92,17 @@ class Tab {
     }
   }
 
+  /**
+   * 关闭其他页面
+   */
   closeOther() {
     this.closeLeft();
     this.closeRight();
   }
 
+  /**
+   * 关闭所有页面
+   */
   closeAll() {
     this.history.value = [];
     router.push("/");
