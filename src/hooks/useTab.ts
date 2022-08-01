@@ -7,6 +7,7 @@ import { CacheEnum } from "@/enum/cacheEnum";
 class Tab {
   public history = useStorage<IMenu[]>(CacheEnum.HISTORY_MENU, []);
   public route = ref(null as null | RouteLocationNormalized);
+  public isRouterAlive = ref<boolean>(true);
 
   constructor() {
     this.history.value = this.getHistoryTab();
@@ -26,6 +27,23 @@ class Tab {
     if (!isHas) this.history.value.unshift(menu);
     if (this.history.value.length > 10) {
       this.history.value.pop();
+    }
+  }
+
+  reload() {
+    this.isRouterAlive.value = false;
+    nextTick(() => {
+      this.isRouterAlive.value = true;
+    });
+  }
+
+  closeSelf() {
+    const menu = this.history.value.find((m) => m.route == this.route.value?.name);
+    const length = this.history.value.length;
+    if (menu && length > 1) {
+      this.removeHistoryTab(menu);
+      const prevRouter: IMenu = this.history.value[length - 2];
+      router.push({ name: prevRouter.route });
     }
   }
 

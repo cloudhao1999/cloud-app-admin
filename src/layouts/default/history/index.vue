@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import tabService from "@/hooks/useTab";
 import { useI18n } from "vue-i18n";
+import Option from "./option.vue";
 
 const size = ref(0);
 const route = useRoute();
@@ -15,7 +16,7 @@ watchEffect(() => {
 
 <template>
   <div class="history self-start flex w-full p-1 border-b border-base border-solid">
-    <el-space wrap :size="size">
+    <el-space wrap :size="size" class="flex-1">
       <el-tag
         v-for="tag in tabService.history.value"
         :key="tag.title"
@@ -29,6 +30,9 @@ watchEffect(() => {
         {{ t(tag.title!) }}
       </el-tag>
     </el-space>
+    <div class="self-center justify-self-end float-right pr-3">
+      <Option />
+    </div>
   </div>
 </template>
 
