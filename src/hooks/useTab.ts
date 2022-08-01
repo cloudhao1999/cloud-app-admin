@@ -104,8 +104,13 @@ class Tab {
    * 关闭所有页面
    */
   closeAll() {
-    this.history.value = [];
     router.push("/");
+    this.history.value = [
+      {
+        route: "Dashboard",
+        title: "router.dashboard"
+      }
+    ];
   }
 
   private getHistoryTab() {
