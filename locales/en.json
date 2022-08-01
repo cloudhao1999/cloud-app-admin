@@ -10,6 +10,8 @@
   "global_title": "Miao Miao Admin",
   "global.history.dropdown.option.reload": "Reload",
   "global.history.dropdown.option.closeSelf": "Close self",
+  "global.history.dropdown.option.closeLeft": "Close Left",
+  "global.history.dropdown.option.closeRight": "Close Right",
   "github": "Github Pages",
   "logout": "Logout",
   "router.home": "Home",

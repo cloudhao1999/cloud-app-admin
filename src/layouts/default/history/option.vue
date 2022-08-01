@@ -24,6 +24,16 @@ const { t } = useI18n();
             t("global.history.dropdown.option.closeSelf")
           }}</span>
         </el-dropdown-item>
+        <el-dropdown-item divided :disabled="tabService.isTop().value">
+          <span @click="tabService.closeLeft">{{
+            t("global.history.dropdown.option.closeLeft")
+          }}</span>
+        </el-dropdown-item>
+        <el-dropdown-item :disabled="tabService.isBottom().value">
+          <span @click="tabService.closeRight">{{
+            t("global.history.dropdown.option.closeRight")
+          }}</span>
+        </el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>

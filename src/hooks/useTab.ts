@@ -47,6 +47,35 @@ class Tab {
     }
   }
 
+  calcalateHistoryIndex() {
+    return this.history.value.findIndex((m) => m.route == this.route.value?.name);
+  }
+
+  isTop() {
+    return computed(() => this.calcalateHistoryIndex() === 0);
+  }
+
+  isBottom() {
+    return computed(() => {
+      const length = this.history.value.length;
+      return this.calcalateHistoryIndex() === length - 1;
+    });
+  }
+
+  closeLeft() {
+    if (!this.isTop().value) {
+      const index = this.calcalateHistoryIndex();
+      this.history.value.splice(0, index);
+    }
+  }
+
+  closeRight() {
+    if (!this.isBottom().value) {
+      const index = this.calcalateHistoryIndex();
+      this.history.value.splice(index + 1);
+    }
+  }
+
   private getHistoryTab() {
     const routes = [] as RouteRecordRaw[];
     router.getRoutes().map((r) => routes.push(...r.children));
