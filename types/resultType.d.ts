@@ -1,4 +1,4 @@
-export interface BasicGetResult<T> {
+export interface BasicResult<T> {
   code: number;
   message: string;
   status: string;

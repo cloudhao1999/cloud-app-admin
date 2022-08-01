@@ -48,8 +48,8 @@ export default [
     }
   },
   {
-    url: "/api/deleteArticle",
-    method: "post",
+    url: "/api/article/:id",
+    method: "delete",
     response: () => {
       return {
         code: 200,
@@ -62,8 +62,8 @@ export default [
     }
   },
   {
-    url: "/api/batchDeleteArticle",
-    method: "post",
+    url: "/api/article",
+    method: "delete",
     response: () => {
       return {
         code: 200,
@@ -76,8 +76,8 @@ export default [
     }
   },
   {
-    url: "/api/editArticle",
-    method: "post",
+    url: "/api/article",
+    method: "put",
     response: () => {
       return {
         code: 200,
@@ -90,7 +90,7 @@ export default [
     }
   },
   {
-    url: "/api/addArticle",
+    url: "/api/article",
     method: "post",
     response: () => {
       return {

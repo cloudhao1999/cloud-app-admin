@@ -85,14 +85,12 @@ class CloudHttp {
     method: RequestMethods,
     url: string,
     param?: AxiosRequestConfig,
-    data?: AxiosRequestConfig,
     axiosConfig?: CloudHttpRequestConfig
   ): Promise<T> {
     const config = {
       method,
       url,
       ...param,
-      ...data,
       ...axiosConfig
     } as CloudHttpRequestConfig;
 
@@ -110,13 +108,23 @@ class CloudHttp {
   }
 
   // 单独抽离的post工具函数
-  public post<T, P>(url: string, data?: T, config?: CloudHttpRequestConfig): Promise<P> {
-    return this.request<P>("post", url, data, config);
+  public post<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P> {
+    return this.request<P>("post", url, params, config);
   }
 
   // 单独抽离的get工具函数
   public get<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P> {
     return this.request<P>("get", url, { params }, config);
+  }
+
+  // 单独抽离的put工具函数
+  public put<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P> {
+    return this.request<P>("put", url, params, config);
+  }
+
+  // 单独抽离的delete工具函数
+  public delete<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P> {
+    return this.request<P>("delete", url, { params }, config);
   }
 }
 

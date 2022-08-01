@@ -2,14 +2,14 @@
 import Menu from "@/layouts/default/menu/index.vue";
 import Header from "@/layouts/default/header/index.vue";
 import History from "@/layouts/default/history/index.vue";
-import menuService from "@/hooks/useMenu";
+import tabService from "@/hooks/useTab";
 import PageView from "./pages/index.vue";
 
 const route = useRoute();
 watch(
   route,
   () => {
-    menuService.addHistoryMenu(route);
+    tabService.addHistoryTab(route);
   },
   { immediate: true }
 );

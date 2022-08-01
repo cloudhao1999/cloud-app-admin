@@ -1,4 +1,4 @@
-import { BasicGetResult } from "#/resultType";
+import { BasicResult } from "#/resultType";
 import { UserInfoModel } from "@/model/user";
 import { http } from "@/utils/http";
 
@@ -18,9 +18,9 @@ export interface ILoginForm {
  * @description 获取用户信息（权限为管理员）
  */
 export const fetchAdminInfo = () => {
-  return new Promise<BasicGetResult<UserInfoModel>>(async (resolve, reject) => {
+  return new Promise<BasicResult<UserInfoModel>>(async (resolve, reject) => {
     try {
-      const res = await http.get<{}, BasicGetResult<UserInfoModel>>(API.FETCH_USER_INFO);
+      const res = await http.get<{}, BasicResult<UserInfoModel>>(API.FETCH_USER_INFO);
       resolve(res);
     } catch (error) {
       reject(error);
@@ -33,9 +33,9 @@ export const fetchAdminInfo = () => {
  * @description 获取用户信息（权限为普通）
  */
 export const fetchEditorInfo = () => {
-  return new Promise<BasicGetResult<UserInfoModel>>(async (resolve, reject) => {
+  return new Promise<BasicResult<UserInfoModel>>(async (resolve, reject) => {
     try {
-      const res = await http.get<{}, BasicGetResult<UserInfoModel>>(API.FETCH_EDITOR_INFO);
+      const res = await http.get<{}, BasicResult<UserInfoModel>>(API.FETCH_EDITOR_INFO);
       resolve(res);
     } catch (error) {
       reject(error);
@@ -48,10 +48,10 @@ export const fetchEditorInfo = () => {
  * @description 登录
  */
 export const userLogin = (data: ILoginForm) => {
-  return new Promise<BasicGetResult<{ token: string }>>(async (resolve, reject) => {
+  return new Promise<BasicResult<{ token: string }>>(async (resolve, reject) => {
     try {
-      const res = await http.post<{}, BasicGetResult<{ token: string }>>(API.USER_LOGIN, {
-        params: data
+      const res = await http.post<{}, BasicResult<{ token: string }>>(API.USER_LOGIN, {
+        data
       });
       resolve(res);
     } catch (error) {

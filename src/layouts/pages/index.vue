@@ -1,8 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import tabService from "@/hooks/useTab";
+</script>
 
 <template>
   <el-main>
-    <router-view v-slot="{ Component, route }">
+    <router-view v-if="tabService.isRouterAlive.value" v-slot="{ Component, route }">
       <template v-if="route.meta.menu?.iframe_link">
         <keep-alive>
           <Transition appear name="el-fade-in-linear">

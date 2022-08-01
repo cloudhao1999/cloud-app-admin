@@ -5,10 +5,10 @@ import { useI18n } from "vue-i18n";
 
 export const articleUrl: Partial<UrlListType> = {
   list: "/article",
-  delete: "/deleteArticle",
-  batchDelete: "/batchDeleteArticle",
-  edit: "/editArticle",
-  add: "/addArticle"
+  delete: "/article",
+  batchDelete: "/article",
+  edit: "/article",
+  add: "/article"
 };
 
 export const setupArticleAttributes = () => {
