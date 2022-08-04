@@ -51,6 +51,8 @@
   "page.common.btn.cancel": "Cancel",
   "page.common.title.edit": "Edit",
   "page.common.title.add": "Add",
+  "page.common.table.column.title": "Column Show",
+  "page.common.table.column.selection": "Selection Box",
   "page.common.notice.set_url_list": "Please set the url list property",
   "page.common.notice.set_url": "Please set the url property",
   "page.common.notice.set_url_delete": "Please set the url delete property",

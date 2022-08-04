@@ -11,11 +11,14 @@ declare module "@vue/runtime-core" {
     Card: typeof import("./../src/components/Card.vue")["default"];
     CForm: typeof import("./../src/components/CForm.vue")["default"];
     CTable: typeof import("./../src/components/CTable.vue")["default"];
+    CTableHead: typeof import("./../src/components/CTableHead.vue")["default"];
     ElAside: typeof import("element-plus/es")["ElAside"];
     ElAvatar: typeof import("element-plus/es")["ElAvatar"];
     ElBreadcrumb: typeof import("element-plus/es")["ElBreadcrumb"];
     ElBreadcrumbItem: typeof import("element-plus/es")["ElBreadcrumbItem"];
     ElButton: typeof import("element-plus/es")["ElButton"];
+    ElCheckbox: typeof import("element-plus/es")["ElCheckbox"];
+    ElCheckboxGroup: typeof import("element-plus/es")["ElCheckboxGroup"];
     ElCol: typeof import("element-plus/es")["ElCol"];
     ElColorPicker: typeof import("element-plus/es")["ElColorPicker"];
     ElConfigProvider: typeof import("element-plus/es")["ElConfigProvider"];
@@ -32,6 +35,7 @@ declare module "@vue/runtime-core" {
     ElOption: typeof import("element-plus/es")["ElOption"];
     ElPagination: typeof import("element-plus/es")["ElPagination"];
     ElPopconfirm: typeof import("element-plus/es")["ElPopconfirm"];
+    ElPopover: typeof import("element-plus/es")["ElPopover"];
     ElRadio: typeof import("element-plus/es")["ElRadio"];
     ElRadioGroup: typeof import("element-plus/es")["ElRadioGroup"];
     ElRow: typeof import("element-plus/es")["ElRow"];

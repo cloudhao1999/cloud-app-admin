@@ -72,6 +72,7 @@ export const setupArticleAttributes = () => {
       {
         prop: "content",
         show: true,
+        locked: true,
         label: t("page.common.design.article.column.content"),
         showOverflowTooltip: true
       },
