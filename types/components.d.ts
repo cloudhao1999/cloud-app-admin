@@ -18,6 +18,7 @@ declare module "@vue/runtime-core" {
     ElCheckbox: typeof import("element-plus/es")["ElCheckbox"];
     ElCheckboxGroup: typeof import("element-plus/es")["ElCheckboxGroup"];
     ElCol: typeof import("element-plus/es")["ElCol"];
+    ElColorPicker: typeof import("element-plus/es")["ElColorPicker"];
     ElConfigProvider: typeof import("element-plus/es")["ElConfigProvider"];
     ElContainer: typeof import("element-plus/es")["ElContainer"];
     ElDialog: typeof import("element-plus/es")["ElDialog"];
@@ -39,6 +40,7 @@ declare module "@vue/runtime-core" {
     ElSelect: typeof import("element-plus/es")["ElSelect"];
     ElSpace: typeof import("element-plus/es")["ElSpace"];
     ElSubMenu: typeof import("element-plus/es")["ElSubMenu"];
+    ElSwitch: typeof import("element-plus/es")["ElSwitch"];
     ElTable: typeof import("element-plus/es")["ElTable"];
     ElTableColumn: typeof import("element-plus/es")["ElTableColumn"];
     ElTag: typeof import("element-plus/es")["ElTag"];
@@ -50,10 +52,12 @@ declare module "@vue/runtime-core" {
     IMdiFullscreen: typeof import("~icons/mdi/fullscreen")["default"];
     IMdiFullscreenExit: typeof import("~icons/mdi/fullscreen-exit")["default"];
     IMdiGoogleTranslate: typeof import("~icons/mdi/google-translate")["default"];
+    IMdiQqchat: typeof import("~icons/mdi/qqchat")["default"];
     IMdiRefresh: typeof import("~icons/mdi/refresh")["default"];
     IMdiTrendingDown: typeof import("~icons/mdi/trending-down")["default"];
     IMdiTrendingUp: typeof import("~icons/mdi/trending-up")["default"];
     IMdiWeatherNight: typeof import("~icons/mdi/weather-night")["default"];
+    IMdiWechat: typeof import("~icons/mdi/wechat")["default"];
     IMdiWhiteBalanceSunny: typeof import("~icons/mdi/white-balance-sunny")["default"];
     Panel: typeof import("./../src/components/Panel.vue")["default"];
     RouterLink: typeof import("vue-router")["RouterLink"];
