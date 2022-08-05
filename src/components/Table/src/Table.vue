@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { CTableColumn } from "#/table";
-import { useTable } from "@/hooks/useTable.js";
+import { useTable } from "./hooks/useTable.js";
+import TableHead from "./components/TableHead.vue";
 
 interface Props {
   columns: CTableColumn<any>[];
@@ -29,7 +30,7 @@ watchEffect(() => {
 
 <template>
   <div class="w-full">
-    <c-table-head
+    <table-head
       v-if="props.showHeader"
       :columns="columnsRef"
       :computed-columns="computedColumns"
