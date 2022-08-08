@@ -48,6 +48,8 @@ declare module "@vue/runtime-core" {
     ElTimelineItem: typeof import("element-plus/es")["ElTimelineItem"];
     EmptyBlock: typeof import("./../src/components/EmptyBlock.vue")["default"];
     IMdiAppleIcloud: typeof import("~icons/mdi/apple-icloud")["default"];
+    IMdiArrowDownDropCircleOutline: typeof import("~icons/mdi/arrow-down-drop-circle-outline")["default"];
+    IMdiArrowUpDropCircleOutline: typeof import("~icons/mdi/arrow-up-drop-circle-outline")["default"];
     IMdiFormatIndentDecrease: typeof import("~icons/mdi/format-indent-decrease")["default"];
     IMdiFullscreen: typeof import("~icons/mdi/fullscreen")["default"];
     IMdiFullscreenExit: typeof import("~icons/mdi/fullscreen-exit")["default"];

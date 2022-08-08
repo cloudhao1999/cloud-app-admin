@@ -26,9 +26,27 @@ export function useTable<T>(column: CTableColumn<T>[]) {
     });
   }
 
+  /**
+   * 排序列
+   * @param index 列索引 ;
+   * @param sort 上下移动标识
+   */
+  function moveColumn(index: number, sort: "ASC" | "DESC") {
+    const columns = columnsRef.value;
+    const column = columns[index];
+    const targetIndex = sort === "ASC" ? index + 1 : index - 1;
+    const targetColumn = columns[targetIndex];
+    if (targetColumn) {
+      columns.splice(index, 1);
+      columns.splice(targetIndex, 0, column);
+      columnsRef.value = columns;
+    }
+  }
+
   return {
     columnsRef,
     computedColumns,
-    filterColumns
+    filterColumns,
+    moveColumn
   };
 }

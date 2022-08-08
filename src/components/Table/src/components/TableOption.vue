@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { CTableColumn } from "#/table.js";
 import { CheckboxValueType } from "element-plus";
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
 
 const modelValue = ref<string[]>([]);
 
@@ -11,12 +8,19 @@ interface Props {
   columns: CTableColumn<any>[];
   computedColumns: CTableColumn<any>[];
   filterColumns: (columns: CheckboxValueType[]) => void;
+  moveColumn: (index: number, sort: "ASC" | "DESC") => void;
 }
+
 const props = withDefaults(defineProps<Props>(), {
   columns: () => [],
   computedColumns: () => [],
-  filterColumns: () => {}
+  filterColumns: () => {},
+  moveColumn: () => {}
 });
+
+const calculateTop = () => {
+  return props.columns.findIndex((column) => column.type === "selection") + 1;
+};
 
 watch(
   props.computedColumns,
@@ -35,20 +39,44 @@ watch(
       <template #reference>
         <el-button icon="menu" circle />
       </template>
-      <el-checkbox-group v-model="modelValue" @change="filterColumns">
+      <div class="flex justify-between">
+        <el-checkbox-group v-model="modelValue" @change="filterColumns">
+          <div class="flex flex-col">
+            <el-checkbox
+              v-for="column in props.columns"
+              v-show="column.label"
+              :key="column.prop"
+              :disabled="column.locked"
+              :label="column.prop"
+            >
+              <div v-show="column.label" class="flex">
+                {{ column.label }}
+              </div>
+            </el-checkbox>
+          </div>
+        </el-checkbox-group>
         <div class="flex flex-col">
-          <el-checkbox
-            v-for="column in props.columns"
+          <div
+            v-for="(column, index) in props.columns"
+            v-show="column.label"
             :key="column.prop"
-            :disabled="column.locked"
-            :label="column.prop"
+            class="flex mt-2 h-6"
           >
-            <div class="flex">
-              {{ column.label ?? t("page.common.table.column.selection") }}
-            </div>
-          </el-checkbox>
+            <i-mdi-arrow-up-drop-circle-outline
+              v-show="index !== calculateTop()"
+              class="hover:text-blue-500 cursor-pointer"
+              style="font-size: 1em"
+              @click="moveColumn(index, 'DESC')"
+            />
+            <i-mdi-arrow-down-drop-circle-outline
+              v-show="index < props.columns.length - 1"
+              class="hover:text-blue-500 cursor-pointer"
+              style="font-size: 1em"
+              @click="moveColumn(index, 'ASC')"
+            />
+          </div>
         </div>
-      </el-checkbox-group>
+      </div>
     </el-popover>
   </div>
 </template>
