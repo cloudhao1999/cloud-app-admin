@@ -9,22 +9,26 @@ export const setupDashobardAttributes = () => {
     return [
       {
         prop: "name",
+        show: true,
         label: t("page.common.dashboard.column.leaderboard.name")
       },
       {
         prop: "price",
         sortable: true,
+        show: true,
         label: t("page.common.dashboard.column.leaderboard.price"),
         width: "85"
       },
       {
         prop: "category",
+        show: true,
         label: t("page.common.dashboard.column.leaderboard.tag"),
         width: "80",
         scoped: "category"
       },
       {
         prop: "sort",
+        show: true,
         label: t("page.common.dashboard.column.leaderboard.compared"),
         width: "110",
         scoped: "sort"

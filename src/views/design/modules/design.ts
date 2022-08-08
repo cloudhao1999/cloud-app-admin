@@ -54,25 +54,31 @@ export const setupArticleAttributes = () => {
     return [
       {
         type: "selection",
+        show: true,
         width: "55"
       },
       {
         prop: "id",
+        show: true,
         label: t("page.common.design.article.column.id"),
         width: "80"
       },
       {
         prop: "title",
+        show: true,
         label: t("page.common.design.article.column.title"),
         width: "180"
       },
       {
         prop: "content",
+        show: true,
+        locked: true,
         label: t("page.common.design.article.column.content"),
         showOverflowTooltip: true
       },
       {
         prop: "actions",
+        show: true,
         label: t("page.common.design.article.column.action"),
         fixed: "right",
         scoped: "actions",

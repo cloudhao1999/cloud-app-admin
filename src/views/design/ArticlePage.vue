@@ -69,6 +69,7 @@ const {
       <c-table
         v-loading="loading"
         :table-data="dataSource"
+        :show-header="true"
         :columns="articleColumns"
         align="right"
         header-align="right"
