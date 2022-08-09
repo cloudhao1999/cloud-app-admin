@@ -9,7 +9,7 @@ export type columnType = {
   width?: string;
 };
 
-type CTableColumn<T> = Partial<TableColumnCtx<T>> & {
+export type CTableColumn<T> = Partial<TableColumnCtx<T>> & {
   scoped?: string;
   show?: boolean;
   locked?: boolean;

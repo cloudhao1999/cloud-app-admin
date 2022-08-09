@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CTableColumn } from "#/table.js";
+import { CTableColumn } from "#/table";
 import { CheckboxValueType } from "element-plus";
 import { useI18n } from "vue-i18n";
 
