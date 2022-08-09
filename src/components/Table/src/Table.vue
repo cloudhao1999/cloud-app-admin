@@ -41,7 +41,7 @@ watchEffect(() => {
     <el-table :data="props.tableData" v-bind="$attrs">
       <el-table-column
         v-for="(column, index) in computedColumns"
-        :key="index"
+        :key="index + String(column.prop)"
         v-bind="column"
         :min-width="column.minWidth"
       >

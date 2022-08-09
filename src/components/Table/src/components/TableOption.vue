@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { CTableColumn } from "#/table.js";
 import { CheckboxValueType } from "element-plus";
+import { useI18n } from "vue-i18n";
 
 const modelValue = ref<string[]>([]);
+const { t } = useI18n();
 
 interface Props {
   columns: CTableColumn<any>[];
@@ -44,32 +46,24 @@ watch(
           <div class="flex flex-col">
             <el-checkbox
               v-for="column in props.columns"
-              v-show="column.label"
               :key="column.prop"
               :disabled="column.locked"
               :label="column.prop"
             >
-              <div v-show="column.label" class="flex">
-                {{ column.label }}
-              </div>
+              {{ column.label ?? t("page.common.table.column.selection") }}
             </el-checkbox>
           </div>
         </el-checkbox-group>
         <div class="flex flex-col">
-          <div
-            v-for="(column, index) in props.columns"
-            v-show="column.label"
-            :key="column.prop"
-            class="flex mt-2 h-6"
-          >
+          <div v-for="(column, index) in props.columns" :key="column.prop" class="flex mt-2 h-6">
             <i-mdi-arrow-up-drop-circle-outline
-              v-show="index !== calculateTop()"
+              v-show="index !== calculateTop() && index !== calculateTop() - 1"
               class="hover:text-blue-500 cursor-pointer"
               style="font-size: 1em"
               @click="moveColumn(index, 'DESC')"
             />
             <i-mdi-arrow-down-drop-circle-outline
-              v-show="index < props.columns.length - 1"
+              v-show="index < props.columns.length - 1 && index !== calculateTop() - 1"
               class="hover:text-blue-500 cursor-pointer"
               style="font-size: 1em"
               @click="moveColumn(index, 'ASC')"
