@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
 const router = useRouter();
 const route = useRoute();
+const { t } = useI18n();
 
 function goHome() {
   router.push("/");
@@ -13,15 +16,15 @@ const hStyle = computed(() => (route.name === "404" ? "h-full" : "h-screen"));
   <div :class="hStyle" class="w-full flex items-center flex-1 bg-base">
     <div class="flex-1 flex flex-col md:flex-row items-center justify-center px-5 text-gray-700">
       <div class="max-w-md">
-        <div class="text-5xl font-dark font-bold">404</div>
-        <p class="text-2xl md:text-3xl font-light leading-normal">对不起,我们找不到这个页面</p>
-        <p class="mt-2 mb-8">不过不要担心,你可以点击下方的按钮回到主页</p>
+        <div class="text-5xl font-dark font-bold">{{ t("page.404.title") }}</div>
+        <p class="text-2xl md:text-3xl font-light leading-normal">{{ t("page.404.head_title") }}</p>
+        <p class="mt-2 mb-8">{{ t("page.404.second_title") }}</p>
 
         <button
           class="px-4 inline py-2 text-sm font-medium leading-5 shadow text-white transition-colors duration-150 border border-transparent rounded-lg focus:outline-none focus:shadow-outline-blue bg-blue-600 active:bg-blue-600 hover:bg-blue-700"
           @click="goHome"
         >
-          回到主页
+          {{ t("page.error.btn") }}
         </button>
       </div>
       <div class="max-w-lg">
