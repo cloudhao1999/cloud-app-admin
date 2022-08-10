@@ -37,7 +37,11 @@ watchEffect(() => {
       :computed-columns="computedColumns"
       :filter-columns="filterColumns"
       :move-column="moveColumn"
-    />
+    >
+      <span class="mr-4">
+        <slot name="options" />
+      </span>
+    </table-head>
     <el-table :data="props.tableData" v-bind="$attrs">
       <el-table-column
         v-for="(column, index) in computedColumns"
