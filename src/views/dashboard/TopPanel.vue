@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import PiKa from "@/assets/img/pika.jpeg";
-import Kabi from "@/assets/img/kabi.jpeg";
-import Keda from "@/assets/img/keda.jpeg";
-import Jieni from "@/assets/img/jieni.jpeg";
+import PiKa from "@/assets/img/pika.webp";
+import Kabi from "@/assets/img/kabi.webp";
+import Keda from "@/assets/img/keda.webp";
+import Jieni from "@/assets/img/jieni.webp";
 
 const animalList = [
   {

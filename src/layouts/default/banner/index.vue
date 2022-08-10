@@ -14,7 +14,7 @@ const globalTitle = computed(() => {
     @click="$router.push('/')"
   >
     <div class="w-10 ml-4">
-      <img src="../../../assets/img/logo.png" alt="logo" />
+      <img src="../../../assets/img/logo.webp" alt="logo" />
     </div>
     <div v-show="!menuService.close.value" class="flex-1 duration-500 ml-2 mr-1 w-[160px]">
       <span class="text-base font-bold">{{ globalTitle }}</span>
