@@ -98,19 +98,19 @@ pnpm commit
 
 - 富文本编辑器
 
-  ![editor](./screenshot/editor.png)
+![editor](./screenshot/editor.png)
 
 - CRUD列表
 
-  ![crud](./screenshot/crud.png)
+![crud](./screenshot/crud.png)
 
 - 国际化
 
-  ![i18n](./screenshot/i18n.png)
+![i18n](./screenshot/i18n.png)
 
 - 多级菜单
 
-  ![nested](./screenshot/nested.png)
+![nested](./screenshot/nested.png)
 
 - 自适应
 
