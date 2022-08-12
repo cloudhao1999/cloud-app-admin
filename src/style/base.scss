@@ -6,6 +6,11 @@
   display: none;
 }
 
+/*修复火狐浏览器的滚轮样式问题*/
+* {
+  scrollbar-width: none;
+}
+
 input {
   outline:none
 }
