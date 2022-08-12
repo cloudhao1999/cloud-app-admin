@@ -52,19 +52,7 @@ const {
           :show-reset="true"
           @reset="handleReset"
           @search="handleSearch"
-        >
-          <template #extraButtons>
-            <el-button type="primary" icon="plus" circle @click="handleOpenAddDialog" />
-            <el-popconfirm
-              :title="t('page.common.btn.batchDelete_popover')"
-              @confirm="handleBatchDelete()"
-            >
-              <template #reference>
-                <el-button :disabled="isEmpty" type="danger" icon="delete" circle />
-              </template>
-            </el-popconfirm>
-          </template>
-        </search-filter>
+        />
       </div>
       <c-table
         v-loading="loading"
@@ -77,6 +65,17 @@ const {
         style="width: 100%"
         @selection-change="handleSelectionChange"
       >
+        <template #options>
+          <el-button type="primary" icon="plus" circle @click="handleOpenAddDialog" />
+          <el-popconfirm
+            :title="t('page.common.btn.batchDelete_popover')"
+            @confirm="handleBatchDelete()"
+          >
+            <template #reference>
+              <el-button :disabled="isEmpty" type="danger" icon="delete" circle />
+            </template>
+          </el-popconfirm>
+        </template>
         <template #actions="{ scope }">
           <el-button size="small" @click="handleOpenEditDialog(scope.row)">{{
             t("page.common.btn.edit")

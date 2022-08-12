@@ -150,7 +150,7 @@ const onSubmit = handleSubmit(async (values: any) => {
 
 <style lang="scss" scoped>
 .login {
-  background: url("../../assets/img/background.jpeg");
+  background: url("../../assets/img/background.webp");
   background-repeat: no-repeat;
   background-size: cover;
 }

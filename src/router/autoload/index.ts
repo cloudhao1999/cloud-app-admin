@@ -27,7 +27,7 @@ function filterNestedChildren(children: RouteRecordRaw[]) {
       r.children = filterNestedChildren(r.children);
     }
 
-    return permissions ? permissions?.includes(user.info!.permission) : true;
+    return permissions ? permissions?.includes(user.info.permission!) : true;
   });
 }
 
