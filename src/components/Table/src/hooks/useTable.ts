@@ -12,8 +12,8 @@ export function useTable<T>(column: CTableColumn<T>[]) {
   });
 
   /**
-   * 判断剩下的列是否都有宽度，element-table通常会自动计算宽度，但是如果手动设置宽度，则不会自动计算宽度
-   * @param columns 选择要展示的列 ;
+   * 判断剩下的列是否都有宽度，element-table通常会自动计算宽度，但是如果手动设置宽度，则不会自动计算
+   * @param columns 选择要展示的列
    * @returns 布尔值，是否都有宽度
    */
   const isAllColumnsHaveWidth = (columns: CheckboxValueType[]): boolean => {
@@ -29,16 +29,14 @@ export function useTable<T>(column: CTableColumn<T>[]) {
 
   /**
    * 动态增减列
-   * @param columns : 列数据 ;
+   * @param columns: 列数据
    */
   function filterColumns(columns: CheckboxValueType[]) {
     const widthExist = isAllColumnsHaveWidth(columns);
 
     columnsRef.value = columnsRef.value.map((column) => {
-      /* 判断剩下的列是否都有宽度，
-        element-table通常会自动计算宽度，
-        但是如果手动设置宽度，则不会自动计算宽度
-      */
+      // 判断剩下的列是否都有宽度，如果全部写死，则重新计算宽度
+      // TODO：根据内容自适应宽度
       column.width = widthExist ? undefined : column.initialWidth;
 
       if (columns.includes(column.prop!)) {
@@ -52,7 +50,7 @@ export function useTable<T>(column: CTableColumn<T>[]) {
 
   /**
    * 排序列
-   * @param index 列索引 ;
+   * @param index 列索引
    * @param sort 上下移动标识
    */
   function moveColumn(index: number, sort: "ASC" | "DESC") {
