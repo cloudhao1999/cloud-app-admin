@@ -13,7 +13,13 @@ export default [
           name: "管理员小陈",
           age: 18,
           avatar: "../../src/assets/img/avatar.jpg",
-          permission: "admin"
+          permission: "admin",
+          roleList: [
+            "ArticlePage:add",
+            "ArticlePage:edit",
+            "ArticlePage:delete",
+            "ArticlePage:batchDelete"
+          ]
         }
       };
     }
@@ -30,7 +36,8 @@ export default [
           name: "股东小陈",
           age: 18,
           avatar: "../../src/assets/img/avatar.jpg",
-          permission: "editor"
+          permission: "editor",
+          roleList: ["ArticlePage:add", "ArticlePage:edit"]
         }
       };
     }

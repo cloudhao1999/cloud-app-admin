@@ -66,26 +66,43 @@ const {
         @selection-change="handleSelectionChange"
       >
         <template #options>
-          <el-button type="primary" icon="plus" circle @click="handleOpenAddDialog" />
+          <el-button
+            v-permission="'ArticlePage:add'"
+            type="primary"
+            icon="plus"
+            circle
+            @click="handleOpenAddDialog"
+          />
           <el-popconfirm
             :title="t('page.common.btn.batchDelete_popover')"
             @confirm="handleBatchDelete()"
           >
             <template #reference>
-              <el-button :disabled="isEmpty" type="danger" icon="delete" circle />
+              <el-button
+                v-permission="'ArticlePage:batchDelete'"
+                :disabled="isEmpty"
+                type="danger"
+                icon="delete"
+                circle
+              />
             </template>
           </el-popconfirm>
         </template>
         <template #actions="{ scope }">
-          <el-button size="small" @click="handleOpenEditDialog(scope.row)">{{
-            t("page.common.btn.edit")
-          }}</el-button>
+          <el-button
+            v-permission="'ArticlePage:edit'"
+            size="small"
+            @click="handleOpenEditDialog(scope.row)"
+            >{{ t("page.common.btn.edit") }}</el-button
+          >
           <el-popconfirm
             :title="t('page.common.btn.delete_popover')"
             @confirm="handleDelete(scope.row.id)"
           >
             <template #reference>
-              <el-button size="small" type="danger">{{ t("page.common.btn.delete") }}</el-button>
+              <el-button v-permission="'ArticlePage:delete'" size="small" type="danger">{{
+                t("page.common.btn.delete")
+              }}</el-button>
             </template>
           </el-popconfirm>
         </template>

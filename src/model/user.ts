@@ -1,6 +1,7 @@
 export interface UserInfoModel {
   avatar: string;
   permission: string;
+  roleList: string[];
   id: number;
   name: string;
   sex: number;
