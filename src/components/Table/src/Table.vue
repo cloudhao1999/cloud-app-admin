@@ -17,12 +17,18 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const { computedColumns, columnsRef, filterColumns, moveColumn } = useTable<any>(props.columns);
+
 watchEffect(() => {
   // TODO 为了解决国际化切换和动态列的冲突
   columnsRef.value = columnsRef.value.map((column, index) => {
+    const propsColumn = props.columns.find((c) => c.prop === column.prop);
+
     return {
       ...column,
-      label: props.columns.find((c) => c.prop === column.prop)?.label ?? column.label,
+      width: column.width,
+      // initialWidth 用于保存初始传入的width值
+      initialWidth: propsColumn?.width as string,
+      label: propsColumn?.label,
       show: columnsRef.value[index].show
     };
   });
