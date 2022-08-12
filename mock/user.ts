@@ -15,10 +15,10 @@ export default [
           avatar: "../../src/assets/img/avatar.jpg",
           permission: "admin",
           roleList: [
-            "ArticlePage:add",
-            "ArticlePage:edit",
-            "ArticlePage:delete",
-            "ArticlePage:batchDelete"
+            "PermissionPage:add",
+            "PermissionPage:edit",
+            "PermissionPage:delete",
+            "PermissionPage:batchDelete"
           ]
         }
       };
@@ -37,7 +37,7 @@ export default [
           age: 18,
           avatar: "../../src/assets/img/avatar.jpg",
           permission: "editor",
-          roleList: ["ArticlePage:add", "ArticlePage:edit"]
+          roleList: ["PermissionPage:add", "PermissionPage:edit"]
         }
       };
     }
