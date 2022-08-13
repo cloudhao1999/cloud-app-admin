@@ -13,4 +13,5 @@ export type CTableColumn<T> = Partial<TableColumnCtx<T>> & {
   scoped?: string;
   show?: boolean;
   locked?: boolean;
+  initialWidth?: string;
 };

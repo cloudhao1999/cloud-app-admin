@@ -17,6 +17,12 @@ export default {
       path: "admin",
       component: () => import("@/views/permission/Admin.vue"),
       meta: { menu: { title: "router.extra" }, permissions: ["admin"] }
+    },
+    {
+      name: "button",
+      path: "button",
+      component: () => import("@/views/permission/Button.vue"),
+      meta: { menu: { title: "router.button" }, permissions: ["editor", "admin"] }
     }
   ]
 } as RouteRecordRaw;
