@@ -54,6 +54,7 @@
     "@intlify/vite-plugin-vue-i18n": "^6.0.1",
     "@types/lodash": "^4.14.182",
     "@types/mockjs": "^1.0.6",
+    "@types/node": "^18.7.3",
     "@types/nprogress": "^0.2.0",
     "@typescript-eslint/parser": "^5.33.0",
     "@vitejs/plugin-vue": "^3.0.2",
