@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig, loadEnv, PluginOption } from "vite";
 import alias from "./vite/alias";
 
 import { parseEnv, sanitizeFileName } from "./vite/util";
@@ -10,7 +10,7 @@ export default defineConfig(({ command, mode }) => {
   const env = parseEnv(loadEnv(mode, process.cwd()));
 
   return {
-    plugins: [...setupPlugins(isBuild, env), visualizer()],
+    plugins: [...setupPlugins(isBuild, env), visualizer()] as PluginOption[],
     resolve: {
       alias,
       extensions: [".ts", ".js", ".vue", ".json"]
