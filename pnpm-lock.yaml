@@ -7,6 +7,7 @@ specifiers:
   '@types/js-cookie': ^3.0.2
   '@types/lodash': ^4.14.182
   '@types/mockjs': ^1.0.6
+  '@types/node': ^18.7.3
   '@types/nprogress': ^0.2.0
   '@types/qs': ^6.9.7
   '@typescript-eslint/eslint-plugin': ^5.33.0
@@ -108,6 +109,7 @@ devDependencies:
   '@intlify/vite-plugin-vue-i18n': 6.0.1_vite@3.0.6+vue-i18n@9.2.2
   '@types/lodash': 4.14.182
   '@types/mockjs': 1.0.6
+  '@types/node': 18.7.3
   '@types/nprogress': 0.2.0
   '@typescript-eslint/parser': 5.33.0_qugx7qdu5zevzvxaiqyxfiwquq
   '@vitejs/plugin-vue': 3.0.2_vite@3.0.6+vue@3.2.37
@@ -578,10 +580,10 @@ packages:
       '@commitlint/execute-rule': 17.0.0
       '@commitlint/resolve-extends': 17.0.0
       '@commitlint/types': 17.0.0
-      '@types/node': 17.0.34
+      '@types/node': 18.7.3
       chalk: 4.1.2
       cosmiconfig: 7.0.1
-      cosmiconfig-typescript-loader: 2.0.0_7p2njxwrs7y7wxnhj44bvkvldm
+      cosmiconfig-typescript-loader: 2.0.0_vugoqbkjnxc3odpmeek2omb3o4
       lodash: 4.17.21
       resolve-from: 5.0.0
       typescript: 4.7.4
@@ -949,8 +951,8 @@ packages:
     resolution: {integrity: sha512-Yu5YlqbYZyqsd6LjO4e8ONJDN9pTSnciHDcRP4teNOh/au2b8helFhgRx+3w8xsTFEnwr9jtfTVJbAx+eYmlHA==}
     dev: true
 
-  /@types/node/17.0.34:
-    resolution: {integrity: sha512-XImEz7XwTvDBtzlTnm8YvMqGW/ErMWBsKZ+hMTvnDIjGCKxwK5Xpc+c/oQjOauwq8M4OS11hEkpjX8rrI/eEgA==}
+  /@types/node/18.7.3:
+    resolution: {integrity: sha512-LJgzOEwWuMTBxHzgBR/fhhBOWrvBjvO+zPteUgbbuQi80rYIZHrk1mNbRUqPZqSLP2H7Rwt1EFLL/tNLD1Xx/w==}
     dev: true
 
   /@types/nprogress/0.2.0:
@@ -969,7 +971,7 @@ packages:
   /@types/resolve/1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 17.0.34
+      '@types/node': 18.7.3
     dev: true
 
   /@types/web-bluetooth/0.0.14:
@@ -2120,16 +2122,16 @@ packages:
       safe-buffer: 5.1.2
     dev: false
 
-  /cosmiconfig-typescript-loader/2.0.0_7p2njxwrs7y7wxnhj44bvkvldm:
+  /cosmiconfig-typescript-loader/2.0.0_vugoqbkjnxc3odpmeek2omb3o4:
     resolution: {integrity: sha512-2NlGul/E3vTQEANqPziqkA01vfiuUU8vT0jZAuUIjEW8u3eCcnCQWLggapCjhbF76s7KQF0fM0kXSKmzaDaG1g==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       '@types/node': '*'
       typescript: '>=3'
     dependencies:
-      '@types/node': 17.0.34
+      '@types/node': 18.7.3
       cosmiconfig: 7.0.1
-      ts-node: 10.7.0_7p2njxwrs7y7wxnhj44bvkvldm
+      ts-node: 10.7.0_vugoqbkjnxc3odpmeek2omb3o4
       typescript: 4.7.4
     transitivePeerDependencies:
       - '@swc/core'
@@ -5103,7 +5105,7 @@ packages:
       punycode: 2.1.1
     dev: true
 
-  /ts-node/10.7.0_7p2njxwrs7y7wxnhj44bvkvldm:
+  /ts-node/10.7.0_vugoqbkjnxc3odpmeek2omb3o4:
     resolution: {integrity: sha512-TbIGS4xgJoX2i3do417KSaep1uRAW/Lu+WAL2doDHC0D6ummjirVOXU5/7aiZotbQ5p1Zp9tP7U6cYhA0O7M8A==}
     hasBin: true
     peerDependencies:
@@ -5122,7 +5124,7 @@ packages:
       '@tsconfig/node12': 1.0.9
       '@tsconfig/node14': 1.0.1
       '@tsconfig/node16': 1.0.2
-      '@types/node': 17.0.34
+      '@types/node': 18.7.3
       acorn: 8.8.0
       acorn-walk: 8.2.0
       arg: 4.1.3
