@@ -66,6 +66,7 @@ const {
         @selection-change="handleSelectionChange"
       >
         <template #options>
+          <el-button icon="refresh" circle @click="handleSearch" />
           <el-button type="primary" icon="plus" circle @click="handleOpenAddDialog" />
           <el-popconfirm
             :title="t('page.common.btn.batchDelete_popover')"
