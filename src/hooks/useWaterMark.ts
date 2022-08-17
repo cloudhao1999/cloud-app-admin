@@ -23,8 +23,9 @@ export function useWatermark(
   const watermarkEl = shallowRef<HTMLElement>();
 
   onMounted(() => {
-    if (!isNull(document.getElementById(id))) {
-      watermarkEl.value = document.getElementById(id)!;
+    const watermarkMask = document.getElementById(id);
+    if (!isNull(watermarkMask)) {
+      watermarkEl.value = watermarkMask!;
     }
   });
 
