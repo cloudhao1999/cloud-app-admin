@@ -22,6 +22,12 @@ export function useWatermark(
   const id = domSymbol.toString();
   const watermarkEl = shallowRef<HTMLElement>();
 
+  onMounted(() => {
+    if (isDef(document.getElementById(id))) {
+      watermarkEl.value = document.getElementById(id)!;
+    }
+  });
+
   const clear = () => {
     const domId = unref(watermarkEl);
     watermarkEl.value = undefined;
