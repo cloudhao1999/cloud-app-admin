@@ -44,7 +44,7 @@ watchEffect(() => {
       :filter-columns="filterColumns"
       :move-column="moveColumn"
     >
-      <span class="mr-4">
+      <span class="mr-4 float-right">
         <slot name="options" />
       </span>
     </table-head>
