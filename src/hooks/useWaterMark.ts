@@ -1,7 +1,7 @@
 import { Ref } from "vue";
 import { useThrottleFn } from "@vueuse/core";
 import { addResizeListener, removeResizeListener } from "@/utils/event";
-import { isDef } from "@/utils/is";
+import { isDef, isNull } from "@/utils/is";
 
 const domSymbol = Symbol("watermark-dom");
 
@@ -23,7 +23,7 @@ export function useWatermark(
   const watermarkEl = shallowRef<HTMLElement>();
 
   onMounted(() => {
-    if (isDef(document.getElementById(id))) {
+    if (!isNull(document.getElementById(id))) {
       watermarkEl.value = document.getElementById(id)!;
     }
   });
