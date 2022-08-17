@@ -46,6 +46,7 @@ specifiers:
   prettier: ^2.7.1
   qs: ^6.11.0
   reset-css: ^5.0.1
+  resize-observer-polyfill: ^1.5.1
   rollup: ^2.78.0
   rollup-plugin-visualizer: ^5.7.1
   sass: ^1.54.4
@@ -95,6 +96,7 @@ dependencies:
   pinia: 2.0.18_j6bzmzd4ujpabbp5objtwxyjp4
   qs: 6.11.0
   reset-css: 5.0.1
+  resize-observer-polyfill: 1.5.1
   vee-validate: 4.6.5_vue@3.2.37
   vue: 3.2.37
   vue-echarts: 6.2.3_echarts@5.3.3+vue@3.2.37
@@ -4643,6 +4645,10 @@ packages:
 
   /resize-detector/0.3.0:
     resolution: {integrity: sha512-R/tCuvuOHQ8o2boRP6vgx8hXCCy87H1eY9V5imBYeVNyNVpuL9ciReSccLj2gDcax9+2weXy3bc8Vv+NRXeEvQ==}
+    dev: false
+
+  /resize-observer-polyfill/1.5.1:
+    resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
     dev: false
 
   /resolve-dir/1.0.1:

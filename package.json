@@ -40,6 +40,7 @@
     "pinia": "^2.0.18",
     "qs": "^6.11.0",
     "reset-css": "^5.0.1",
+    "resize-observer-polyfill": "^1.5.1",
     "vee-validate": "^4.6.5",
     "vue": "^3.2.37",
     "vue-echarts": "^6.2.3",

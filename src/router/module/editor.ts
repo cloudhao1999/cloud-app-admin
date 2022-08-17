@@ -17,6 +17,12 @@ export default {
       path: "editor",
       component: () => import("@/views/design/EditorPage.vue"),
       meta: { menu: { title: "router.editor" } }
+    },
+    {
+      name: "watermark",
+      path: "watermark",
+      component: () => import("@/views/design/WaterMark.vue"),
+      meta: { menu: { title: "router.watermark" } }
     }
   ]
 } as RouteRecordRaw;
