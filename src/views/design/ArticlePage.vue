@@ -59,7 +59,6 @@ const {
         :table-data="dataSource"
         :show-header="true"
         :columns="articleColumns"
-        align="right"
         header-align="right"
         stripe
         style="width: 100%"

@@ -15,7 +15,6 @@ const { activityColumns, activityTableData } = setupDashobardAttributes();
         <c-table
           :table-data="activityTableData"
           :columns="activityColumns"
-          align="right"
           header-align="right"
           stripe
           style="width: 100%"

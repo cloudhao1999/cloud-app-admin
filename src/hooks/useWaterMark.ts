@@ -23,8 +23,9 @@ export function useWatermark(
   const watermarkEl = shallowRef<HTMLElement>();
 
   onMounted(() => {
-    if (!isNull(document.getElementById(id))) {
-      watermarkEl.value = document.getElementById(id)!;
+    const watermarkMask = document.getElementById(id);
+    if (!isNull(watermarkMask)) {
+      watermarkEl.value = watermarkMask!;
     }
   });
 
@@ -47,7 +48,7 @@ export function useWatermark(
     if (cans) {
       cans.rotate((-20 * Math.PI) / 120);
       cans.font = "15px Vedana";
-      cans.fillStyle = "rgba(0, 0, 0, 0.15)";
+      cans.fillStyle = "rgba(209, 213, 219, 0.5)";
       cans.textAlign = "left";
       cans.textBaseline = "middle";
       cans.fillText(str, width / 20, height);
