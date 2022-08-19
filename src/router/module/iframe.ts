@@ -9,7 +9,7 @@ export default {
       path: "vue",
       component: () => import("@/layouts/empty-page.vue"),
       meta: {
-        menu: { title: "router.vue", iframe_link: "https://staging-cn.vuejs.org/" }
+        menu: { title: "router.vue", iframe_link: "https://cn.vuejs.org/" }
       }
     }
   ]
