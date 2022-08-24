@@ -18,6 +18,7 @@ type CFormOptions = {
   type?: string;
   tagName?: string;
   props?: any;
+  rules?: any;
   children?: CFormOptions[];
 };
 
