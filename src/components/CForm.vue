@@ -12,6 +12,8 @@ const types: Record<string, string> = {
 
 const inputTypes = ["el-input", "el-input-number", "async-select"];
 
+type CFormChildOptions = Omit<CFormOptions, "rules" | "children">;
+
 type CFormOptions = {
   label: string;
   name: string;
@@ -19,7 +21,7 @@ type CFormOptions = {
   tagName?: string;
   props?: any;
   rules?: any;
-  children?: CFormOptions[];
+  children?: CFormChildOptions[];
 };
 
 interface CFormProps {
