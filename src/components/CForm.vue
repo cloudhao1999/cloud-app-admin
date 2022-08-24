@@ -21,6 +21,11 @@ type CFormOptions = {
   tagName?: string;
   props?: any;
   rules?: any;
+  scopedSlot?: string;
+  itemExtra?: any;
+  colSpan?: number;
+  hidden?: boolean;
+  on?: any;
   children?: CFormChildOptions[];
 };
 
@@ -42,7 +47,7 @@ const props = withDefaults(defineProps<CFormProps>(), {
 const emits = defineEmits(["submit", "update:value"]);
 const formRef = ref<InstanceType<typeof ElForm>>();
 const validatorRules = ref({});
-const formData = ref<any[]>([]);
+const formData = ref<CFormOptions[]>([]);
 const modelProps = ref<any>({});
 
 const filterChildrenOption = (children: any[]) => {
@@ -61,7 +66,7 @@ const filterChildrenOption = (children: any[]) => {
 };
 
 watch(
-  () => props.options as any[],
+  () => props.options,
   (val) => {
     const validatorRulesObj: any = {};
     formData.value = val.map((item) => {
@@ -70,7 +75,7 @@ watch(
       if (rules) {
         validatorRulesObj[name] = rules;
       }
-      if (types[type] && !tagName) {
+      if (type && types[type] && !tagName) {
         tagName = types[type];
       }
       if (children && isArray(children)) {
