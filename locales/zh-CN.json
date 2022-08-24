@@ -41,6 +41,8 @@
   "router.normal": "普通权限",
   "router.extra": "额外权限",
   "router.button": "按钮权限",
+  "router.alive": "组件缓存",
+  "router.clock": "时钟演示",
   "page.403.title": "403",
   "page.403.head_title": "你的权限不足",
   "page.403.second_title": "不过不要担心,你可以点击下方的按钮回到主页",

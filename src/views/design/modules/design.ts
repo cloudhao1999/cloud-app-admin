@@ -47,6 +47,33 @@ export const setupArticleAttributes = () => {
           }
         }
       }
+      // https://github.com/cloudhao1999/cloud-app-admin/issues/17
+      // {
+      //   label: t("page.common.design.article.search.type"),
+      //   name: "test",
+      //   type: "select",
+      //   props: {
+      //     style: {
+      //       width: "100%"
+      //     }
+      //   },
+      //   children: [
+      //     {
+      //       tagName: "el-option",
+      //       props: {
+      //         label: "test1",
+      //         value: "test1"
+      //       }
+      //     },
+      //     {
+      //       tagName: "el-option",
+      //       props: {
+      //         label: "test2",
+      //         value: "test2"
+      //       }
+      //     }
+      //   ]
+      // }
     ];
   });
 

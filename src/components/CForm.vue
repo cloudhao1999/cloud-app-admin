@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { isArray } from "@/utils/is";
 import { ElForm } from "element-plus";
 
 const types: Record<string, string> = {
@@ -11,28 +12,31 @@ const types: Record<string, string> = {
 
 const inputTypes = ["el-input", "el-input-number", "async-select"];
 
-const props = defineProps({
-  options: {
-    type: Array,
-    require: true
-  },
-  gutter: {
-    type: Number,
-    default: 24
-  },
-  colSpan: {
-    type: Object,
-    require: false
-  },
-  value: {
-    type: Object,
-    require: true,
-    default: () => {}
-  },
-  loading: {
-    type: Boolean,
-    default: false
-  }
+type CFormChildOptions = Omit<CFormOptions, "rules" | "children">;
+
+type CFormOptions = {
+  label: string;
+  name: string;
+  type?: string;
+  tagName?: string;
+  props?: any;
+  rules?: any;
+  children?: CFormChildOptions[];
+};
+
+interface CFormProps {
+  options: CFormOptions[];
+  gutter?: number;
+  colSpan?: { span: number };
+  value: any;
+  loading?: boolean;
+}
+
+const props = withDefaults(defineProps<CFormProps>(), {
+  options: () => [],
+  gutter: 24,
+  value: {},
+  loading: false
 });
 
 const emits = defineEmits(["submit", "update:value"]);
@@ -41,22 +45,43 @@ const validatorRules = ref({});
 const formData = ref<any[]>([]);
 const modelProps = ref<any>({});
 
+const filterChildrenOption = (children: any[]) => {
+  return children.map((item) => {
+    let { name, type, tagName, ...rest } = item;
+
+    if (types[type] && !tagName) {
+      tagName = types[type];
+    }
+    return {
+      ...rest,
+      name,
+      tagName
+    };
+  });
+};
+
 watch(
   () => props.options as any[],
   (val) => {
     const validatorRulesObj: any = {};
     formData.value = val.map((item) => {
-      let { name, type, rules, tagName, ...rest } = item;
+      let { name, type, children, rules, tagName, ...rest } = item;
+
       if (rules) {
         validatorRulesObj[name] = rules;
       }
       if (types[type] && !tagName) {
         tagName = types[type];
       }
+      if (children && isArray(children)) {
+        children = filterChildrenOption(children);
+      }
+
       return {
         ...rest,
         name,
-        tagName
+        tagName,
+        children
       };
     });
     validatorRules.value = validatorRulesObj;
@@ -130,6 +155,18 @@ watchEffect(() => {
                     v-bind="item.props"
                     v-on="item.on ?? {}"
                   />
+                </template>
+                <template v-else-if="item.children">
+                  <component
+                    :is="item.tagName"
+                    v-model.trim="modelProps[item.name]"
+                    v-bind="item.props"
+                    v-on="item.on ?? {}"
+                  >
+                    <template v-for="(child, cIndex) in item.children" :key="cIndex">
+                      <component :is="child.tagName" v-bind="child.props" v-on="child.on ?? {}" />
+                    </template>
+                  </component>
                 </template>
                 <template v-else>
                   <component

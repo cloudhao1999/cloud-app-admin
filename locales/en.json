@@ -41,6 +41,8 @@
   "router.normal": "Normal Permission",
   "router.extra": "Extra Permission",
   "router.button": "Button Permission",
+  "router.alive": "Keep Alive",
+  "router.clock": "Clock",
   "page.403.title": "403",
   "page.403.head_title": "You don't have enough clearance",
   "page.403.second_title": "But don't worry, you can go back to the main page by clicking the button below",
