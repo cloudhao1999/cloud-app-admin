@@ -30,6 +30,8 @@
   "router.500": "500页面",
   "router.external": "外链",
   "router.github": "Github仓库",
+  "router.blog": "个人博客",
+  "router.bilibili": "B站主页",
   "router.iframe": "内嵌页面",
   "router.vue": "Vue.js",
   "router.i18n": "国际化",
