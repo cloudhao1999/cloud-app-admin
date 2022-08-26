@@ -106,9 +106,12 @@ class CloudHttp {
         });
     });
   }
-
   // 单独抽离的post工具函数
-  public post<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P> {
+  public post<T, P>(
+    url: string,
+    params?: AxiosRequestConfig<T>,
+    config?: CloudHttpRequestConfig
+  ): Promise<P> {
     return this.request<P>("post", url, params, config);
   }
 
@@ -118,7 +121,11 @@ class CloudHttp {
   }
 
   // 单独抽离的put工具函数
-  public put<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P> {
+  public put<T, P>(
+    url: string,
+    params?: AxiosRequestConfig<T>,
+    config?: CloudHttpRequestConfig
+  ): Promise<P> {
     return this.request<P>("put", url, params, config);
   }
 

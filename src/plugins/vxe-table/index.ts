@@ -1,13 +1,10 @@
 import "xe-utils";
 import { App } from "vue";
 import "font-awesome/css/font-awesome.min.css";
-
-import {
+import Header, {
   // 核心
   VXETable,
-
   // 表格功能
-  Header,
   Footer,
   Icon,
   Filter,
