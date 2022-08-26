@@ -77,7 +77,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
           useMessage("error", t("page.common.notice.set_url_add"));
           return;
         }
-        const res = await http.post<{}, BasicResult<{ count: number }>>(url.add, {
+        const res = await http.post<T, BasicResult<{ count: number }>>(url.add, {
           data: params
         });
         if (res.code === 200 && res.data.count > 0) {
@@ -101,7 +101,7 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
           useMessage("error", t("page.common.notice.set_url_edit"));
           return;
         }
-        const res = await http.put<{}, BasicResult<{ count: number }>>(url.edit, {
+        const res = await http.put<T, BasicResult<{ count: number }>>(url.edit, {
           data: params
         });
         if (res.code === 200 && res.data.count > 0) {
@@ -143,9 +143,12 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
       useMessage("error", t("page.common.notice.empty_delete_data"));
       return;
     }
-    const res = await http.delete<{}, BasicResult<{ count: number }>>(url.batchDelete, {
-      ids: ids.value.join(",")
-    });
+    const res = await http.delete<{ ids: string }, BasicResult<{ count: number }>>(
+      url.batchDelete,
+      {
+        ids: ids.value.join(",")
+      }
+    );
     if (res.code === 200 && res.data.count > 0) {
       useMessage("success", t("page.common.notice.batchDelete_success"));
       loadData(true);

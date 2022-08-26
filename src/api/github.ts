@@ -8,6 +8,12 @@ export type GithubCommitResultType = {
     };
     message: string;
   };
+  html_url: string;
+};
+
+export type contentType = {
+  message: string;
+  html_url: string;
 };
 
 /**

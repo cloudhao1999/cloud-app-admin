@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { UserEnum } from "@/enum/userEnum";
-import { fetchCommits, GithubCommitResultType } from "@/api/github";
+import { contentType, fetchCommits, GithubCommitResultType } from "@/api/github";
 import { useDateFormat } from "@vueuse/core";
 import { useMessage } from "@/hooks/useMessage";
 import { SecretEnum } from "@/enum/secretEnum";
+import { openNewTab } from "@/utils/web";
 import { useI18n } from "vue-i18n";
 import { tagsType, tagsTypeMap } from "./modules/timeline";
 
@@ -13,20 +14,21 @@ const errorMessage = ref<string>("");
 const loading = ref(false);
 
 type timeLineType = {
-  content: string[];
+  content: Array<contentType>;
   timestamp: string;
   color?: string;
   icon?: any;
 };
 
-type mapStateType = { date: string; message: string };
+type mapStateType = { date: string; message: string; html_url: string };
 
 // 筛选所需的数据
 function filterCommitByType(commits: GithubCommitResultType[]): Array<mapStateType> {
   return commits.map((c) => {
     return {
       date: unref(useDateFormat(c.commit.author.date, "YYYY-MM-DD")),
-      message: c.commit.message
+      message: c.commit.message,
+      html_url: c.html_url
     };
   });
 }
@@ -53,10 +55,13 @@ function transformCommitList(state: Array<mapStateType>) {
   state.forEach((s) => {
     let key = s.date + subColon(s.message);
     if (activitieList.value[key]) {
-      activitieList.value[key].content.push(s.message);
+      activitieList.value[key].content.push({
+        message: s.message,
+        html_url: s.html_url
+      });
     } else {
       activitieList.value[key] = {
-        content: [s.message],
+        content: [{ message: s.message, html_url: s.html_url }],
         timestamp: s.date
       };
       addTagsByType(s, key);
@@ -127,8 +132,16 @@ onMounted(async () => {
             <Card empty auto-height>
               <template #content>
                 <div class="p-3">
-                  <p v-for="(c, i) in activity.content" :key="i" class="leading-5">
-                    {{ i + 1 + "、 " + c }}
+                  <p
+                    v-for="(c, i) in activity.content"
+                    :key="i"
+                    class="leading-5"
+                    @click="openNewTab(c.html_url)"
+                  >
+                    {{ i + 1 + "、 " }}
+                    <span class="hover:cursor-pointer hover:underline decoration-1">
+                      {{ c.message }}
+                    </span>
                   </p>
                 </div>
               </template>
