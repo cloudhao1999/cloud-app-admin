@@ -74,9 +74,9 @@ pnpm dev
 ## 项目结构
 
 ```bash
-├── LICENSE  授权文件
-├── README.md  README
-├── dist  编译目录
+├── LICENSE                   授权文件
+├── README.md                 README
+├── dist                      编译目录
 │   ├── assets
 │   ├── favicon.ico
 │   ├── images
