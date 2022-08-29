@@ -1,6 +1,9 @@
 {
   "name": "cloud-app-admin",
   "private": true,
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  },
   "version": "1.7",
   "author": "cloudhao1999",
   "description": "cloud-app-admin 使用了最新的vue3.2+vite3+Element-Plus+TypeScript等主流技术开发，希望能和大家一起学习最新前端技术。",
