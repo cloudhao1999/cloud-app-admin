@@ -20,9 +20,9 @@ import tabService from "@/hooks/useTab";
         <Transition appear name="el-fade-in-linear">
           <EmptyBlock>
             <keep-alive>
-              <component :is="Component" v-if="route.meta?.keepAlive" />
+              <component :is="Component" v-if="route.meta?.keepAlive" :key="route.path" />
             </keep-alive>
-            <component :is="Component" v-if="!route.meta.keepAlive" />
+            <component :is="Component" v-if="!route.meta.keepAlive" :key="route.path" />
           </EmptyBlock>
         </Transition>
       </template>
