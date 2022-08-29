@@ -81,11 +81,11 @@ pnpm dev
 │   ├── favicon.ico
 │   ├── images
 │   └── index.html
-├── index.html  HTML模板
-├── locales  I18n文件
+├── index.html                HTML模板
+├── locales                   I18n文件
 │   ├── en.json
 │   └── zh-CN.json
-├── mock  模拟数据文件
+├── mock                      模拟数据文件
 │   ├── article.ts
 │   ├── route.ts
 │   ├── upload.ts
@@ -93,10 +93,10 @@ pnpm dev
 ├── package.json
 ├── pnpm-lock.yaml
 ├── postcss.config.js
-├── public  网站公共目录 
-│   ├── favicon.ico  网站图标 
-│   └── images  资源文件
-├── screenshot  截图
+├── public                    网站公共目录 
+│   ├── favicon.ico           网站图标 
+│   └── images                资源文件
+├── screenshot                截图
 │   ├── crud.png
 │   ├── dashboard-dark.png
 │   ├── dashboard-light.png
@@ -106,28 +106,28 @@ pnpm dev
 │   ├── mobile.png
 │   └── nested.png
 ├── src  源码目录
-│   ├── App.vue  页面入口
-│   ├── api  接口文件
-│   ├── assets  静态资源
-│   ├── components  公共组件
-│   ├── directives  指令库
-│   ├── enum  全局枚举文件
+│   ├── App.vue               页面入口
+│   ├── api                   接口文件
+│   ├── assets                静态资源
+│   ├── components            公共组件
+│   ├── directives            指令库
+│   ├── enum                  全局枚举文件
 │   ├── env.d.ts
-│   ├── hooks  自定义hooks
-│   ├── layouts  项目布局文件
-│   ├── main.ts  程序入口
-│   ├── model  模型定义类型文件
-│   ├── plugins  插件文件
-│   ├── router  路由文件
-│   ├── store  全局状态
-│   ├── style  全局样式
-│   ├── utils  工具库
-│   └── views  视图
+│   ├── hooks                 自定义hooks
+│   ├── layouts               项目布局文件
+│   ├── main.ts               程序入口
+│   ├── model                 模型定义类型文件
+│   ├── plugins               插件文件
+│   ├── router                路由文件
+│   ├── store                 全局状态
+│   ├── style                 全局样式
+│   ├── utils                 工具库
+│   └── views                 视图
 ├── stats.html
 ├── tailwind.config.js
 ├── tsconfig.json
 ├── tsconfig.node.json
-├── types  ts类型定义
+├── types                     ts类型定义
 │   ├── auto-imports.d.ts
 │   ├── components.d.ts
 │   ├── http.d.ts
@@ -137,10 +137,10 @@ pnpm dev
 │   ├── table.d.ts
 │   └── viteEnv.d.ts
 ├── vite															
-│   ├── alias.ts  vite别名配置
-│   ├── plugins  vite插件模块
-│   └── util.ts  vite工具库
-└── vite.config.ts  vite配置文件
+│   ├── alias.ts              vite别名配置
+│   ├── plugins               vite插件模块
+│   └── util.ts               vite工具库
+└── vite.config.ts            vite配置文件
 ```
 
 ## Git 贡献提交规范
