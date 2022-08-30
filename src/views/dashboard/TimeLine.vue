@@ -44,7 +44,8 @@ function subColon(message: string) {
 
 // 分好类的数据加icon和color
 function addTagsByType(s: mapStateType, key: string) {
-  const keywords: tagsType = subColon(s.message) as tagsType;
+  let keywords: tagsType = subColon(s.message) as tagsType;
+  keywords = tagsTypeMap.get(keywords) ? keywords : "feat";
 
   activitieList.value[key].color = tagsTypeMap.get(keywords)![0];
   activitieList.value[key].icon = tagsTypeMap.get(keywords)![1];
@@ -131,7 +132,7 @@ onMounted(async () => {
           >
             <Card empty auto-height>
               <template #content>
-                <div class="p-3">
+                <div class="p-3 overflow-auto">
                   <p
                     v-for="(c, i) in activity.content"
                     :key="i"
