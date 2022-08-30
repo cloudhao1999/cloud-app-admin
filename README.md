@@ -26,6 +26,10 @@ cloud-app-admin 使用了最新的`vue3.2+` `vite3` `Element-Plus` `TypeScript` 
 
 线上地址： [cloud-app-admin](https://cloudhao1999.github.io/cloud-app-admin/)
 
+## 项目文档（WIP）
+
+线上地址： [cloud-blog](https://www.cloudhao.top/pages/c125c3/)
+
 ## 已实现功能
 
 - [x] 路由集成 🧭
