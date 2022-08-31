@@ -38,14 +38,14 @@ function subColon(message: string) {
   try {
     return message.match(/(\S*):/)![1];
   } catch {
-    return "feat";
+    return "unkonw";
   }
 }
 
 // 分好类的数据加icon和color
 function addTagsByType(s: mapStateType, key: string) {
   let keywords: tagsType = subColon(s.message) as tagsType;
-  keywords = tagsTypeMap.get(keywords) ? keywords : "feat";
+  keywords = tagsTypeMap.get(keywords) ? keywords : "unkonw";
 
   activitieList.value[key].color = tagsTypeMap.get(keywords)![0];
   activitieList.value[key].icon = tagsTypeMap.get(keywords)![1];
