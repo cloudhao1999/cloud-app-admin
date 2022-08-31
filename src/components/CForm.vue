@@ -10,7 +10,7 @@ const types: Record<string, string> = {
   datePicker: "el-date-picker"
 };
 
-const inputTypes = ["el-input", "el-input-number", "async-select", "wang-editor"];
+const inputTypes = ["el-input", "el-input-number", "async-select"];
 
 type CFormChildOptions = Omit<CFormOptions, "rules" | "children">;
 
