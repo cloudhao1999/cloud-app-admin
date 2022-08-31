@@ -23,7 +23,7 @@ type CFormOptions = {
   rules?: any;
   scopedSlot?: string;
   itemExtra?: any;
-  colSpan?: number;
+  colSpan?: any; // 参照 ElCol 的 属性
   hidden?: boolean;
   on?: any;
   children?: CFormChildOptions[];
