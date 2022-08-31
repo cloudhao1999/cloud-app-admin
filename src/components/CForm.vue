@@ -7,7 +7,8 @@ const types: Record<string, string> = {
   select: "el-select",
   inputNumber: "el-input-number",
   timePicker: "el-time-picker",
-  datePicker: "el-date-picker"
+  datePicker: "el-date-picker",
+  richText: "WangEditor"
 };
 
 const inputTypes = ["el-input", "el-input-number", "async-select"];
