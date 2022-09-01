@@ -4,7 +4,7 @@ const props = defineProps({
     type: String,
     default: ""
   },
-  badgeColor: {
+  bannerColor: {
     type: String,
     default: "bg-blue-300"
   }
@@ -29,7 +29,7 @@ const props = defineProps({
           </span>
         </div>
         <div class="pt-10">
-          <span :class="props.badgeColor" class="p-1 rounded-md text-white text-sm">
+          <span :class="props.bannerColor" class="p-1 rounded-md text-white text-sm">
             <slot name="banner"></slot>
           </span>
           <span class="pl-4 text-gray-400 text-sm">

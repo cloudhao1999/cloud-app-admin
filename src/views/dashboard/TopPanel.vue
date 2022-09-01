@@ -51,7 +51,7 @@ const animalList = [
 <template>
   <el-row>
     <el-col v-for="animal in animalList" :key="animal.id" class="mt-1" :sm="24" :md="12" :xl="6">
-      <Panel :badge-color="animal.color" :img-url="animal.img">
+      <Panel :banner-color="animal.color" :img-url="animal.img">
         <template #title> {{ animal.name }} </template>
         <template #subtitle> {{ animal.price }} </template>
         <template #badge> {{ animal.unit }} </template>
