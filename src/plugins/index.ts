@@ -6,6 +6,7 @@ import { setupPinia } from "./pinia";
 import { setupTailwindcss } from "./tailwindcss";
 import { setupTable } from "./vxe-table";
 import { setupDirectives } from "./directives";
+import { setupDayjs } from "./dayjs";
 
 export function setupPlugins(app: App) {
   setupPinia(app);
@@ -16,4 +17,5 @@ export function setupPlugins(app: App) {
   setupElementPlus(app);
   setupDirectives(app);
   setupTailwindcss();
+  setupDayjs();
 }
