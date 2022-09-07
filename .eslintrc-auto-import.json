@@ -52,7 +52,6 @@
     "watch": true,
     "watchEffect": true,
     "watchPostEffect": true,
-    "watchSyncEffect": true,
-    "__APP_INFO__": true
+    "watchSyncEffect": true
   }
 }

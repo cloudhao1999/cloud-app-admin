@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { UserEnum } from "@/enum/userEnum";
-import { contentType, fetchCommits, GithubCommitResultType } from "@/api/github";
+import { contentType, fetchCommits, fetchMockCommits, GithubCommitResultType } from "@/api/github";
 import { useDateFormat } from "@vueuse/core";
 import { useMessage } from "@/hooks/useMessage";
 import { SecretEnum } from "@/enum/secretEnum";
 import { openNewTab } from "@/utils/web";
 import { useI18n } from "vue-i18n";
 import { tagsType, tagsTypeMap } from "./modules/timeline";
+import { parseEnv } from "../../../vite/util";
 
 const { t } = useI18n();
 const activitieList = ref<Record<string, timeLineType>>({});
@@ -80,11 +81,17 @@ async function onLoad() {
      * GITHUB_USER 为自己的GitHub用户名
      * GITHUB_REPO 为你自己的仓库名称
      *  */
-    const res = await fetchCommits(
-      UserEnum.GITHUB_USER,
-      UserEnum.GITHUB_REPO,
-      SecretEnum.GITHUB_ACCESS_TOKEN
-    );
+    let res = null;
+    // 线上环境使用mock数据
+    if (parseEnv(import.meta.env).VITE_MOCK_ENABLE) {
+      res = await fetchCommits(
+        UserEnum.GITHUB_USER,
+        UserEnum.GITHUB_REPO,
+        SecretEnum.GITHUB_ACCESS_TOKEN
+      );
+    } else {
+      res = await fetchMockCommits();
+    }
     const mapState = filterCommitByType(res.data);
     transformCommitList(mapState);
   } catch (e: any) {

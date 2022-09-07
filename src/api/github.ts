@@ -1,5 +1,6 @@
 import axios from "axios";
 import { BasicResult } from "#/resultType";
+import { http } from "@/utils/http";
 
 export type GithubCommitResultType = {
   commit: {
@@ -30,6 +31,21 @@ export const fetchCommits = (user: string, repo: string, token: string) => {
           Authorization: "Bearer " + token
         }
       });
+      resolve(res);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
+/**
+ *
+ * @description 获取仓库commit信息（假数据）
+ */
+export const fetchMockCommits = () => {
+  return new Promise<BasicResult<GithubCommitResultType[]>>(async (resolve, reject) => {
+    try {
+      const res = await http.get<{}, BasicResult<GithubCommitResultType[]>>("/commits");
       resolve(res);
     } catch (error) {
       reject(error);
