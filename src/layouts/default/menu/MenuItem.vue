@@ -31,27 +31,42 @@ function handleMenuClick(cmenu: Menu) {
 </script>
 
 <template>
-  <el-sub-menu v-for="(menu, index) of props.subMenu" :key="index" :index="menu.title!">
-    <template #title>
-      <el-icon><component :is="menu.icon" /></el-icon>
-      <span>{{ t(menu.title!) }}</span>
-    </template>
-    <template v-for="(cmenu, key) of menu.children">
-      <menu-item
-        v-if="cmenu.children"
+  <template v-for="(menu, index) of props.subMenu" :key="index">
+    <template v-if="menu.hideParent">
+      <el-menu-item
+        v-for="(cmenu, key) of menu.children"
         :key="'sub_ ' + key"
         :active-key="menu.title + '-' + cmenu.title"
-        :sub-menu="menu.children"
-      ></menu-item>
-      <el-menu-item
-        v-else
-        :key="key"
         :index="getActiveKey(menu, cmenu)"
         @click="handleMenuClick(cmenu)"
-        >{{ t(cmenu?.title!) }}</el-menu-item
+      >
+        <el-icon><component :is="menu.icon" /></el-icon>
+        <span>{{ t(menu.title!) }}</span></el-menu-item
       >
     </template>
-  </el-sub-menu>
+
+    <el-sub-menu v-else :index="menu.title!">
+      <template #title>
+        <el-icon><component :is="menu.icon" /></el-icon>
+        <span>{{ t(menu.title!) }}</span>
+      </template>
+      <template v-for="(cmenu, key) of menu.children">
+        <menu-item
+          v-if="cmenu.children"
+          :key="'sub_ ' + key"
+          :active-key="menu.title + '-' + cmenu.title"
+          :sub-menu="menu.children"
+        ></menu-item>
+        <el-menu-item
+          v-else
+          :key="key"
+          :index="getActiveKey(menu, cmenu)"
+          @click="handleMenuClick(cmenu)"
+          >{{ t(cmenu?.title!) }}</el-menu-item
+        >
+      </template>
+    </el-sub-menu>
+  </template>
 </template>
 
 <style scoped></style>
