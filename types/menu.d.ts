@@ -6,6 +6,7 @@ interface Menu {
   path?: string;
   iframe_link?: string;
   children?: Menu[];
+  hideParent?: boolean;
 }
 
 export interface IMenu extends Menu {

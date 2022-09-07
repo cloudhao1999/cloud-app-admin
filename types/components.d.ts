@@ -21,7 +21,10 @@ declare module "@vue/runtime-core" {
     ElColorPicker: typeof import("element-plus/es")["ElColorPicker"];
     ElConfigProvider: typeof import("element-plus/es")["ElConfigProvider"];
     ElContainer: typeof import("element-plus/es")["ElContainer"];
+    ElDescriptions: typeof import("element-plus/es")["ElDescriptions"];
+    ElDescriptionsItem: typeof import("element-plus/es")["ElDescriptionsItem"];
     ElDialog: typeof import("element-plus/es")["ElDialog"];
+    ElDivider: typeof import("element-plus/es")["ElDivider"];
     ElDropdown: typeof import("element-plus/es")["ElDropdown"];
     ElDropdownItem: typeof import("element-plus/es")["ElDropdownItem"];
     ElDropdownMenu: typeof import("element-plus/es")["ElDropdownMenu"];
@@ -29,6 +32,7 @@ declare module "@vue/runtime-core" {
     ElHeader: typeof import("element-plus/es")["ElHeader"];
     ElIcon: typeof import("element-plus/es")["ElIcon"];
     ElInput: typeof import("element-plus/es")["ElInput"];
+    ElLink: typeof import("element-plus/es")["ElLink"];
     ElMain: typeof import("element-plus/es")["ElMain"];
     ElMenuItem: typeof import("element-plus/es")["ElMenuItem"];
     ElOption: typeof import("element-plus/es")["ElOption"];

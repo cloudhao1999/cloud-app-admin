@@ -10,7 +10,7 @@ const breadArr = ref<string[]>([]);
 
 watchEffect(() => {
   currentBread.value = menuService.getCurrentMenu(route) as unknown as string;
-  breadArr.value = currentBread.value?.split("-");
+  breadArr.value = [...new Set(currentBread.value?.split("-"))];
 });
 </script>
 

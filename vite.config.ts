@@ -1,4 +1,6 @@
 import { defineConfig, loadEnv, PluginOption } from "vite";
+import dayjs from "dayjs";
+import pkg from "./package.json";
 import alias from "./vite/alias";
 
 import { parseEnv, sanitizeFileName } from "./vite/util";
@@ -8,6 +10,12 @@ import { visualizer } from "rollup-plugin-visualizer";
 export default defineConfig(({ command, mode }) => {
   const isBuild: boolean = command === "build";
   const env = parseEnv(loadEnv(mode, process.cwd()));
+
+  const { dependencies, devDependencies, name, version } = pkg;
+  const __APP_INFO__ = {
+    pkg: { dependencies, devDependencies, name, version },
+    lastBuildTime: dayjs(new Date()).format("YYYY-MM-DD HH:mm:ss")
+  };
 
   return {
     plugins: [...setupPlugins(isBuild, env), visualizer()] as PluginOption[],
@@ -39,6 +47,9 @@ export default defineConfig(({ command, mode }) => {
           changeOrigin: true
         }
       }
+    },
+    define: {
+      __APP_INFO__: JSON.stringify(__APP_INFO__)
     }
   };
 });

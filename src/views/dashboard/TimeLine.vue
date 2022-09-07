@@ -118,7 +118,7 @@ onMounted(async () => {
       </div>
     </template>
     <template #content>
-      <div v-loading="loading" class="time-line-box h-[260px] overflow-y-auto px-6 py-5">
+      <div v-loading="loading" class="time-line-box h-[250px] overflow-y-auto px-6 py-5">
         <el-timeline>
           <el-timeline-item
             v-for="(activity, index) in Object.values(activitieList)"
