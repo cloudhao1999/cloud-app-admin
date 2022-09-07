@@ -11,7 +11,8 @@ module.exports = {
     "plugin:vue/vue3-recommended", // vue3默认的推荐规范
     "plugin:@typescript-eslint/recommended", // eslint/typescript 默认的推荐规范
     "plugin:prettier/recommended", // 插件约束规范 解决eslint和prettier的冲突问题
-    "./.eslintrc-auto-import.json" // 自动导入规范
+    "./.eslintrc-auto-import.json", // 自动导入规范
+    "./.vite-auto-define.json" // vite导出全局变量
   ],
   parserOptions: {
     ecmaVersion: "latest",
