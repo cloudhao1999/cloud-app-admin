@@ -1,6 +1,7 @@
 interface Menu {
   title?: string;
   icon?: string;
+  sort?: number;
   isClick?: boolean;
   route?: string;
   path?: string;

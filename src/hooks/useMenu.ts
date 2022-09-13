@@ -82,7 +82,10 @@ class Menu {
         menu.children = this.filterNestedMenu(route.children);
         return menu;
       })
-      .filter((menu) => menu.children?.length) as IMenu[];
+      .filter((menu) => menu.children?.length)
+      .sort((a, b) => {
+        return (a.sort || 0) - (b.sort || 0);
+      }) as IMenu[];
   }
 }
 
