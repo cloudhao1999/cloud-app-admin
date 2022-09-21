@@ -9,7 +9,7 @@ const { t } = useI18n();
 const workTime = dayjs()
   .startOf("day")
   .add(17, "hour")
-  .add(30, "minute")
+  .add(50, "minute")
   .format("YYYY-MM-DD HH:mm:ss");
 const countObj = reactive<{ showTime: string }>({
   showTime: ""
@@ -26,7 +26,10 @@ function countDown() {
   let hours = duration.hours();
   let minutes = duration.minutes() % 60;
   let seconds = duration.seconds() % 60;
-  if (hours <= 0 && minutes <= 0 && seconds <= 0) {
+  let dayInWeek = dayjs().day();
+  const isOutOfWork = hours <= 0 && minutes <= 0 && seconds <= 0;
+  const isWeekend = dayInWeek === 0 || dayInWeek === 6;
+  if (isOutOfWork || isWeekend) {
     countObj.showTime = t("page.clock.over");
   } else {
     countObj.showTime = `${t("page.clock.title")} ${hours} ${t("page.clock.hour")} : ${minutes} ${t(
