@@ -9,7 +9,6 @@ specifiers:
   '@types/mockjs': ^1.0.7
   '@types/node': 18.8.3
   '@types/nprogress': ^0.2.0
-  '@types/qs': ^6.9.7
   '@typescript-eslint/eslint-plugin': ^5.40.0
   '@typescript-eslint/parser': ^5.40.0
   '@vee-validate/i18n': ^4.7.0
@@ -44,7 +43,6 @@ specifiers:
   pinia: ^2.0.23
   postcss: ^8.4.17
   prettier: ^2.7.1
-  qs: ^6.11.0
   reset-css: ^5.0.1
   resize-observer-polyfill: ^1.5.1
   rollup: ^2.79.1
@@ -72,7 +70,6 @@ specifiers:
 dependencies:
   '@element-plus/icons-vue': 2.0.10_vue@3.2.40
   '@types/js-cookie': 3.0.2
-  '@types/qs': 6.9.7
   '@typescript-eslint/eslint-plugin': 5.40.0_25sstg4uu2sk4pm7xcyzuov7xq
   '@vee-validate/i18n': 4.7.0
   '@vee-validate/rules': 4.7.0
@@ -93,7 +90,6 @@ dependencies:
   lodash: 4.17.21
   nprogress: 0.2.0
   pinia: 2.0.23_bfjwoga25wxjazzogo7o372nwq
-  qs: 6.11.0
   reset-css: 5.0.1
   resize-observer-polyfill: 1.5.1
   vee-validate: 4.7.0_vue@3.2.40
@@ -961,10 +957,6 @@ packages:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: true
     optional: true
-
-  /@types/qs/6.9.7:
-    resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==}
-    dev: false
 
   /@types/resolve/1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
@@ -4551,13 +4543,6 @@ packages:
   /punycode/2.1.1:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
     engines: {node: '>=6'}
-
-  /qs/6.11.0:
-    resolution: {integrity: sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==}
-    engines: {node: '>=0.6'}
-    dependencies:
-      side-channel: 1.0.4
-    dev: false
 
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
