@@ -1,6 +1,5 @@
 import Axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { CloudHttpError, RequestMethods, CloudHttpResoponse, CloudHttpRequestConfig } from "#/http";
-import qs from "qs";
 import { getToken } from "@/utils/auth";
 
 const defaultConfig: AxiosRequestConfig = {
@@ -12,7 +11,9 @@ const defaultConfig: AxiosRequestConfig = {
     "X-Requested-With": "XMLHttpRequest"
   },
   // 数组格式参数序列化
-  paramsSerializer: (params) => qs.stringify(params, { indices: false })
+  paramsSerializer: {
+    indexes: false
+  }
 };
 
 class CloudHttp {
